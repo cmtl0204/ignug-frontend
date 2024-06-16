@@ -1,0 +1,47 @@
+<app-skeleton *ngIf="coreService.isLoading" [type]="SkeletonEnum.CARD"></app-skeleton>
+<form *ngIf="!coreService.isLoading" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="formgrid grid">
+    <!--username-->
+    <div class="field col-12">
+      <label appLabel for="username" label="Usuario:" [required]="usernameField"></label>
+      <input pInputText type="text" id="username" formControlName="username" pKeyFilter="alphanum"
+             class="w-full"/>
+      <small appErrorMessage
+             [errors]="usernameField.errors"
+             [touched]="usernameField.touched"
+             [dirty]="usernameField.dirty">
+      </small>
+    </div>
+
+    <!--email && phone-->
+    <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
+      <label appLabel for="email" label="Correo Electrónico:" [required]="emailField"></label>
+      <input pInputText type="email" id="email" class="w-full" formControlName="email"/>
+      <small appErrorMessage
+             [errors]="emailField.errors"
+             [touched]="emailField.touched"
+             [dirty]="emailField.dirty">
+      </small>
+
+      <p-tag *ngIf="!emailVerifiedAtField.value">Correo electrónico no Verificado</p-tag>
+    </div>
+    <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
+      <label appLabel for="phone" label="Teléfono:" [required]="phoneField"></label>
+      <input pInputText type="text" id="phone" class="w-full" formControlName="phone"/>
+      <small appErrorMessage
+             [errors]="phoneField.errors"
+             [touched]="phoneField.touched"
+             [dirty]="phoneField.dirty">
+      </small>
+    </div>
+
+    <!--submit-->
+    <div class="field">
+      <button pButton pRipple
+              id="submitUserInformation"
+              label="Actualizar"
+              [icon]="PrimeIcons.SAVE"
+              [loading]="coreService.isLoading"></button>
+    </div>
+  </div>
+</form>

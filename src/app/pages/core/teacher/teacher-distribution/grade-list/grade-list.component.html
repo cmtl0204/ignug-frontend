@@ -1,0 +1,162 @@
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button pButton pRipple type="button"
+            (click)="downloadGradesByTeacherDistribution()"
+            [icon]="IconButtonActionEnum.DOWNLOADS"
+            label="Descargar Calificaciones"
+            [loading]="coreService.isLoading"
+            [ngClass]="[ClassButtonActionEnum.DOWNLOAD]">
+    </button>
+
+    <p-fileUpload
+      #uploadFiles
+      chooseLabel="Cargar"
+      [chooseIcon]="PrimeIcons.UPLOAD"
+      class="ml-2"
+      uploadLabel="Cargar Calificaciones"
+      name="avatar"
+      [auto]="true"
+      mode="basic"
+      accept=".xlsx,.xls"
+      [maxFileSize]="1024000"
+      [customUpload]="true"
+      (uploadHandler)="uploadImportGrades($event,uploadFiles)">
+    </p-fileUpload>
+
+    <button *ngIf="uploadErrors" pButton pRipple type="button"
+            (click)="downloadErrorReport()"
+            [icon]="IconButtonActionEnum.DOWNLOADS"
+            label="Informe de Errores"
+            [loading]="coreService.isLoading"
+            [ngClass]="[ClassButtonActionEnum.WARNING,'ml-2']">
+    </button>
+  </div>
+  <div class="p-toolbar-group-right">
+
+  </div>
+</p-toolbar>
+
+<p-table
+  #dt1
+  dataKey="id"
+  styleClass="p-datatable-striped"
+  [value]="items"
+  [columns]="columns"
+  [globalFilterFields]="['enrollment.student.user.identification','enrollment.student.user.lastname','enrollment.student.user.name']"
+  [loading]="coreService.isLoading"
+  [(selection)]="selectedItems">
+  <ng-template pTemplate="caption">
+    <div class="flex">
+      <h1>
+        <span
+          *ngIf="teacherDistributionsService.teacherDistribution.subject">{{ teacherDistributionsService.teacherDistribution.subject.name }}</span>
+        -
+        <span
+          *ngIf="teacherDistributionsService.teacherDistribution.workday">{{ teacherDistributionsService.teacherDistribution.workday.name }}</span>
+        -
+        <span
+          *ngIf="teacherDistributionsService.teacherDistribution.parallel">{{ teacherDistributionsService.teacherDistribution.parallel.name }}</span>
+      </h1>
+      <div class="p-input-icon-right ml-auto">
+        <i [class]="PrimeIcons.SEARCH"></i>
+        <input #search pInputText type="text"
+               placeholder="Buscar..."
+               (input)="dt1.filterGlobal(search.value, 'contains')"/>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ col.header }}
+        <p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+      <!--      <th class="text-center">-->
+      <!--        {{ LabelButtonActionEnum.ACTIONS }}-->
+      <!--      </th>-->
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+    <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+      <td *ngFor="let col of columns">
+        <!--Objects-->
+        <div *ngIf="rowData[col.field]?.id" [ngSwitch]="col.field">
+          <div *ngSwitchCase="'identification'">
+            {{ rowData.identification }}
+          </div>
+          <div *ngSwitchCase="'academicState'">
+            <p-tag [pTooltip]="rowData.academicObservation" *ngIf="rowData.academicState"
+                   [value]="rowData.academicState ? rowData.academicState.name : 'Pendiente'"
+                   [severity]="rowData.academicState.code  | academicStateSeverity"></p-tag>
+
+            <p-tag *ngIf="!rowData.academicState" value="Pendiente" severity="warning"></p-tag>
+          </div>
+        </div>
+
+        <!--Fields-->
+        <div *ngIf="!rowData[col.field]?.id" [ngSwitch]="col.field">
+          <div *ngSwitchDefault>{{ rowData[col.field] }}</div>
+          <div *ngSwitchCase="'identification'">
+            {{ rowData?.enrollment?.student.user?.identification }}
+          </div>
+          <div *ngSwitchCase="'lastname'">
+            {{ rowData?.enrollment?.student.user?.lastname }}
+          </div>
+          <div *ngSwitchCase="'name'">
+            {{ rowData?.enrollment?.student.user?.name }}
+          </div>
+          <div *ngSwitchCase="'enrollmentDetailNumber'">
+            {{ rowData?.number }}
+          </div>
+          <div *ngSwitchCase="'grade1'">
+            <div *ngFor="let grade of rowData.grades">
+              <span *ngIf="grade.partial.code==='1'">{{ grade.value }}</span>
+            </div>
+          </div>
+          <div *ngSwitchCase="'grade2'">
+            <div *ngFor="let grade of rowData.grades">
+              <span *ngIf="grade.partial.code==='2'">{{ grade.value }}</span>
+            </div>
+          </div>
+          <div *ngSwitchCase="'grade3'">
+            <div *ngFor="let grade of rowData.grades">
+              <span *ngIf="grade.partial.code==='3'">{{ grade.value }}</span>
+            </div>
+          </div>
+          <div *ngSwitchCase="'finalGrade'">
+            <b>{{ rowData?.finalGrade }}</b>
+          </div>
+          <div *ngSwitchCase="'finalAttendance'">
+            <b>{{ rowData?.finalAttendance }}</b>
+          </div>
+        </div>
+      </td>
+      <td class="text-center">
+        <button pButton pRipple type="button" [icon]="PrimeIcons.ELLIPSIS_V" (click)="selectItem(rowData)"></button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [attr.colspan]="columns.length">
+        {{ messageService.paginatorNoRecordsFound }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    {{ messageService.paginatorTotalRegisters(items.length) }}
+  </ng-template>
+</p-table>
+
+<app-button-action [buttonActions]="buttonActions"
+                   [isVisible]="isButtonActions"
+                   (isHide)="isButtonActions=!$event">
+</app-button-action>
+
+<p-dialog header="Registrar Calificaciones" [(visible)]="isModalGrades"
+          [modal]="true"
+          [style]="{ width: '50rem' }"
+          [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+  <app-grade-form *ngIf="isModalGrades" [enrollmentDetail]="selectedItem"
+                  (isModalGrades)="isModalGrades=$event;findEnrollmentsByTeacherDistribution()"></app-grade-form>
+</p-dialog>

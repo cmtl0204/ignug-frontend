@@ -1,0 +1,36 @@
+<div class="p-fluid">
+  <div class="field">
+    <h1 class="text-center">Sistema de Gestión Académica - SIAAW</h1>
+  </div>
+
+  <div class="field">
+    <h1 class="text-center">V {{coreService.version}}</h1>
+  </div>
+
+  <div class="field">
+    <div class="p-inputgroup">
+      <button type="button" pButton [icon]="PrimeIcons.ID_CARD" pTooltip="Autor"></button>
+      <input pInputText value="Soporte Técnico" disabled/>
+    </div>
+  </div>
+  <div class="field">
+    <div class="p-inputgroup">
+      <button type="button" pButton class="p-button-warning" [icon]="PrimeIcons.ENVELOPE"
+              pTooltip="Coreo Electrónico"></button>
+      <input pInputText value="soporte.academico@uaw.edu.ec" disabled/>
+      <button type="button" pButton class="p-button-secondary" [icon]="PrimeIcons.COPY"
+              (click)="copy('soporte.academico@uaw.edu.ec')"
+              pTooltip="Copiar"></button>
+    </div>
+  </div>
+  <div class="field">
+    <div class="p-inputgroup">
+      <button type="button" pButton class="p-button-info" [icon]="PrimeIcons.PHONE" pTooltip="Teléfono"></button>
+      <input pInputText id="phone" value="022232000 / 022230500" disabled/>
+      <button type="button" pButton class="p-button-secondary"
+              [icon]="PrimeIcons.COPY"
+              (click)="copy('022232000 / 022230500')"
+              pTooltip="Copiar"></button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<p-sidebar [(visible)]="coreService.sidebarVisible">
+  <ng-template pTemplate="header">Menú</ng-template>
+  <ng-template pTemplate="content">
+    <p-panelMenu [model]="menus">
+      <ng-template pTemplate="item" let-item>
+        <a *ngIf="!item?.url" [attr.tabindex]="-1"
+           class="p-menuitem-link flex justify-content-between align-items-center p-3" [routerLink]="item.routerLink">
+          <div>
+            <span [class]="item.icon"></span>
+            <span> {{ item.label }}</span>
+          </div>
+          <div>
+            <span *ngIf="item.shortcut" [class]="item.shortcutClass">{{ item.shortcut }}</span>
+            <p-badge *ngIf="item.badge" [value]="item.badge" [severity]="item.badgeSeverity"></p-badge>
+          </div>
+        </a>
+        <a *ngIf="item?.url" [attr.tabindex]="-1"
+           class="p-menuitem-link flex justify-content-between align-items-center p-3" [attr.href]="item.url">
+          <div>
+            <span [class]="item.icon"></span>
+            <span> {{ item.label }}</span>
+          </div>
+          <div>
+            <span *ngIf="item.shortcut" [class]="item.shortcutClass">{{ item.shortcut }}</span>
+            <p-badge *ngIf="item.badge" [value]="item.badge" [severity]="item.badgeSeverity"></p-badge>
+          </div>
+        </a>
+      </ng-template>
+    </p-panelMenu>
+  </ng-template>
+  <ng-template pTemplate="footer">Footer Content</ng-template>
+</p-sidebar>
+
+<p-dialog [(visible)]="isVisibleAbout"
+          [modal]="true"
+          [style]="{width: '50%'}"
+          header="Acerca de">
+  <app-about></app-about>
+</p-dialog>

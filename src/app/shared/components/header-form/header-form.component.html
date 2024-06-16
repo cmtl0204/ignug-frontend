@@ -1,0 +1,13 @@
+<div class="grid formgrid">
+  <div class="col-12">
+    @if (id === RoutesEnum.NEW) {
+      <button pButton [label]="label" [icon]="icon" class="p-button-success p-button-text p-button-lg"></button>
+    } @else {
+      <button pButton [label]="label" [icon]="icon" class="p-button-text p-button-lg"></button>
+    }
+  </div>
+
+  <div class="col-12">
+    <p class="ml-3 mt-2" [innerHTML]="message"></p>
+  </div>
+</div>
