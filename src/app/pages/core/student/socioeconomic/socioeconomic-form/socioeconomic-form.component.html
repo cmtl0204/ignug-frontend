@@ -1,12 +1,9 @@
-<button *ngIf="registered"
-        pButton
-        pRipple
-        type="button"
-        class="p-button-success"
-        label="Continuar a la siguiente sección"
-        [icon]="PrimeIcons.ARROW_RIGHT"
-        iconPos="right"
-        (click)="nextOut.emit()"></button>
+<p-button *ngIf="registered"
+          severity="success"
+          label="Continuar a la siguiente sección"
+          [icon]="PrimeIcons.ARROW_RIGHT"
+          iconPos="right"
+          (click)="nextOut.emit()"></p-button>
 
 <div *ngIf="!isNew && (enrollmentState?.state?.code != CatalogueEnrollmentStateEnum.REGISTERED &&
             enrollmentState?.state?.code != CatalogueEnrollmentStateEnum.REJECTED)"
