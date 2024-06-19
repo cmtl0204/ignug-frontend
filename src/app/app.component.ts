@@ -27,11 +27,4 @@ export class AppComponent {
   ngOnInit() {
     this.primengConfig.ripple = true;
   }
-
-  switchTheme(theme: string) {
-    let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement;
-
-    if (theme)
-      themeLink.href = `./assets/themes/${theme}/theme.css`;
-  }
 }

@@ -6,7 +6,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class ExtensionsPipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): unknown {
-    const pathAssets = 'assets/images/shared/files/';
+    const pathAssets = 'images/shared/files/';
     value = value ? value.toLowerCase() : value;
     switch (value) {
       case 'pdf':

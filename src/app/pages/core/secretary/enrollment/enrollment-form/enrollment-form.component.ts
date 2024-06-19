@@ -19,7 +19,7 @@ import {
   ClassButtonActionEnum,
   SkeletonEnum,
   LabelButtonActionEnum,
-  IconButtonActionEnum, CatalogueEnrollmentStateEnum
+  IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
 } from '@shared/enums';
 
 @Component({
@@ -33,7 +33,7 @@ export class EnrollmentFormComponent implements OnInit, OnExitInterface {
   protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
   protected readonly PrimeIcons = PrimeIcons;
   protected readonly SkeletonEnum = SkeletonEnum;
-  protected id: string | null = null;
+  protected id: string  = RoutesEnum.NEW;
   protected form: FormGroup;
   protected formErrors: string[] = [];
 
@@ -71,8 +71,9 @@ export class EnrollmentFormComponent implements OnInit, OnExitInterface {
 
     this.form = this.newForm;
 
-    if (activatedRoute.snapshot.params['id'] !== 'new') {
+    if (activatedRoute.snapshot.params['id'] !== RoutesEnum.NEW) {
       this.id = activatedRoute.snapshot.params['id'];
+      console.log(this.id)
     }
   }
 
@@ -357,4 +358,6 @@ export class EnrollmentFormComponent implements OnInit, OnExitInterface {
   get socioeconomicScoreField(): AbstractControl {
     return this.form.controls['socioeconomicScore'];
   }
+
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

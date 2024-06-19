@@ -5,12 +5,13 @@
     <app-header-form [id]="id"></app-header-form>
   </div>
   <div class="p-toolbar-group-right">
-    <button pButton pRipple type="button"
-            (click)="back()"
-            [icon]="IconButtonActionEnum.CANCEL"
-            [label]="LabelButtonActionEnum.CANCEL"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.CANCEL]"></button>
+    <p-button pRipple
+              type="button"
+              (click)="back()"
+              [icon]="IconButtonActionEnum.CANCEL"
+              [label]="LabelButtonActionEnum.CANCEL"
+              [loading]="coreService.isLoading"
+              [ngClass]="[ClassButtonActionEnum.CANCEL]"></p-button>
     <p-divider layout="vertical"></p-divider>
     <button pButton pRipple type="button"
             (click)="onSubmit()"

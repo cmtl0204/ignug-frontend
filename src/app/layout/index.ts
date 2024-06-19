@@ -5,3 +5,4 @@ export * from './footer/footer.component';
 export * from './sidebar/sidebar.component';
 export * from './topbar/topbar.component';
 export * from './about/about.component';
+export * from './theme/theme.component';

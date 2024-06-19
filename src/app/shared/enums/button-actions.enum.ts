@@ -91,3 +91,25 @@ export enum ClassButtonActionEnum {
   SUBJECT_REQUIREMENTS = 'Pre y Co Requisitos',
 }
 
+export enum SeverityButtonActionEnum {
+  CREATE = 'success',
+  DOWNLOAD = 'info',
+  CANCEL = 'warning',
+  WARNING = 'warning',
+  RETURN = 'warning',
+  SAVE = 'primary',
+  SYNC = 'info',
+  REDIRECT_SECONDARY = 'secondary',
+  REDIRECT_HELP = 'help',
+  UPDATE = 'Editar',
+  DELETE = 'Eliminar',
+  HIDE = 'Ocultar',
+  SELECT = 'Seleccionar',
+  REACTIVATE = 'Mostrar',
+  SHOW_EVENTS = 'Mostar Eventos',
+  OPEN_SCHOOL_PERIOD = 'Abrir Periodo Lectivo',
+  CLOSE_SCHOOL_PERIOD = 'Cerrar Periodo Lectivo',
+  FILE_LIST = 'Lista de Archivos',
+  SUBJECT_REQUIREMENTS = 'Pre y Co Requisitos',
+}
+

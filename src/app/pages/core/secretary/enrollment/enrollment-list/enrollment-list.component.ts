@@ -31,6 +31,7 @@ import {
   LabelButtonActionEnum,
   CatalogueEnrollmentStateEnum
 } from "@shared/enums";
+import {debounceTime} from "rxjs";
 
 @Component({
   selector: 'app-enrollment-list',
@@ -84,12 +85,12 @@ export class EnrollmentListComponent implements OnInit {
 
     this.paginator = this.coreService.paginator;
 
-    this.search.valueChanges.subscribe(value => {
+    this.search.valueChanges.pipe(
+      debounceTime(1000)
+    ).subscribe(value => {
       this.coreService.search = value;
 
-      if (value.length === 0) {
-        this.findEnrollmentsByCareer();
-      }
+      this.findEnrollmentsByCareer();
     });
 
     this.selectedSchoolPeriod.valueChanges.subscribe(value => {

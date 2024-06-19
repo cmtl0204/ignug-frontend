@@ -27,17 +27,18 @@
         </div>
 
         <div class="field">
-          <button pButton pRipple
-                  label="Continuar"
-                  [icon]="PrimeIcons.SIGN_IN"></button>
+          <p-button
+            type="submit"
+            label="Continuar"
+            [icon]="PrimeIcons.SIGN_IN"></p-button>
         </div>
 
         <div class="field">
-          <button pButton pRipple type="button"
-                  class="p-button-outlined"
+          <p-button
+                  [outlined]="true"
                   label="Regresar al login"
                   [icon]="PrimeIcons.ARROW_LEFT"
-                  (click)="routesService.login()"></button>
+                  (click)="routesService.login()"></p-button>
         </div>
       </form>
     </div>

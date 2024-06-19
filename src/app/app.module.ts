@@ -11,7 +11,8 @@ import {
   SidebarComponent,
   BlankComponent,
   MainComponent,
-  BreadcrumbComponent
+  BreadcrumbComponent,
+  ThemeComponent,
 } from '@layout';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {MenubarModule} from 'primeng/menubar';
@@ -52,6 +53,7 @@ registerLocaleData(localEs, 'es');
     SidebarComponent,
     TopbarComponent,
     AboutComponent,
+    ThemeComponent,
   ],
   imports: [
     BrowserModule,

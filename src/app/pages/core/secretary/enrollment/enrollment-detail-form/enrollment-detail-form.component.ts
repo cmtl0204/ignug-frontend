@@ -26,7 +26,7 @@ import {
   ClassButtonActionEnum,
   SkeletonEnum,
   LabelButtonActionEnum,
-  IconButtonActionEnum, CatalogueEnrollmentStateEnum
+  IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum
 } from '@shared/enums';
 
 import {EnrollmentDetailsHttpService} from '@services/core';
@@ -43,7 +43,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
   protected readonly SkeletonEnum = SkeletonEnum;
   protected readonly PrimeIcons = PrimeIcons;
   protected enrollmentId!: string;
-  protected id: string | null = null;
+  protected id: string = RoutesEnum.NEW;
   protected form: FormGroup;
   protected formErrors: string[] = [];
 
@@ -87,7 +87,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
 
     this.form = this.newForm;
 
-    if (activatedRoute.snapshot.params['id'] !== 'new') {
+    if (activatedRoute.snapshot.params['id'] !== RoutesEnum.NEW) {
       this.id = activatedRoute.snapshot.params['id'];
       this.subjectField.disable();
       this.observationField.removeValidators(Validators.required);
@@ -110,7 +110,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
     this.loadTypes();
     this.loadSubjects();
 
-    if (this.id) {
+    if (this.id !== RoutesEnum.NEW) {
       this.get();
     }
   }

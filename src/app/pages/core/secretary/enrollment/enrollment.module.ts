@@ -32,6 +32,8 @@ import {EnrollmentDetailListComponent} from './enrollment-detail-list/enrollment
 import {EnrollmentDetailFormComponent} from './enrollment-detail-form/enrollment-detail-form.component';
 import {EnrollmentListComponent} from "./enrollment-list/enrollment-list.component";
 import {EnrollmentFormComponent} from './enrollment-form/enrollment-form.component';
+import {InputGroupModule} from "primeng/inputgroup";
+import {InputGroupAddonModule} from "primeng/inputgroupaddon";
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import {EnrollmentFormComponent} from './enrollment-form/enrollment-form.compone
     TabViewModule,
     TagModule,
     ToolbarModule,
+    InputGroupModule,
+    InputGroupAddonModule,
   ]
 })
 export class EnrollmentModule {

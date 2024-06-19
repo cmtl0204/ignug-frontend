@@ -3,8 +3,8 @@
     <div class="p-fluid panel-auth">
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="field text-center">
-          <img src="assets/images/logo/logo-sm.png" alt="">
-          <h2>{{authService.system}}</h2>
+          <img src="images/logo/logo-sm.png" alt="">
+          <h2>{{ authService.system }}</h2>
         </div>
 
         <div class="field">
@@ -48,17 +48,18 @@
         </div>
 
         <div class="field">
-          <button pButton pRipple
-                  label="Continuar"
-                  [icon]="PrimeIcons.SIGN_IN"></button>
+          <p-button
+            type="submit"
+            label="Continuar"
+            [icon]="PrimeIcons.SIGN_IN"></p-button>
         </div>
 
         <div class="field">
-          <button pButton pRipple type="button"
-                  class="p-button-warning"
-                  label="Regresar al login"
-                  [icon]="PrimeIcons.ARROW_LEFT"
-                  (click)="routesService.login()"></button>
+          <p-button
+            severity="warning"
+            label="Regresar al login"
+            [icon]="PrimeIcons.ARROW_LEFT"
+            (click)="routesService.login()"></p-button>
         </div>
       </form>
     </div>
