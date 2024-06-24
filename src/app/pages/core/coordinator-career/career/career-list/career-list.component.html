@@ -1,36 +1,39 @@
 <p-toolbar>
   <div class="p-toolbar-group-left">
-    <button pButton pRipple type="button"
-            (click)="redirectCreateForm()"
-            [icon]="IconButtonActionEnum.CREATE"
-            [label]="LabelButtonActionEnum.CREATE"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.CREATE]">
-    </button>
+    <p-button
+      (click)="redirectCreateForm()"
+      [icon]="IconButtonActionEnum.CREATE"
+      [label]="LabelButtonActionEnum.CREATE"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.CREATE">
+    </p-button>
 
-    <button pButton pRipple type="button"
-            (click)="refresh()"
-            [icon]="IconButtonActionEnum.SYNC"
-            [label]="LabelButtonActionEnum.SYNC"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.SYNC,'ml-2']">
-    </button>
+    <p-button
+      (click)="refresh()"
+      [icon]="IconButtonActionEnum.SYNC"
+      [label]="LabelButtonActionEnum.SYNC"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.SYNC"
+      class="ml-2">
+    </p-button>
 
-    <button pButton pRipple type="button"
+    <p-button
             (click)="redirectCurriculums()"
             [icon]="PrimeIcons.EXTERNAL_LINK"
             [label]="LabelButtonActionEnum.CURRICULUMS"
             [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.REDIRECT_HELP,'ml-2']">
-    </button>
+            [severity]="SeverityButtonActionEnum.REDIRECT_HELP"
+            class="ml-2">
+    </p-button>
 
-    <button pButton pRipple type="button"
+    <p-button
             (click)="redirectSubjects()"
             [icon]="PrimeIcons.EXTERNAL_LINK"
             [label]="LabelButtonActionEnum.SUBJECTS"
             [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.REDIRECT_HELP,'ml-2']">
-    </button>
+            [severity]="SeverityButtonActionEnum.REDIRECT_HELP"
+            class="ml-2">
+    </p-button>
   </div>
   <div class="p-toolbar-group-right">
     <p-dropdown
@@ -60,7 +63,7 @@
   <ng-template pTemplate="caption">
     <div class="flex">
       <h1>
-        {{BreadcrumbEnum.CAREERS}}
+        {{ BreadcrumbEnum.CAREERS }}
       </h1>
       <div class="p-input-icon-right ml-auto">
         <i [class]="PrimeIcons.SEARCH"></i>
@@ -76,11 +79,11 @@
         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
       </th>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
-        {{col.header}}
+        {{ col.header }}
         <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>
       <th class="text-center">
-        {{LabelButtonActionEnum.ACTIONS}}
+        {{ LabelButtonActionEnum.ACTIONS }}
       </th>
     </tr>
   </ng-template>
@@ -99,7 +102,7 @@
 
         <!--Fields-->
         <div *ngIf="!rowData[col.field]?.id" [ngSwitch]="col.field">
-          <div *ngSwitchDefault>{{rowData[col.field]}}</div>
+          <div *ngSwitchDefault>{{ rowData[col.field] }}</div>
           <div *ngSwitchCase="'isVisible'">
             <p-tag [severity]="rowData[col.field]?'success':'danger'" [value]="rowData[col.field]|isVisible"></p-tag>
             <p-tag *ngIf="careersService.career && rowData['id']===careersService.career.id"
@@ -117,12 +120,12 @@
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
       <td [attr.colspan]="columns.length">
-        {{messageService.paginatorNoRecordsFound}}
+        {{ messageService.paginatorNoRecordsFound }}
       </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="summary">
-    {{messageService.paginatorTotalRegisters(items.length)}}
+    {{ messageService.paginatorTotalRegisters(items.length) }}
   </ng-template>
 </p-table>
 

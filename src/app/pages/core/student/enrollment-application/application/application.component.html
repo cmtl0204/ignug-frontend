@@ -116,15 +116,16 @@
           <!--          <p-tableCheckbox *ngIf="rowData?.academicState!='a'"-->
           <!--                           [disabled]="form.disabled"-->
           <!--                           [value]="rowData"></p-tableCheckbox>-->
-          <button *ngIf="!rowData?.enabled" pButton pRipple type="button"
-                  [icon]="PrimeIcons.STOP"
-                  class="p-button-rounded p-button-text"
-                  (click)="validateSubjectPrerequisites(rowData)"></button>
+          <p-button *ngIf="!rowData?.enabled"
+                    [icon]="PrimeIcons.STOP"
+                    [rounded]="true"
+                    [text]="true"
+                    (click)="validateSubjectPrerequisites(rowData)"></p-button>
 
-          <button *ngIf="rowData?.enabled" pButton pRipple type="button"
-                  [icon]="PrimeIcons.CHECK"
-                  class="p-button-rounded"
-                  (click)="removeSelectedSubject(rowData)"></button>
+          <p-button *ngIf="rowData?.enabled"
+                    [icon]="PrimeIcons.CHECK"
+                    [rounded]="true"
+                    (click)="removeSelectedSubject(rowData)"></p-button>
         </td>
         <td *ngFor="let col of columns">
           <!--Objects-->
@@ -171,28 +172,28 @@
 
   <div class="formgrid grid">
     <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-      <button pButton
-              type="button"
-              class="p-button-warning"
-              label="Regresar"
-              [icon]="PrimeIcons.ARROW_LEFT"
-              iconPos="left"
-              (click)="previous()"></button>
+      <p-button
+        [severity]="SeverityButtonActionEnum.RETURN"
+        [label]="LabelButtonActionEnum.RETURN"
+        [icon]="PrimeIcons.ARROW_LEFT"
+        iconPos="left"
+        (click)="previous()"></p-button>
     </div>
     <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-      <button *ngIf="form.enabled" pButton pRipple
-              label="Guardar y Continuar"
-              [icon]="PrimeIcons.SAVE"
-              [loading]="coreService.isLoading"
-              iconPos="right"></button>
+      <p-button
+        *ngIf="form.enabled"
+        label="Guardar y Continuar"
+        [icon]="PrimeIcons.SAVE"
+        [loading]="coreService.isLoading"
+        iconPos="right"></p-button>
     </div>
     <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-      <button *ngIf="enrollment?.enrollmentStates" pButton pRipple type="button"
-              class="p-button-success"
-              label="Continuar a la siguiente sección"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"
-              (click)="next()"></button>
+      <p-button *ngIf="enrollment?.enrollmentStates"
+                [severity]="SeverityButtonActionEnum.CREATE"
+                label="Continuar a la siguiente sección"
+                [icon]="PrimeIcons.ARROW_RIGHT"
+                iconPos="right"
+                (click)="next()"></p-button>
     </div>
   </div>
 </form>

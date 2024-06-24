@@ -92,7 +92,6 @@ export enum ClassButtonActionEnum {
 }
 
 export enum SeverityButtonActionEnum {
-  REFRESH = 'info',
   CREATE = 'success',
   DOWNLOAD = 'info',
   CANCEL = 'warning',
@@ -101,9 +100,10 @@ export enum SeverityButtonActionEnum {
   SAVE = 'primary',
   SYNC = 'info',
   REDIRECT_SECONDARY = 'secondary',
+  SECONDARY = 'secondary',
   REDIRECT_HELP = 'help',
   UPDATE = 'Editar',
-  DELETE = 'Eliminar',
+  DELETE = 'danger',
   HIDE = 'Ocultar',
   SELECT = 'Seleccionar',
   REACTIVATE = 'Mostrar',

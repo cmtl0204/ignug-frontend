@@ -16,7 +16,7 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum} from '@shared/enums';
+import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum, SeverityButtonActionEnum} from '@shared/enums';
 
 @Component({
   selector: 'app-family-economic',
@@ -157,4 +157,6 @@ export class FamilyEconomicComponent {
   get familyPropertiesField(): AbstractControl {
     return this.informationStudentForm.controls['familyProperties'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

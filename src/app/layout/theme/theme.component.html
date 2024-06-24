@@ -1,5 +1,9 @@
-<button pButton [icon]="PrimeIcons.COG" class="theme p-button-lg p-button-warning"
-        (click)="sidebarVisible=!sidebarVisible"></button>
+<p-button
+  [icon]="PrimeIcons.COG"
+  size="large"
+  severity="warning"
+  class="theme"
+  (click)="sidebarVisible=!sidebarVisible"></p-button>
 
 <p-sidebar [(visible)]="sidebarVisible" position="right">
   <ng-template pTemplate="header">

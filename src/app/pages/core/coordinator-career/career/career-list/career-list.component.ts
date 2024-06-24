@@ -14,11 +14,11 @@ import {
   RoutesService
 } from '@services/core';
 import {
-  BreadcrumbEnum,
-  ClassButtonActionEnum,
-  IconButtonActionEnum,
-  IdButtonActionEnum,
-  LabelButtonActionEnum
+    BreadcrumbEnum,
+    ClassButtonActionEnum,
+    IconButtonActionEnum,
+    IdButtonActionEnum,
+    LabelButtonActionEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 
 @Component({
@@ -209,4 +209,6 @@ export class CareerListComponent implements OnInit {
   redirectParallelsCapacity() {
     this.router.navigate([this.routesService.parallelCapacity]);
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

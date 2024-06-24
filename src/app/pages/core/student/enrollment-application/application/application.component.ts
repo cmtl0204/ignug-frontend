@@ -25,7 +25,7 @@ import {
   LabelButtonActionEnum,
   IconButtonActionEnum,
   ClassButtonActionEnum,
-  CatalogueTypeEnum, CatalogueEnrollmentStateEnum, EnrollmentSateEnum
+  CatalogueTypeEnum, CatalogueEnrollmentStateEnum, EnrollmentSateEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 import {AuthService} from "@services/auth";
 
@@ -504,4 +504,6 @@ export class ApplicationComponent implements OnInit {
   get studentField() {
     return this.form.controls['student'];
   }
+
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

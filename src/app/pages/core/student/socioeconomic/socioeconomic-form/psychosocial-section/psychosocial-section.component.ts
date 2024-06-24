@@ -18,9 +18,9 @@ import {
   StudentsHttpService,
 } from '@services/core';
 import {
-  BreadcrumbEnum, CatalogueEnrollmentStateEnum,
-  CatalogueTypeEnum,
-  SkeletonEnum,
+    BreadcrumbEnum, CatalogueEnrollmentStateEnum,
+    CatalogueTypeEnum, SeverityButtonActionEnum,
+    SkeletonEnum,
 } from '@shared/enums';
 
 @Component({
@@ -248,4 +248,6 @@ export class PsychosocialSectionComponent implements OnInit{
   get typeInjuriesField(): AbstractControl {
     return this.informationStudentForm.controls['typeInjuries'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

@@ -3,7 +3,7 @@
     <div class="col-12 xl:col-1 lg:col-1 md:col-12 sm:col-12">
       <p-button
         pTooltip="Refrescar"
-        [severity]="SeverityButtonActionEnum.REFRESH"
+        [severity]="SeverityButtonActionEnum.SYNC"
         [icon]="PrimeIcons.REFRESH"
         [loading]="coreService.isLoading"
         (click)="findEnrollmentsByCareer()">

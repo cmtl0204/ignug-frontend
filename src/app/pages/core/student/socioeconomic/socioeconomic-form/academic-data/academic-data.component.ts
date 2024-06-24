@@ -4,7 +4,12 @@ import {Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
 import {CatalogueModel, EnrollmentModel, StudentModel} from "@models/core";
 import {CataloguesHttpService, CoreService, MessageService, RoutesService, StudentsHttpService} from "@services/core";
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum,InformationStudentEnum} from '@shared/enums';
+import {
+    CatalogueEnrollmentStateEnum,
+    CatalogueTypeEnum,
+    InformationStudentEnum,
+    SeverityButtonActionEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-academic-data',
@@ -195,4 +200,6 @@ export class AcademicDataComponent implements OnInit {
   get typeSchoolField(): AbstractControl {
     return this.informationStudentForm.controls['typeSchool'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

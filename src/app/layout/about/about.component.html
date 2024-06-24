@@ -4,33 +4,38 @@
   </div>
 
   <div class="field">
-    <h1 class="text-center">V {{coreService.version}}</h1>
+    <h1 class="text-center">V {{ coreService.version }}</h1>
   </div>
 
   <div class="field">
     <div class="p-inputgroup">
-      <button type="button" pButton [icon]="PrimeIcons.ID_CARD" pTooltip="Autor"></button>
+      <p-button [icon]="PrimeIcons.ID_CARD" pTooltip="Autor"></p-button>
       <input pInputText value="Soporte Técnico" disabled/>
     </div>
   </div>
   <div class="field">
     <div class="p-inputgroup">
-      <button type="button" pButton class="p-button-warning" [icon]="PrimeIcons.ENVELOPE"
-              pTooltip="Coreo Electrónico"></button>
+      <p-button
+        severity="warning"
+        [icon]="PrimeIcons.ENVELOPE"
+        pTooltip="Coreo Electrónico"></p-button>
       <input pInputText value="soporte.academico@uaw.edu.ec" disabled/>
-      <button type="button" pButton class="p-button-secondary" [icon]="PrimeIcons.COPY"
-              (click)="copy('soporte.academico@uaw.edu.ec')"
-              pTooltip="Copiar"></button>
+      <p-button
+        severity="secondary"
+        [icon]="PrimeIcons.COPY"
+        (click)="copy('soporte.academico@uaw.edu.ec')"
+        pTooltip="Copiar"></p-button>
     </div>
   </div>
   <div class="field">
     <div class="p-inputgroup">
-      <button type="button" pButton class="p-button-info" [icon]="PrimeIcons.PHONE" pTooltip="Teléfono"></button>
+      <p-button severity="info" [icon]="PrimeIcons.PHONE" pTooltip="Teléfono"></p-button>
       <input pInputText id="phone" value="022232000 / 022230500" disabled/>
-      <button type="button" pButton class="p-button-secondary"
-              [icon]="PrimeIcons.COPY"
-              (click)="copy('022232000 / 022230500')"
-              pTooltip="Copiar"></button>
+      <p-button
+        severity="secondary"
+        [icon]="PrimeIcons.COPY"
+        (click)="copy('022232000 / 022230500')"
+        pTooltip="Copiar"></p-button>
     </div>
   </div>
 </div>

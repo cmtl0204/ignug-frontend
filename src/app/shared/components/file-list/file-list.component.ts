@@ -3,6 +3,7 @@ import {FormControl} from "@angular/forms";
 import {ConfirmationService, MenuItem, PrimeIcons} from "primeng/api";
 import {CatalogueModel, ColumnModel, EventModel, FileModel, ModelI, PaginatorModel, SelectEventDto} from "@models/core";
 import {CoreService, FilesHttpService, MessageService, OverlaysService} from "@services/core";
+import {SeverityButtonActionEnum} from "@shared/enums";
 
 @Component({
   selector: 'app-file-list',
@@ -115,4 +116,6 @@ export class FileListComponent implements OnInit {
       }
     });
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }
