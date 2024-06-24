@@ -53,7 +53,6 @@ export class InstitutionSelectComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('entro');
     if (this.form.valid) {
       this.selectInstitution();
     } else {

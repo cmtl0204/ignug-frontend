@@ -18,7 +18,6 @@ export class HeaderFormComponent implements OnInit{
   protected readonly PrimeIcons = PrimeIcons;
 
   ngOnInit(): void {
-    console.log(this.id);
     if (this.id === RoutesEnum.NEW) {
       this.icon = PrimeIcons.PLUS;
     } else {

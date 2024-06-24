@@ -84,7 +84,7 @@ export class SocioeconomicFormComponent implements OnInit {
   }
 
   changeActiveIndex(event: any) {
-    console.log('changeActiveIndex', event);
+
   }
 
   protected readonly parseInt = parseInt;

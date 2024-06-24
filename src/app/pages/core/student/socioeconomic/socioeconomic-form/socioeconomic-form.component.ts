@@ -84,6 +84,6 @@ export class SocioeconomicFormComponent implements OnInit {
   }
 
   changeActiveIndex(event: any) {
-    console.log('changeActiveIndex', event);
+
   }
 }

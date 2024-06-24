@@ -74,7 +74,6 @@ export class CustomValidators {
   static verifiedEmail(control: UntypedFormControl): ValidationErrors | null {
     const value = control.value;
 
-    console.log(value);
     if (value) {
       return null;
     }

@@ -59,7 +59,6 @@ export class EnrollmentSubjectListComponent {
     this.studentsHttpService.findEnrollmentSubjectsByStudent(this.authService.auth.student.id!, this.selectedSchoolPeriod.value.id)
       .subscribe(enrollmentDetails => {
         this.enrollmentDetails = enrollmentDetails;
-        console.log(this.enrollmentDetails);
       });
   }
 
