@@ -72,7 +72,7 @@ export class EnrollmentFormComponent implements OnInit, OnExitInterface {
     this.form = this.newForm;
 
     if (activatedRoute.snapshot.params['id'] !== RoutesEnum.NEW) {
-      this.id = activatedRoute.snapshot.params['id'];F
+      this.id = activatedRoute.snapshot.params['id'];
     }
   }
 
