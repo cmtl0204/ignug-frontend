@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PrimeIcons} from "primeng/api";
 
 @Component({
   selector: 'app-unauthorized',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class UnauthorizedComponent {
 
+  protected readonly PrimeIcons = PrimeIcons;
 }

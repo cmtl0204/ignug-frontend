@@ -20,7 +20,7 @@ import {
   BreadcrumbEnum, CatalogueEnrollmentStateEnum,
   ClassButtonActionEnum,
   IconButtonActionEnum,
-  IdButtonActionEnum, LabelButtonActionEnum,
+  IdButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
   SkeletonEnum, UsersFormEnum
 } from "@shared/enums";
 
@@ -33,7 +33,7 @@ export class GradeListComponent implements OnInit{
   protected readonly PrimeIcons = PrimeIcons;
   protected readonly SkeletonEnum = SkeletonEnum;
   protected readonly IconButtonActionEnum = IconButtonActionEnum;
-  protected readonly ClassButtonActionEnum = ClassButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
   protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
   protected readonly BreadcrumbEnum = BreadcrumbEnum;
 

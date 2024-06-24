@@ -5,16 +5,16 @@
         <h1 class="text-danger" style="color:#FFC800 ; font-size: 70px;">¡Error en el servidor!</h1>
         <small class="text-secondary" style="font-size: 20px">¡Por favor vuelva a intentar!</small>
       </div>
-      <img src="images/components/common/500.svg" alt="500" width="400">
+      <img src="/assets/images/components/common/500.svg" alt="500" width="400">
     </div>
   </div>
 </div>
 <div class="grid">
   <div class="col-12 text-center">
-    <button pButton pRipple
+    <p-button
             label="Regresar al Login"
-            class="p-button-lg"
-            icon="pi pi-arrow-left"
-            [routerLink]="['/login']"></button>
+            size="large"
+            [icon]="PrimeIcons.ARROW_LEFT"
+            [routerLink]="['/login']"></p-button>
   </div>
 </div>

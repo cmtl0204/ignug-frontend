@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {PrimeIcons} from "primeng/api";
 
 @Component({
   selector: 'app-internal-server-error',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class InternalServerErrorComponent {
 
+  protected readonly PrimeIcons = PrimeIcons;
 }

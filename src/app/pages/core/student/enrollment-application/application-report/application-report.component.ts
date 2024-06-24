@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {CoreService, EnrollmentsHttpService, FilesHttpService, StudentsHttpService} from "@services/core";
 import {PrimeIcons} from "primeng/api";
-import {CatalogueEnrollmentStateEnum, SkeletonEnum} from "@shared/enums";
+import {CatalogueEnrollmentStateEnum, SeverityButtonActionEnum, SkeletonEnum} from "@shared/enums";
 import {AuthService} from "@services/auth";
 import {StudentModel} from "@models/core";
 
@@ -68,4 +68,6 @@ export class ApplicationReportComponent {
   next() {
     this.nextOut.emit(1);
   }
+
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

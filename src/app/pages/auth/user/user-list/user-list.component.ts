@@ -7,6 +7,7 @@ import {ColumnModel, PaginatorModel} from '@models/core';
 import {AuthService, UsersHttpService} from '@services/auth';
 import {BreadcrumbService, CoreService, MessageService} from '@services/core';
 import {BreadcrumbEnum, IconButtonActionEnum, LabelButtonActionEnum} from "@shared/enums";
+import {debounceTime} from "rxjs";
 
 @Component({
   selector: 'app-user-list',
@@ -33,14 +34,12 @@ export class UserListComponent implements OnInit {
     private router: Router,
     private usersHttpService: UsersHttpService,
   ) {
-    this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.USERS},
-    ]);
+    this.breadcrumbService.setItems([{label: BreadcrumbEnum.USERS}]);
+
     this.paginator = this.coreService.paginator;
-    this.search.valueChanges.subscribe(value => {
-      if (value.length === 0) {
-        this.findAll();
-      }
+
+    this.search.valueChanges.pipe(debounceTime(1000)).subscribe(value => {
+      this.findAll();
     });
   }
 

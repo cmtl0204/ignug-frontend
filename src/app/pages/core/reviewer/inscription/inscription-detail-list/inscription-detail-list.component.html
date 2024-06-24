@@ -1,23 +1,21 @@
 <p-toolbar>
   <div class="p-toolbar-group-left">
-    <button [disabled]="enrolledOrRevoked" pButton
-            pRipple
-            type="button"
-            label="Crear"
-            class="p-button-success"
-            [icon]="PrimeIcons.PLUS"
-            (click)="redirectCreateForm()">
-    </button>
+    <p-button
+      [disabled]="enrolledOrRevoked"
+      label="Crear"
+      [severity]="SeverityButtonActionEnum.CREATE"
+      [icon]="PrimeIcons.PLUS"
+      (click)="redirectCreateForm()">
+    </p-button>
 
-    <button pButton
-            pRipple
-            type="button"
-            label="Refrescar"
-            class="p-button-info ml-2"
-            [icon]="PrimeIcons.REFRESH"
-            [loading]="coreService.isLoading"
-            (click)="findEnrollmentDetailsByEnrollment()">
-    </button>
+    <p-button
+      label="Refrescar"
+      [severity]="SeverityButtonActionEnum.REFRESH"
+      class="ml-2"
+      [icon]="PrimeIcons.REFRESH"
+      [loading]="coreService.isLoading"
+      (click)="findEnrollmentDetailsByEnrollment()">
+    </p-button>
   </div>
   <div class="p-toolbar-group-right">
     <button pButton pRipple type="button"
@@ -58,11 +56,11 @@
     <tr>
       <!--      <th style="width: 3rem"></th>-->
       <th class="text-center" *ngFor="let col of columns" [pSortableColumn]="col.field">
-        {{col.header}}
+        {{ col.header }}
         <p-sortIcon [field]="col.field"></p-sortIcon>
       </th>
       <th class="text-center">
-        {{LabelButtonActionEnum.ACTIONS}}
+        {{ LabelButtonActionEnum.ACTIONS }}
       </th>
     </tr>
   </ng-template>
@@ -75,44 +73,46 @@
         <!--Objects-->
         <div *ngIf="rowData[col.field]?.id" [ngSwitch]="col.field">
           <div *ngSwitchCase="'parallel'">
-            {{rowData[col.field]?.name}}
+            {{ rowData[col.field]?.name }}
           </div>
           <div *ngSwitchCase="'subject'">
-            {{rowData[col.field]?.name}}
+            {{ rowData[col.field]?.name }}
           </div>
           <div *ngSwitchCase="'type'">
-            {{rowData[col.field].name}}
+            {{ rowData[col.field].name }}
           </div>
           <div *ngSwitchCase="'workday'">
-            {{rowData[col.field].name}}
+            {{ rowData[col.field].name }}
           </div>
           <div *ngSwitchCase="'observation'">
-            {{rowData[col.field].name}}
+            {{ rowData[col.field].name }}
           </div>
           <div *ngSwitchCase="'enrollmentDetailState'">
-            <p-tag [value]="rowData[col.field].state.name" [severity]="rowData[col.field].state.code|enrollmentState" class="mr-1"></p-tag>
+            <p-tag [value]="rowData[col.field].state.name" [severity]="rowData[col.field].state.code|enrollmentState"
+                   class="mr-1"></p-tag>
           </div>
         </div>
 
         <!--Fields-->
         <div *ngIf="!rowData[col.field]?.id" [ngSwitch]="col.field">
-          <div *ngSwitchDefault>{{rowData[col.field]}}</div>
+          <div *ngSwitchDefault>{{ rowData[col.field] }}</div>
         </div>
       </td>
       <td class="text-center">
-        <button [disabled]="enrolledOrRevoked" pButton pRipple type="button" [icon]="PrimeIcons.ELLIPSIS_V" (click)="selectItem(rowData)"></button>
+        <button [disabled]="enrolledOrRevoked" pButton pRipple type="button" [icon]="PrimeIcons.ELLIPSIS_V"
+                (click)="selectItem(rowData)"></button>
       </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage" let-columns>
     <tr>
       <td [attr.colspan]="columns.length">
-        {{messageService.paginatorNoRecordsFound}}
+        {{ messageService.paginatorNoRecordsFound }}
       </td>
     </tr>
   </ng-template>
   <ng-template pTemplate="summary">
-    {{messageService.paginatorTotalRegisters(items.length)}}
+    {{ messageService.paginatorTotalRegisters(items.length) }}
   </ng-template>
 </p-table>
 

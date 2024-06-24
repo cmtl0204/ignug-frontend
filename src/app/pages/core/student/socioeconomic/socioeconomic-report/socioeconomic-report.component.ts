@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {CoreService, FilesHttpService, StudentsHttpService} from "@services/core";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
-import {SkeletonEnum} from "@shared/enums";
+import {SeverityButtonActionEnum, SkeletonEnum} from "@shared/enums";
 
 @Component({
   selector: 'app-socioeconomic-report',
@@ -57,4 +57,6 @@ export class SocioeconomicReportComponent {
   next() {
     this.nextOut.emit(1);
   }
+
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

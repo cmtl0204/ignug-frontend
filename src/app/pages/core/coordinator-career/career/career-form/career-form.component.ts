@@ -14,13 +14,13 @@ import {
   InstitutionsService, CareersService
 } from '@services/core';
 import {
-  BreadcrumbEnum,
-  CareerFormEnum,
-  CatalogueTypeEnum,
-  ClassButtonActionEnum,
-  IconButtonActionEnum,
-  LabelButtonActionEnum,
-  SkeletonEnum
+    BreadcrumbEnum,
+    CareerFormEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum,
+    IconButtonActionEnum,
+    LabelButtonActionEnum, SeverityButtonActionEnum,
+    SkeletonEnum
 } from '@shared/enums';
 import {AuthService} from "@services/auth";
 
@@ -231,4 +231,6 @@ export class CareerFormComponent implements OnInit, OnExitInterface {
   get modalityField(): AbstractControl {
     return this.form.controls['modality'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

@@ -4,7 +4,6 @@ import {ReactiveFormsModule} from "@angular/forms";
 
 // PrimeNg Modules
 import { CalendarModule } from 'primeng/calendar';
-import { SecretaryFormComponent } from './secretary-form/secretary-form.component';
 import { SecretaryRoutingModule } from './secretary-routing.module';
 import {ButtonModule} from "primeng/button";
 import {DividerModule} from "primeng/divider";
@@ -25,7 +24,7 @@ import {SharedModule} from "@shared/shared.module";
 
 @NgModule({
   declarations: [
-    SecretaryFormComponent
+
   ],
   imports: [
     ReactiveFormsModule,

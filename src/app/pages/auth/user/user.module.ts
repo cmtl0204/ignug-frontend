@@ -40,6 +40,8 @@ import {SidebarModule} from "primeng/sidebar";
 import {PanelMenuModule} from "primeng/panelmenu";
 import {AvatarModule} from "primeng/avatar";
 import {FileUploadModule} from "primeng/fileupload";
+import {InputGroupAddonModule} from "primeng/inputgroupaddon";
+import {InputGroupModule} from "primeng/inputgroup";
 
 @NgModule({
   declarations: [
@@ -50,44 +52,46 @@ import {FileUploadModule} from "primeng/fileupload";
     UserInformationComponent,
     UserProfileComponent,
   ],
-  imports: [
-    NgCommonModule,
-    UserRoutingModule,
-    ReactiveFormsModule,
-    AuthModule,
-    AuthenticationModule,
-    SharedModule,
-    //PrimeNg
-    BadgeModule,
-    ButtonModule,
-    CardModule,
-    CalendarModule,
-    CheckboxModule,
-    DialogModule,
-    DropdownModule,
-    InputSwitchModule,
-    InputTextModule,
-    KeyFilterModule,
-    MenuModule,
-    MessageModule,
-    PaginatorModule,
-    PanelModule,
-    PasswordModule,
-    RippleModule,
-    TableModule,
-    TagModule,
-    ToolbarModule,
-    TooltipModule,
-    ToastModule,
-    DividerModule,
-    AccordionModule,
-    MultiSelectModule,
-    SplitButtonModule,
-    SidebarModule,
-    PanelMenuModule,
-    AvatarModule,
-    FileUploadModule,
-  ]
+    imports: [
+        NgCommonModule,
+        UserRoutingModule,
+        ReactiveFormsModule,
+        AuthModule,
+        AuthenticationModule,
+        SharedModule,
+        //PrimeNg
+        BadgeModule,
+        ButtonModule,
+        CardModule,
+        CalendarModule,
+        CheckboxModule,
+        DialogModule,
+        DropdownModule,
+        InputSwitchModule,
+        InputTextModule,
+        KeyFilterModule,
+        MenuModule,
+        MessageModule,
+        PaginatorModule,
+        PanelModule,
+        PasswordModule,
+        RippleModule,
+        TableModule,
+        TagModule,
+        ToolbarModule,
+        TooltipModule,
+        ToastModule,
+        DividerModule,
+        AccordionModule,
+        MultiSelectModule,
+        SplitButtonModule,
+        SidebarModule,
+        PanelMenuModule,
+        AvatarModule,
+        FileUploadModule,
+        InputGroupAddonModule,
+        InputGroupModule,
+    ]
 })
 export class UserModule {
 }

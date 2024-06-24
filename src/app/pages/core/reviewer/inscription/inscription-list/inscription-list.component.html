@@ -1,25 +1,21 @@
 <div class="panel-messages-info p-fluid">
   <div class="grid">
     <div class="col-12 xl:col-1 lg:col-1 md:col-12 sm:col-12">
-      <button pButton
-              pRipple
-              type="button"
-              pTooltip="Refrescar"
-              class="p-button-info"
-              [icon]="PrimeIcons.REFRESH"
-              [loading]="coreService.isLoading"
-              (click)="findEnrollmentsByCareer()">
-      </button>
+      <p-button
+        pTooltip="Refrescar"
+        [severity]="SeverityButtonActionEnum.REFRESH"
+        [icon]="PrimeIcons.REFRESH"
+        [loading]="coreService.isLoading"
+        (click)="findEnrollmentsByCareer()">
+      </p-button>
     </div>
     <div class="col-12 xl:col-1 lg:col-1 md:col-12 sm:col-12">
-      <button pButton
-              pRipple
-              type="button"
-              pTooltip="Más opciones"
-              [icon]="PrimeIcons.ELLIPSIS_V"
-              [loading]="coreService.isLoading"
-              (click)="showMoreOptions()">
-      </button>
+      <p-button
+        pTooltip="Más opciones"
+        [icon]="PrimeIcons.ELLIPSIS_V"
+        [loading]="coreService.isLoading"
+        (click)="showMoreOptions()">
+      </p-button>
     </div>
     <div class="xl:col-10 lg:col-10 md:col-12 sm:col-12">
       <div class="grid">
@@ -103,14 +99,12 @@
                  pInputText
                  [formControl]="search"
                  placeholder="Buscar...">
-          <button pButton
-                  pRipple
-                  type="button"
-                  [icon]="PrimeIcons.SEARCH"
-                  [loading]="coreService.isLoading"
-                  (click)="findEnrollmentsByCareer()"
+          <p-button
+            [icon]="PrimeIcons.SEARCH"
+            [loading]="coreService.isLoading"
+            (click)="findEnrollmentsByCareer()"
           >
-          </button>
+          </p-button>
         </div>
       </div>
     </div>
@@ -168,7 +162,9 @@
         </div>
       </td>
       <td class="text-center">
-        <button pButton pRipple type="button" [icon]="PrimeIcons.ELLIPSIS_V" (click)="selectItem(rowData)"></button>
+        <p-button
+          [icon]="PrimeIcons.ELLIPSIS_V"
+          (click)="selectItem(rowData)"></p-button>
       </td>
     </tr>
   </ng-template>

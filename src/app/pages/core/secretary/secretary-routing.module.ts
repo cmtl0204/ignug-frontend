@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SecretaryFormComponent } from './secretary-form/secretary-form.component';
 import {RoleGuard} from "@shared/guards";
 import {RolesEnum} from "@shared/enums";
 

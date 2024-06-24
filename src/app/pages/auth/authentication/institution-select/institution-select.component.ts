@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PrimeIcons} from "primeng/api";
 import {CareerModel, SelectInstitutionDto} from "@models/core";
@@ -8,7 +8,8 @@ import {CareersService, CoreService, InstitutionsService, MessageService, Routes
 @Component({
   selector: 'app-institution-select',
   templateUrl: './institution-select.component.html',
-  styleUrls: ['./institution-select.component.scss']
+  styleUrls: ['./institution-select.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class InstitutionSelectComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons;

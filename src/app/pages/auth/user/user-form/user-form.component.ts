@@ -1,10 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CreateUserDto, RoleModel, UpdateUserDto} from '@models/auth';
 import {RolesHttpService, UsersHttpService} from '@services/auth';
 import {
-  BreadcrumbService, CareersHttpService,
+  BreadcrumbService,
   CataloguesHttpService,
   CoreService,
   InstitutionsHttpService,
@@ -16,7 +16,9 @@ import {PrimeIcons} from "primeng/api";
 import {
   BreadcrumbEnum,
   CatalogueTypeEnum,
-  ClassButtonActionEnum, IconButtonActionEnum, LabelButtonActionEnum,
+  IconButtonActionEnum,
+  LabelButtonActionEnum, RoutesEnum,
+  SeverityButtonActionEnum,
   SkeletonEnum,
   UsersIdentificationTypeStateEnum
 } from "@shared/enums";
@@ -25,16 +27,15 @@ import {CareerModel, CatalogueModel, InstitutionModel} from "@models/core";
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit, OnExitInterface {
+  @Input({required: true}) id!: string;
   protected readonly PrimeIcons = PrimeIcons;
-  protected readonly ClassButtonActionEnum = ClassButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
   protected readonly IconButtonActionEnum = IconButtonActionEnum;
   protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
   protected readonly SkeletonEnum = SkeletonEnum;
-  protected id: string | null = null;
   protected form: FormGroup;
   protected isChangePassword: FormControl = new FormControl(false);
   protected roles: RoleModel[] = [];
@@ -59,10 +60,6 @@ export class UserFormComponent implements OnInit, OnExitInterface {
       {label: BreadcrumbEnum.USERS, routerLink: [this.routesService.users]},
       {label: BreadcrumbEnum.FORM},
     ]);
-
-    if (this.activatedRoute.snapshot.params['id'] !== 'new') {
-      this.id = this.activatedRoute.snapshot.params['id'];
-    }
 
     this.form = this.newForm;
 
@@ -96,7 +93,7 @@ export class UserFormComponent implements OnInit, OnExitInterface {
     this.loadIdentificationTypes();
     this.loadInstitutions();
 
-    if (this.id) {
+    if (this.id !== RoutesEnum.NEW) {
       this.getUser();
       this.passwordField.clearValidators();
     } else {

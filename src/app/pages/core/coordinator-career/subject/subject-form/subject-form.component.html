@@ -8,19 +8,19 @@
     <app-header-form [id]="id"></app-header-form>
   </div>
   <div class="p-toolbar-group-right">
-    <button pButton pRipple type="button"
-            (click)="back()"
-            [icon]="IconButtonActionEnum.CANCEL"
-            [label]="LabelButtonActionEnum.CANCEL"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.CANCEL]"></button>
+    <p-button
+      (click)="back()"
+      [icon]="IconButtonActionEnum.CANCEL"
+      [label]="LabelButtonActionEnum.CANCEL"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.CANCEL"></p-button>
     <p-divider layout="vertical"></p-divider>
-    <button pButton pRipple type="button"
-            (click)="onSubmit()"
-            [icon]="IconButtonActionEnum.SAVE"
-            [label]="LabelButtonActionEnum.SAVE"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.SAVE]"></button>
+    <p-button
+      (click)="onSubmit()"
+      [icon]="IconButtonActionEnum.SAVE"
+      [label]="LabelButtonActionEnum.SAVE"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.SAVE"></p-button>
   </div>
 </p-toolbar>
 
@@ -275,14 +275,14 @@
                      placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="subjectPrerequisitesField.value">
-            <div>{{subjectPrerequisitesField.value.name}}</div>
+            <div>{{ subjectPrerequisitesField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="group" let-group>
-          <i [class]="PrimeIcons.BOOK" style="font-size: 1rem"></i> {{group.name}}
+          <i [class]="PrimeIcons.BOOK" style="font-size: 1rem"></i> {{ group.name }}
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-multiSelect>
       <small appErrorMessage
@@ -305,14 +305,14 @@
                      placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="subjectCorequisitesField.value">
-            <div>{{subjectCorequisitesField.value.name}}</div>
+            <div>{{ subjectCorequisitesField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="group" let-group>
-          <i [class]="PrimeIcons.BOOK" style="font-size: 1rem"></i> {{group.name}}
+          <i [class]="PrimeIcons.BOOK" style="font-size: 1rem"></i> {{ group.name }}
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-multiSelect>
       <small appErrorMessage

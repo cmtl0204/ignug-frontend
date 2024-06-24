@@ -6,18 +6,17 @@
 </div>
 
 <div *ngIf="pdfSrc==='error'" class="text-center">
-  <img src="assets/images/components/student/advertising.png" alt="">
+  <img src="/assets/images/components/student/advertising.png" alt="">
 </div>
 
 <div *ngIf="pdfSrc && pdfSrc!='error'" class="grid p-fluid">
   <div class="col-5 col-offset-4">
-    <button pButton
-            type="button"
-            class="p-button-info"
-            label="Descargar"
-            [icon]="PrimeIcons.DOWNLOAD"
-            iconPos="left"
-            (click)="download()"></button>
+    <p-button
+      [severity]="SeverityButtonActionEnum.DOWNLOAD"
+      label="Descargar"
+      [icon]="PrimeIcons.DOWNLOAD"
+      iconPos="left"
+      (click)="download()"></p-button>
   </div>
 
   <div class="col-6 col-offset-4">

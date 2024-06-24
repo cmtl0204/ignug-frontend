@@ -1,3 +1,4 @@
+<script src="student-card.component.ts"></script>
 <div *ngIf="pdfSrc==='error'" class="panel-messages-error text-center">
   <h1>Estimado estudiante, el proceso de matrícula para el periodo actual ha concluido.</h1>
   <p>Por favor esté pendiente a su correo institucional y a nuestros canales oficiales para la nueva etapa de matrícula
@@ -6,7 +7,7 @@
 </div>
 
 <div *ngIf="pdfSrc==='error'" class="text-center">
-  <img src="assets/images/components/student/advertising.png" alt="">
+  <img src="/assets/images/components/student/advertising.png" alt="">
 </div>
 
 <div *ngIf="pdfSrc && pdfSrc!='error'" class="grid p-fluid">

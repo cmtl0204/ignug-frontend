@@ -13,12 +13,12 @@ import {
   CurriculumsHttpService, CareersService
 } from "@services/core";
 import {
-  CurriculumEnum,
-  BreadcrumbEnum,
-  CatalogueTypeEnum,
-  ClassButtonActionEnum, IconButtonActionEnum,
-  LabelButtonActionEnum,
-  SkeletonEnum
+    CurriculumEnum,
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum, IconButtonActionEnum,
+    LabelButtonActionEnum,
+    SkeletonEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 import {isAfter, isBefore} from "date-fns";
 
@@ -188,4 +188,5 @@ export class CurriculumFormComponent implements OnInit, OnExitInterface {
   protected readonly ClassButtonActionEnum = ClassButtonActionEnum;
   protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
   protected readonly IconButtonActionEnum = IconButtonActionEnum;
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

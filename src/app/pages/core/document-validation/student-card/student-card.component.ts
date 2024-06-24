@@ -2,7 +2,7 @@ import {Component, inject, Input, OnInit} from '@angular/core';
 import {BreadcrumbService, CareersService, SchoolPeriodsService, StudentsHttpService} from "@services/core";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum, SeverityButtonActionEnum} from "@shared/enums";
 import {ActivatedRoute, Router, RouterStateSnapshot} from "@angular/router";
 
 @Component({
@@ -11,8 +11,9 @@ import {ActivatedRoute, Router, RouterStateSnapshot} from "@angular/router";
   styleUrls: ['./student-card.component.scss']
 })
 export class StudentCardComponent implements OnInit {
-  @Input() identification!: string;
-  @Input() careerCode!: string;
+  @Input() studentId!: string;
+  @Input() careerId!: string;
+  @Input() schoolPeriodId!: string;
   private readonly studentsHttpService = inject(StudentsHttpService);
   private readonly authService = inject(AuthService);
   private readonly breadcrumbService = inject(BreadcrumbService);
@@ -23,26 +24,26 @@ export class StudentCardComponent implements OnInit {
   protected isLoadingPdf: boolean = false;
 
   constructor(private readonly activatedRoute: ActivatedRoute) {
-    this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.STUDENT_CARD},
-    ]);
-
-    this.generateStudentCard();
-    console.log();
-    console.log();
+    this.breadcrumbService.setItems([{label: BreadcrumbEnum.STUDENT_CARD}]);
   }
 
   ngOnInit() {
-    console.log(this.identification);
+    this.generateStudentCard();
   }
 
   generateStudentCard() {
     this.isLoadingPdf = false;
 
+    if (this.authService.auth) {
+      this.studentId = this.authService.auth.student.id;
+      this.careerId = this.careersService.career.id;
+      this.schoolPeriodId = this.schoolPeriodsService.openSchoolPeriod.id;
+    }
+
     this.studentsHttpService.generateStudentCard(
-      this.activatedRoute.snapshot.params['identification'],
-      this.activatedRoute.snapshot.queryParams['careerCode'],
-      this.schoolPeriodsService.openSchoolPeriod.id).subscribe(
+      this.studentId,
+      this.careerId,
+      this.schoolPeriodId).subscribe(
       (pdf) => {
         this.pdf = pdf;
         const reader = new FileReader();
@@ -69,4 +70,5 @@ export class StudentCardComponent implements OnInit {
   }
 
   protected readonly PrimeIcons = PrimeIcons;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

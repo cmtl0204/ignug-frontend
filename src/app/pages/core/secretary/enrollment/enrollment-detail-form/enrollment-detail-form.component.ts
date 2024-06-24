@@ -21,12 +21,12 @@ import {
 } from '@services/core';
 
 import {
-  BreadcrumbEnum,
-  CatalogueTypeEnum,
-  ClassButtonActionEnum,
-  SkeletonEnum,
-  LabelButtonActionEnum,
-  IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum,
+    SkeletonEnum,
+    LabelButtonActionEnum,
+    IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
 } from '@shared/enums';
 
 import {EnrollmentDetailsHttpService} from '@services/core';
@@ -258,4 +258,5 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
   }
 
   protected readonly Validators = Validators;
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

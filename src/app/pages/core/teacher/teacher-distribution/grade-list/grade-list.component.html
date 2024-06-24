@@ -1,12 +1,12 @@
 <p-toolbar>
   <div class="p-toolbar-group-left">
-    <button pButton pRipple type="button"
-            (click)="downloadGradesByTeacherDistribution()"
-            [icon]="IconButtonActionEnum.DOWNLOADS"
-            label="Descargar Calificaciones"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.DOWNLOAD]">
-    </button>
+    <p-button
+      (click)="downloadGradesByTeacherDistribution()"
+      [icon]="IconButtonActionEnum.DOWNLOADS"
+      label="Descargar Calificaciones"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.DOWNLOAD">
+    </p-button>
 
     <p-fileUpload
       #uploadFiles
@@ -23,13 +23,15 @@
       (uploadHandler)="uploadImportGrades($event,uploadFiles)">
     </p-fileUpload>
 
-    <button *ngIf="uploadErrors" pButton pRipple type="button"
-            (click)="downloadErrorReport()"
-            [icon]="IconButtonActionEnum.DOWNLOADS"
-            label="Informe de Errores"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.WARNING,'ml-2']">
-    </button>
+    <p-button
+      *ngIf="uploadErrors"
+      (click)="downloadErrorReport()"
+      [icon]="IconButtonActionEnum.DOWNLOADS"
+      label="Informe de Errores"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.DOWNLOAD"
+      class="ml-2">
+    </p-button>
   </div>
   <div class="p-toolbar-group-right">
 
@@ -132,7 +134,9 @@
         </div>
       </td>
       <td class="text-center">
-        <button pButton pRipple type="button" [icon]="PrimeIcons.ELLIPSIS_V" (click)="selectItem(rowData)"></button>
+        <p-button
+          [icon]="PrimeIcons.ELLIPSIS_V"
+          (click)="selectItem(rowData)"></p-button>
       </td>
     </tr>
   </ng-template>

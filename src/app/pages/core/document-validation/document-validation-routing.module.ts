@@ -9,7 +9,7 @@ const routes: Routes = [
     component: EnrollmentCertificateComponent
   },
   {
-    path: 'student-card/:identification',
+    path: 'student-card/:studentId',
     component: StudentCardComponent
   }
 ];

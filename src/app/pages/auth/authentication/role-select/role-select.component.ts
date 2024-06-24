@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PrimeIcons} from "primeng/api";
 import {RolesEnum} from "@shared/enums";
@@ -9,7 +9,8 @@ import {CareersService, CoreService, InstitutionsService, MessageService, Routes
 @Component({
   selector: 'app-role-select',
   templateUrl: './role-select.component.html',
-  styleUrls: ['./role-select.component.scss']
+  styleUrls: ['./role-select.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class RoleSelectComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons;

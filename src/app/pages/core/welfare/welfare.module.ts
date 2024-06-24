@@ -29,39 +29,43 @@ import {ToolbarModule} from "primeng/toolbar";
 
 // Components
 import {EnrollmentListComponent} from "./enrollment-list/enrollment-list.component";
+import {InputGroupAddonModule} from "primeng/inputgroupaddon";
+import {InputGroupModule} from "primeng/inputgroup";
 
 @NgModule({
   declarations: [
     EnrollmentListComponent
   ],
-  imports: [
-    CommonModule,
-    WelfareRoutingModule,
-    ReactiveFormsModule,
-    ButtonModule,
-    RippleModule,
-    MessageModule,
-    ToolbarModule,
-    PaginatorModule,
-    TableModule,
-    TagModule,
-    SplitButtonModule,
-    InputTextModule,
-    SidebarModule,
-    PanelMenuModule,
-    SharedModule,
-    PanelModule,
-    DividerModule,
-    InputSwitchModule,
-    TableModule,
-    TabViewModule,
-    CalendarModule,
-    AccordionModule,
-    DialogModule,
-    DropdownModule,
-    BadgeModule,
-    OverlayPanelModule
-  ]
+    imports: [
+        CommonModule,
+        WelfareRoutingModule,
+        ReactiveFormsModule,
+        ButtonModule,
+        RippleModule,
+        MessageModule,
+        ToolbarModule,
+        PaginatorModule,
+        TableModule,
+        TagModule,
+        SplitButtonModule,
+        InputTextModule,
+        SidebarModule,
+        PanelMenuModule,
+        SharedModule,
+        PanelModule,
+        DividerModule,
+        InputSwitchModule,
+        TableModule,
+        TabViewModule,
+        CalendarModule,
+        AccordionModule,
+        DialogModule,
+        DropdownModule,
+        BadgeModule,
+        OverlayPanelModule,
+        InputGroupAddonModule,
+        InputGroupModule
+    ]
 })
 export class WelfareModule {
 }

@@ -440,3 +440,11 @@ export enum UsersFormEnum {
   name = 'Nombres',
   lastname = 'Apellidos',
 }
+
+export enum LoginFormEnum {
+  username = 'Usuario',
+  password = 'Contraseña',
+  passwordNew = 'Nueva contraseña',
+  passwordConfirmation = 'Repita la contraseña',
+  roleSelect = 'Seleccione un rol',
+}

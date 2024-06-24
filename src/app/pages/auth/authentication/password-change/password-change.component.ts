@@ -32,9 +32,9 @@ export class PasswordChangeComponent implements OnInit {
 
   newForm(): FormGroup {
     return this.formBuilder.group({
-      confirmationPassword: [null, [Validators.required]],
-      newPassword: [null, [Validators.required, Validators.minLength(8)]],
-      oldPassword: [null, [Validators.required]],
+      passwordConfirmation: [null, [Validators.required]],
+      passwordNew: [null, [Validators.required, Validators.minLength(8)]],
+      passwordOld: [null, [Validators.required]],
     }, {validators: CustomValidators.passwordMatchValidator});
   }
 
@@ -52,15 +52,15 @@ export class PasswordChangeComponent implements OnInit {
     });
   }
 
-  get confirmationPasswordField() {
-    return this.form.controls['confirmationPassword'];
+  get passwordConfirmationField() {
+    return this.form.controls['passwordConfirmation'];
   }
 
-  get newPasswordField() {
-    return this.form.controls['newPassword'];
+  get passwordNewField() {
+    return this.form.controls['passwordNew'];
   }
 
-  get oldPasswordField() {
-    return this.form.controls['oldPassword'];
+  get passwordOldField() {
+    return this.form.controls['passwordOld'];
   }
 }

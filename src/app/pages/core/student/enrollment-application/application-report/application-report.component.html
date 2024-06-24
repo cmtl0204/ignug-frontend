@@ -2,22 +2,20 @@
 
 <div class="formgrid grid">
   <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-    <button pButton
-            type="button"
-            class="p-button-warning"
+    <p-button
+            [severity]="SeverityButtonActionEnum.CANCEL"
             label="Regresar"
             [icon]="PrimeIcons.ARROW_LEFT"
             iconPos="left"
-            (click)="previous()"></button>
+            (click)="previous()"></p-button>
   </div>
   <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-    <button pButton
-            type="button"
-            class="p-button-info"
+    <p-button
+            [severity]="SeverityButtonActionEnum.DOWNLOAD"
             label="Descargar"
             [icon]="PrimeIcons.DOWNLOAD"
             iconPos="left"
-            (click)="download()"></button>
+            (click)="download()"></p-button>
   </div>
 </div>
 

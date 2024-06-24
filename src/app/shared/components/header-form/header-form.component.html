@@ -3,11 +3,11 @@
     @if (id === RoutesEnum.NEW) {
       <p-button [label]="label" [icon]="icon" severity="success" [text]="true" size="large"></p-button>
     } @else {
-      <p-button [label]="label" [icon]="icon" severity="primary" [text]="true" size="large"></p-button>
+      <p-button [label]="label" [icon]="icon" [text]="true" size="large"></p-button>
     }
   </div>
 
   <div class="col-12">
-    <small class="" [innerHTML]="message"></small>
+    <small class="ml-3 mt-2" [innerHTML]="message"></small>
   </div>
 </div>

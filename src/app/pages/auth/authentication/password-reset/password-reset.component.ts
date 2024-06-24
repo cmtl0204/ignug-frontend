@@ -1,40 +1,48 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PrimeIcons} from "primeng/api";
 import {CustomValidators} from "@shared/validators";
 import {AuthHttpService, AuthService} from '@services/auth';
 import {CoreService, MessageService, RoutesService} from '@services/core';
+import {LoginFormEnum} from "@shared/enums";
 
 @Component({
   selector: 'app-password-reset',
   templateUrl: './password-reset.component.html',
-  styleUrls: ['./password-reset.component.scss']
+  styleUrls: ['./password-reset.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class PasswordResetComponent implements OnInit {
-  protected form: FormGroup;
+  //Services
+  protected readonly coreService = inject(CoreService);
+  private readonly formBuilder = inject(FormBuilder);
+  private readonly authHttpService = inject(AuthHttpService);
+  public readonly messageService = inject(MessageService);
+  protected readonly authService = inject(AuthService);
+  protected readonly routesService = inject(RoutesService);
+
+  //Form
+  protected form!: FormGroup;
+
+  //Enums
   protected readonly PrimeIcons = PrimeIcons;
+
+  //Flags
   protected isValidTransactionalCode: boolean = false;
   protected isRequestTransactionalCode: boolean = false;
 
-  constructor(
-    protected coreService: CoreService,
-    private formBuilder: FormBuilder,
-    private authHttpService: AuthHttpService,
-    public messageService: MessageService,
-    protected authService: AuthService,
-    protected routesService: RoutesService) {
-    this.form = this.newForm();
+  constructor() {
+    this.buildForm();
   }
 
   ngOnInit(): void {
-
   }
 
-  newForm(): FormGroup {
-    return this.formBuilder.group({
+  buildForm(): void {
+    this.form = this.formBuilder.group({
       transactionalCode: [null, [Validators.required, Validators.minLength(6)]],
-      newPassword: [null, [Validators.required, Validators.minLength(8)]],
-      confirmationPassword: [null, [Validators.required]],
+      passwordNew: [null, [Validators.required, Validators.minLength(8)]],
+      passwordConfirmation: [null, [Validators.required]],
       username: [null, [Validators.required]],
     }, {validators: CustomValidators.passwordMatchValidator});
   }
@@ -72,6 +80,10 @@ export class PasswordResetComponent implements OnInit {
     }
   }
 
+  redirectLogin() {
+    this.routesService.login();
+  }
+
   get usernameField() {
     return this.form.controls['username'];
   }
@@ -80,11 +92,13 @@ export class PasswordResetComponent implements OnInit {
     return this.form.controls['transactionalCode'];
   }
 
-  get newPasswordField() {
-    return this.form.controls['newPassword'];
+  get passwordNewField() {
+    return this.form.controls['passwordNew'];
   }
 
-  get confirmationPasswordField() {
-    return this.form.controls['confirmationPassword'];
+  get passwordConfirmationField() {
+    return this.form.controls['passwordConfirmation'];
   }
+
+  protected readonly LoginFormEnum = LoginFormEnum;
 }

@@ -10,7 +10,7 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, SkeletonEnum,} from '@shared/enums';
+import {CatalogueEnrollmentStateEnum, SeverityButtonActionEnum, SkeletonEnum,} from '@shared/enums';
 import {AuthService} from '@services/auth';
 import {EnrollmentStateModel} from "@models/core/enrollment-state.model";
 
@@ -88,4 +88,5 @@ export class SocioeconomicFormComponent implements OnInit {
   }
 
   protected readonly parseInt = parseInt;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

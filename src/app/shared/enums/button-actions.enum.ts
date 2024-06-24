@@ -92,6 +92,7 @@ export enum ClassButtonActionEnum {
 }
 
 export enum SeverityButtonActionEnum {
+  REFRESH = 'info',
   CREATE = 'success',
   DOWNLOAD = 'info',
   CANCEL = 'warning',

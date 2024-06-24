@@ -97,11 +97,11 @@
                   placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="ethnicOriginField.value">
-            <div>{{ethnicOriginField.value.name}}</div>
+            <div>{{ ethnicOriginField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-dropdown>
       <small appErrorMessage
@@ -126,11 +126,11 @@
                   placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="sexField.value">
-            <div>{{sexField.value.name}}</div>
+            <div>{{ sexField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-dropdown>
       <small appErrorMessage
@@ -151,11 +151,11 @@
                   placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="genderField.value">
-            <div>{{genderField.value.name}}</div>
+            <div>{{ genderField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-dropdown>
       <small appErrorMessage
@@ -180,11 +180,11 @@
                   placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="bloodTypeField.value">
-            <div>{{bloodTypeField.value.name}}</div>
+            <div>{{ bloodTypeField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-dropdown>
       <small appErrorMessage
@@ -205,11 +205,11 @@
                   placeholder="Seleccione...">
         <ng-template pTemplate="selectedItem">
           <div *ngIf="maritalStatusField.value">
-            <div>{{maritalStatusField.value.name}}</div>
+            <div>{{ maritalStatusField.value.name }}</div>
           </div>
         </ng-template>
         <ng-template pTemplate="item" let-item>
-          {{item.name}}
+          {{ item.name }}
         </ng-template>
       </p-dropdown>
       <small appErrorMessage
@@ -222,9 +222,11 @@
 
   <!--submit-->
   <div class="field">
-    <button pButton pRipple id="submitProfile" type="submit"
-            label="Actualizar"
-            [icon]="PrimeIcons.SAVE"
-            [loading]="coreService.isLoading"></button>
+    <p-button
+      id="submitProfile"
+      type="submit"
+      label="Actualizar"
+      [icon]="PrimeIcons.SAVE"
+      [loading]="coreService.isLoading"></p-button>
   </div>
 </form>

@@ -22,10 +22,10 @@ import {
   SubjectsService,
 } from '@services/core';
 import {
-  BreadcrumbEnum,
-  CatalogueSubjectRequirementTypeEnum,
-  CatalogueTypeEnum, ClassButtonActionEnum, IconButtonActionEnum, LabelButtonActionEnum,
-  SkeletonEnum,SubjectFormEnum
+    BreadcrumbEnum,
+    CatalogueSubjectRequirementTypeEnum,
+    CatalogueTypeEnum, ClassButtonActionEnum, IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
+    SkeletonEnum, SubjectFormEnum
 } from '@shared/enums';
 import {OnExitInterface} from '@shared/interfaces';
 
@@ -359,4 +359,6 @@ export class SubjectFormComponent implements OnInit, OnExitInterface {
   get subjectCorequisitesField(): AbstractControl {
     return this.form.controls['subjectCorequisites'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

@@ -1,15 +1,17 @@
-<div class="login-page">
-  <div class="login-form">
-    <div class="p-fluid panel-auth">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="field text-center">
-          <img src="assets/images/logo/logo-sm.png" alt="">
-          <h2>{{ authService.system }}</h2>
-        </div>
+<div class="p-fluid grid mt-2">
+  <p-panel class="col-12 xl:col-4 lg:col-4 md:col-7 xl:col-offset-8 lg:col-offset-8 md:col-offset-5">
+    <ng-template pTemplate="header">
+      <div class="field col-12 text-center">
+        <img src="/assets/images/logo/logo-sm.png" alt="">
+        <h2 style="color:#0d3c61">{{ authService.system }}</h2>
+      </div>
+    </ng-template>
 
-        <div class="field">
+    <ng-template pTemplate="content">
+      <form [formGroup]="form">
+        <div class="field col-12">
           <label for="username" appLabel label="Usuario:" [required]="usernameField"></label>
-          <input pInputText id="username" formControlName="username">
+          <input pInputText id="username" formControlName="username" placeholder="Escriba aquí su usuario">
           <small appErrorMessage
                  [errors]="usernameField.errors"
                  [touched]="usernameField.touched"
@@ -17,36 +19,41 @@
           </small>
         </div>
 
-        <div class="field">
+        <div class="field col-12">
           <label for="password" appLabel label="Contraseña:" [required]="passwordField"></label>
-          <p-password id="password" formControlName="password" [feedback]="false"></p-password>
+          <p-password id="password"
+                      formControlName="password"
+                      [feedback]="false"
+                      [toggleMask]="true"
+                      placeholder="Escriba aquí su contraseña"></p-password>
           <small appErrorMessage
                  [errors]="passwordField.errors"
                  [touched]="passwordField.touched"
                  [dirty]="passwordField.dirty">
           </small>
         </div>
-
-        <div *ngIf="coreService.isLoading" class="field">
-          <app-progress-bar [message]="messageService.progressBarLogin"></app-progress-bar>
-        </div>
-
-        <div class="field">
-          <p-button
-            type="submit"
-            label="Continuar"
-            [icon]="PrimeIcons.SIGN_IN"></p-button>
-        </div>
-
-        <div class="formgrid grid">
-          <div class="field xl:col-6 lg:col-6 md:col-12 sm:col-12">
-            <p-button
-              label="Recuperar contraseña"
-              severity="info"
-              icon="pi pi-key" (click)="redirectPasswordReset()"></p-button>
-          </div>
-        </div>
       </form>
-    </div>
-  </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div *ngIf="coreService.isLoading" class="field col-12">
+        <app-progress-bar [message]="messageService.progressBarLogin"></app-progress-bar>
+      </div>
+
+      <div class="field col-12">
+        <p-button
+          (click)="onSubmit()"
+          label="Continuar"
+          [icon]="PrimeIcons.SIGN_IN"></p-button>
+      </div>
+
+      <div class="field col-12 xl:col-12 lg:col-12 md:col-12 sm:col-12">
+        <p-button
+          label="Recuperar contraseña"
+          severity="info"
+          [icon]="PrimeIcons.KEY"
+          (click)="redirectPasswordReset()"></p-button>
+      </div>
+    </ng-template>
+  </p-panel>
 </div>

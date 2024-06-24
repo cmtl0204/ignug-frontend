@@ -13,11 +13,11 @@ import {
   InstitutionsHttpService
 } from "@services/core";
 import {
-  BreadcrumbEnum,
-  CatalogueTypeEnum,
-  ClassButtonActionEnum,
-  IconButtonActionEnum, InstitutionFormEnum, LabelButtonActionEnum,
-  SkeletonEnum
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum,
+    IconButtonActionEnum, InstitutionFormEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
+    SkeletonEnum
 } from "@shared/enums";
 import {Expressions} from "@shared/regular-expresions";
 
@@ -220,4 +220,5 @@ export class InstitutionFormComponent implements OnInit, OnExitInterface {
     protected readonly ClassButtonActionEnum = ClassButtonActionEnum;
     protected readonly IconButtonActionEnum = IconButtonActionEnum;
     protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

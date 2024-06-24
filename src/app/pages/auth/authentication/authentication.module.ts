@@ -20,27 +20,29 @@ import {RoleSelectComponent} from "./role-select/role-select.component";
 import {DropdownModule} from "primeng/dropdown";
 import {InstitutionSelectComponent} from "./institution-select/institution-select.component";
 import {MessageModule} from "primeng/message";
+import {PanelModule} from "primeng/panel";
 
 
 @NgModule({
   declarations: [LoginComponent, PasswordChangeComponent, PasswordResetComponent, RoleSelectComponent, InstitutionSelectComponent],
   exports: [PasswordChangeComponent],
-  imports: [
-    CommonModule,
-    AuthenticationRoutingModule,
-    ReactiveFormsModule,
-    SharedModule,
-    ButtonModule,
-    CardModule,
-    CheckboxModule,
-    DividerModule,
-    InputTextModule,
-    PasswordModule,
-    RippleModule,
-    DropdownModule,
-    NgOptimizedImage,
-    MessageModule,
-  ]
+    imports: [
+        CommonModule,
+        AuthenticationRoutingModule,
+        ReactiveFormsModule,
+        SharedModule,
+        ButtonModule,
+        CardModule,
+        CheckboxModule,
+        DividerModule,
+        InputTextModule,
+        PasswordModule,
+        RippleModule,
+        DropdownModule,
+        NgOptimizedImage,
+        MessageModule,
+        PanelModule,
+    ]
 })
 export class AuthenticationModule {
 }

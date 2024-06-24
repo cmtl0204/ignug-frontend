@@ -16,16 +16,16 @@
   <div class="xl:col-3 lg:col-3 md:col-4 sm:col-12" *ngFor="let teacherDistribution of teacherDistributions">
     <div class="panel-card p-fluid">
       <h2 class="text-center">
-        {{teacherDistribution.subject.name}}
+        {{ teacherDistribution.subject.name }}
       </h2>
       <p-divider></p-divider>
       <h5 class="text-center">
-        {{teacherDistribution.subject.academicPeriod.name + ' - ' + teacherDistribution.workday.name + ' - ' + teacherDistribution.parallel.name}}
+        {{ teacherDistribution.subject.academicPeriod.name + ' - ' + teacherDistribution.workday.name + ' - ' + teacherDistribution.parallel.name }}
       </h5>
       <p-divider></p-divider>
       <h3 class="text-center">
         <i [class]="PrimeIcons.USER"></i>
-        {{authService.auth.lastname + ' ' + authService.auth.name}}
+        {{ authService.auth.lastname + ' ' + authService.auth.name }}
       </h3>
       <p-divider></p-divider>
       <div class="text-center">
@@ -45,9 +45,11 @@
         <p-divider *ngIf="partialPermission?.partial"></p-divider>
       </div>
 
-      <button pButton (click)="redirectTeacherDistributionGrades(teacherDistribution)" label="Ingresar"
-              class="text-center"
-              [icon]="PrimeIcons.VERIFIED"></button>
+      <p-button
+        label="Ingresar"
+        (click)="redirectTeacherDistributionGrades(teacherDistribution)"
+        class="text-center"
+        [icon]="PrimeIcons.VERIFIED"></p-button>
     </div>
   </div>
 </div>

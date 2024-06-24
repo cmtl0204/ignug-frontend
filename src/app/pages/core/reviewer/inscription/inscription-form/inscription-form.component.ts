@@ -14,12 +14,12 @@ import {
   RoutesService,
 } from '@services/core';
 import {
-  BreadcrumbEnum,
-  CatalogueTypeEnum,
-  ClassButtonActionEnum,
-  SkeletonEnum,
-  LabelButtonActionEnum,
-  IconButtonActionEnum, CatalogueEnrollmentStateEnum
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum,
+    SkeletonEnum,
+    LabelButtonActionEnum,
+    IconButtonActionEnum, CatalogueEnrollmentStateEnum, SeverityButtonActionEnum
 } from '@shared/enums';
 
 @Component({
@@ -355,4 +355,6 @@ export class InscriptionFormComponent implements OnInit, OnExitInterface {
   get socioeconomicScoreField(): AbstractControl {
     return this.form.controls['socioeconomicScore'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

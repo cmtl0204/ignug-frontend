@@ -23,13 +23,13 @@ import {
   SchoolPeriodsHttpService, SchoolPeriodsService
 } from '@services/core';
 import {
-  IdButtonActionEnum,
-  BreadcrumbEnum,
-  CatalogueTypeEnum,
-  ClassButtonActionEnum,
-  IconButtonActionEnum,
-  LabelButtonActionEnum,
-  CatalogueEnrollmentStateEnum
+    IdButtonActionEnum,
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum,
+    IconButtonActionEnum,
+    LabelButtonActionEnum,
+    CatalogueEnrollmentStateEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 
 @Component({
@@ -366,6 +366,8 @@ export class InscriptionListComponent implements OnInit {
   redirectEnrollmentDetails(id: string) {
     this.router.navigate([this.routesService.inscriptionsDetailList(this.selectedItem.id!)]);
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }
 
 

@@ -1,13 +1,14 @@
-<div class="login-page">
-  <div class="login-form">
-    <div class="p-fluid panel-auth">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="field text-center">
-          <h1>Seleccione un Rol</h1>
-          <img src="assets/images/logo/logo-sm.png" alt="">
-          <h2>{{ authService.system }}</h2>
-        </div>
+<div class="p-fluid grid mt-2">
+  <p-panel class="col-12 xl:col-4 lg:col-4 md:col-7 xl:col-offset-8 lg:col-offset-8 md:col-offset-5">
+    <ng-template pTemplate="header">
+      <div class="field col-12 text-center">
+        <img src="/assets/images/logo/logo-sm.png" alt="">
+        <h2 style="color:#0d3c61">{{ authService.system }}</h2>
+      </div>
+    </ng-template>
 
+    <ng-template pTemplate="content">
+      <form [formGroup]="form">
         <div class="field">
           <label for="role" appLabel label="Seleccione un Rol:" [required]="roleField"></label>
           <p-dropdown id="role"
@@ -25,22 +26,25 @@
                  [dirty]="roleField.dirty">
           </small>
         </div>
-
-        <div class="field">
-          <p-button
-            type="submit"
-            label="Continuar"
-            [icon]="PrimeIcons.SIGN_IN"></p-button>
-        </div>
-
-        <div class="field">
-          <p-button
-                  [outlined]="true"
-                  label="Regresar al login"
-                  [icon]="PrimeIcons.ARROW_LEFT"
-                  (click)="routesService.login()"></p-button>
-        </div>
       </form>
-    </div>
-  </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="field">
+        <p-button
+          label="Continuar"
+          [icon]="PrimeIcons.SIGN_IN"
+          (click)="onSubmit()">
+        </p-button>
+      </div>
+
+      <div class="field">
+        <p-button
+          label="Regresar al login"
+          severity="warning"
+          [icon]="PrimeIcons.ARROW_LEFT"
+          (click)="routesService.login()"></p-button>
+      </div>
+    </ng-template>
+  </p-panel>
 </div>

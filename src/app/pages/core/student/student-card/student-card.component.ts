@@ -30,19 +30,23 @@ export class StudentCardComponent {
   generateStudentCard() {
     this.isLoadingPdf = false;
 
-    this.studentsHttpService.generateStudentCard(this.authService.auth.student.id, this.careersService.career.id, this.schoolPeriodsService.openSchoolPeriod.id).subscribe(
-      (pdf) => {
-        this.pdf = pdf;
-        const reader = new FileReader();
-        reader.readAsDataURL(pdf);
-        reader.onloadend = () => {
-          if (typeof reader.result === 'string')
-            this.pdfSrc = reader.result;
-          this.isLoadingPdf = true;
-        };
-      },(error)=>{
-        this.pdfSrc = 'error';
-      }
+    this.studentsHttpService.generateStudentCard(
+      this.authService.auth.student.id,
+      this.careersService.career.id,
+      this.schoolPeriodsService.openSchoolPeriod.id)
+      .subscribe(
+        (pdf) => {
+          this.pdf = pdf;
+          const reader = new FileReader();
+          reader.readAsDataURL(pdf);
+          reader.onloadend = () => {
+            if (typeof reader.result === 'string')
+              this.pdfSrc = reader.result;
+            this.isLoadingPdf = true;
+          };
+        }, (error) => {
+          this.pdfSrc = 'error';
+        }
       );
   }
 
