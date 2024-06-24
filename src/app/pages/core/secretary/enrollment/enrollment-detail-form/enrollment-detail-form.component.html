@@ -36,6 +36,8 @@
                     dataKey="id"
                     formControlName="subject"
                     [options]="subjects"
+                    [filter]="true"
+                    filterBy="code,name"
                     optionLabel="name"
                     placeholder="Seleccione">
           <ng-template pTemplate="selectedItem">

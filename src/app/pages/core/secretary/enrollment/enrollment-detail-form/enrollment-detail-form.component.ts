@@ -43,7 +43,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
   protected readonly SkeletonEnum = SkeletonEnum;
   protected readonly PrimeIcons = PrimeIcons;
   protected enrollmentId!: string;
-  protected id: string = RoutesEnum.NEW;
+  protected id: string = '';
   protected form: FormGroup;
   protected formErrors: string[] = [];
 

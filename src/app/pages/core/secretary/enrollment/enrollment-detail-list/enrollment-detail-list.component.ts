@@ -14,7 +14,15 @@ import {
   RoutesService,
   SchoolPeriodsHttpService
 } from '@services/core';
-import { IdButtonActionEnum, BreadcrumbEnum, CatalogueTypeEnum, ClassButtonActionEnum, IconButtonActionEnum, LabelButtonActionEnum } from "@shared/enums";
+import {
+    IdButtonActionEnum,
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    ClassButtonActionEnum,
+    IconButtonActionEnum,
+    LabelButtonActionEnum,
+    SeverityButtonActionEnum
+} from "@shared/enums";
 import { EnrollmentDetailsHttpService } from '@services/core/enrollment-details-http.service';
 
 @Component({
@@ -220,4 +228,6 @@ export class EnrollmentDetailListComponent implements OnInit {
   redirectEditForm(id: string) {
     this.router.navigate([this.routesService.enrollmentsDetailForm(this.enrollmentId), id]);
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }
