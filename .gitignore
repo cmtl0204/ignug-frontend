@@ -44,3 +44,5 @@ Thumbs.db
 /src/environments/environment.production.ts
 /src/environments/environment.qa.ts
 /src/environments/environment.ts
+
+/package-log.json
