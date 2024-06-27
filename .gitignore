@@ -45,4 +45,4 @@ Thumbs.db
 /src/environments/environment.qa.ts
 /src/environments/environment.ts
 
-/package-log.json
+/package-lock.json
