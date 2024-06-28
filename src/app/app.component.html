@@ -1,10 +1,6 @@
-<p-button label="Enviar" (click)="show()"></p-button>
-
-<p-sidebar [(visible)]="visible"></p-sidebar>
-
 <router-outlet></router-outlet>
 
-<!--<app-theme></app-theme>-->
+<app-theme></app-theme>
 
 <p-dialog header="Procesando"
           [visible]="coreService.isProcessing"
