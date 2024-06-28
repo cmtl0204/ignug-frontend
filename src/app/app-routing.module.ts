@@ -7,7 +7,6 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
-      {path: '', redirectTo: '/login', pathMatch: 'full'},
       {
         path: 'admin',
         title: 'Admin',
