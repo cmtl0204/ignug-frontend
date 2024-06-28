@@ -1,4 +1,4 @@
-import {CareerModel,CatalogueModel} from "@models/core";
+import {CareerModel, CatalogueModel} from "@models/core";
 
 export interface CurriculumModel {
   id: string;
@@ -7,8 +7,9 @@ export interface CurriculumModel {
   deleteAt: Date;
   isVisible: boolean;
 
-  career:CareerModel;
-  state:CatalogueModel;
+  career: CareerModel;
+  careerId: string;
+  state: CatalogueModel;
 
   code: string;
   name: string;
@@ -17,6 +18,7 @@ export interface CurriculumModel {
   periodicAcademicNumber: number;
   weeksNumber: number;
 }
+
 export interface CreateCurriculumDto extends Omit<CurriculumModel, 'id'> {
 }
 

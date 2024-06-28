@@ -188,7 +188,8 @@ export class GradesHttpService {
         const filePath = URL.createObjectURL(new Blob([response]));
         const downloadLink = document.createElement('a');
         downloadLink.href = filePath;
-        downloadLink.setAttribute('download', 'Errores.xlsx');
+        const fileName = format(new Date(), 'yyyy_MM_dd HH_mm_ss');
+        downloadLink.setAttribute('download', `Informe_Errores_${fileName}.xlsx`);
         document.body.appendChild(downloadLink);
         downloadLink.click();
         this.coreService.isProcessing = false;

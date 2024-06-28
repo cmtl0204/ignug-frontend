@@ -20,7 +20,7 @@
       accept=".xlsx,.xls"
       [maxFileSize]="1024000"
       [customUpload]="true"
-      (uploadHandler)="uploadImportGrades($event,uploadFiles)">
+      (uploadHandler)="uploadGrades($event,uploadFiles)">
     </p-fileUpload>
 
     <p-button
@@ -29,7 +29,7 @@
       [icon]="IconButtonActionEnum.DOWNLOADS"
       label="Informe de Errores"
       [loading]="coreService.isLoading"
-      [severity]="SeverityButtonActionEnum.DOWNLOAD"
+      [severity]="SeverityButtonActionEnum.WARNING"
       class="ml-2">
     </p-button>
   </div>

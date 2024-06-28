@@ -129,10 +129,11 @@ export class GradeListComponent implements OnInit{
     this.isModalGrades = true;
   }
 
-  uploadImportGrades(event: any, uploadFiles: any) {
+  uploadGrades(event: any, uploadFiles: any) {
     const formData = new FormData();
     formData.append('file', event.files[0]);
     formData.append('teacherDistributionId', this.teacherDistributionsService.teacherDistribution.id!);
+    formData.append('careerId', this.teacherDistributionsService.teacherDistribution.subject.curriculum.careerId!);
 
     this.gradesHttpService.uploadGrades(formData).subscribe({
       next: (response) => {
@@ -140,10 +141,13 @@ export class GradeListComponent implements OnInit{
         this.findEnrollmentsByTeacherDistribution();
       },
       error: () => {
+        this.findEnrollmentsByTeacherDistribution();
         this.uploadErrors = true;
         uploadFiles.clear();
       },
-      complete: () => uploadFiles.clear()
+      complete: () => {
+        uploadFiles.clear()
+      }
     });
   }
 

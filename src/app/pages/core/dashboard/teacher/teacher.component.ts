@@ -7,6 +7,8 @@ import {BreadcrumbService} from "@services/core";
   styleUrls: ['./teacher.component.scss']
 })
 export class TeacherComponent {
+  value : any
+
   constructor(private breadcrumbService:BreadcrumbService) {
     breadcrumbService.setItems([{label: 'Dashboard'}])
   }
