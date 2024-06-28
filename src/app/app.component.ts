@@ -17,7 +17,11 @@ import {DOCUMENT} from "@angular/common";
 })
 export class AppComponent {
   protected readonly CoreMessageEnum = CoreMessageEnum;
+  visible = false;
 
+  show() {
+    this.visible = !this.visible;
+  }
   constructor(@Inject(DOCUMENT) private document: Document, private primengConfig: PrimeNGConfig,
               public readonly coreService: CoreService, private breadcrumbService: BreadcrumbService,
   ) {
