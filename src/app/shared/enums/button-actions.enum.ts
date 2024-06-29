@@ -53,6 +53,7 @@ export enum IconButtonActionEnum {
   UPDATE = 'pi pi-pencil',
   CANCEL = 'pi pi-arrow-left',
   RETURN = 'pi pi-arrow-left',
+  NEXT  = 'pi pi-arrow-right',
   REVOKED = 'pi pi-ban',
   DOWNLOADS = 'pi pi-download',
   SAVE = 'pi pi-save',

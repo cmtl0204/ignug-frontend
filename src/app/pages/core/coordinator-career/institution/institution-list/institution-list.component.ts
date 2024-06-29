@@ -12,11 +12,11 @@ import {
   RoutesService
 } from '@services/core';
 import {
-  IdButtonActionEnum,
-  BreadcrumbEnum,
-  IconButtonActionEnum,
-  LabelButtonActionEnum,
-  ClassButtonActionEnum
+    IdButtonActionEnum,
+    BreadcrumbEnum,
+    IconButtonActionEnum,
+    LabelButtonActionEnum,
+    ClassButtonActionEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 
 @Component({
@@ -176,6 +176,8 @@ export class InstitutionListComponent implements OnInit {
   redirectCareers() {
     this.router.navigate([this.routesService.careers]);
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }
 
 

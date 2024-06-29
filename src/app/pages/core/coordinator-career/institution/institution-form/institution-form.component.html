@@ -5,19 +5,19 @@
     <app-header-form [id]="id"></app-header-form>
   </div>
   <div class="p-toolbar-group-right">
-    <button pButton pRipple type="button"
-            (click)="back()"
-            [icon]="IconButtonActionEnum.CANCEL"
-            [label]="LabelButtonActionEnum.CANCEL"
-            [loading]="coreService.isLoading"
-            [severity]="SeverityButtonActionEnum.CANCEL"></button>
+    <p-button
+      (click)="back()"
+      [icon]="IconButtonActionEnum.CANCEL"
+      [label]="LabelButtonActionEnum.CANCEL"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.CANCEL"></p-button>
     <p-divider layout="vertical"></p-divider>
-    <button pButton pRipple type="button"
-            (click)="onSubmit()"
-            [icon]="IconButtonActionEnum.SAVE"
-            [label]="LabelButtonActionEnum.SAVE"
-            [loading]="coreService.isLoading"
-            [severity]="SeverityButtonActionEnum.SAVE"></button>
+    <p-button
+      (click)="onSubmit()"
+      [icon]="IconButtonActionEnum.SAVE"
+      [label]="LabelButtonActionEnum.SAVE"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.SAVE"></p-button>
   </div>
 </p-toolbar>
 
@@ -36,8 +36,10 @@
       </div>
 
       <div class="field xl:col-3 lg:col-3 md:col-3 sm:col-12">
-        <label appLabel for="denomination" [label]="InstitutionFormEnum.denomination+':'" [required]="denominationField"></label>
-        <app-help-field (mouseenter)="opDenominationField.toggle($event)" (mouseleave)="opDenominationField.hide()"></app-help-field>
+        <label appLabel for="denomination" [label]="InstitutionFormEnum.denomination+':'"
+               [required]="denominationField"></label>
+        <app-help-field (mouseenter)="opDenominationField.toggle($event)"
+                        (mouseleave)="opDenominationField.hide()"></app-help-field>
         <input pInputText type="text" id="denomination" formControlName="denomination"/>
         <small appErrorMessage
                [errors]="denominationField.errors"
@@ -47,7 +49,7 @@
       </div>
 
       <div class="field xl:col-3 lg:col-3 md:col-3 sm:col-12">
-        <label appLabel for="shortName" [label]="InstitutionFormEnum.shortName+':'"  [required]="shortNameField"></label>
+        <label appLabel for="shortName" [label]="InstitutionFormEnum.shortName+':'" [required]="shortNameField"></label>
         <input pInputText type="text" id="shortName" formControlName="shortName"/>
         <small appErrorMessage
                [errors]="shortNameField.errors"
@@ -60,7 +62,7 @@
     <!-- logo & state & isVisible -->
     <div class="formgrid grid">
       <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-        <label appLabel for="logo" [label]="InstitutionFormEnum.logo+':'"  [required]="logoField"></label>
+        <label appLabel for="logo" [label]="InstitutionFormEnum.logo+':'" [required]="logoField"></label>
         <input pInputText type="text" id="logo" formControlName="logo"/>
         <small appErrorMessage
                [errors]="logoField.errors"
@@ -88,7 +90,9 @@
       <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
         <label appLabel for="isVisible" label="Visible:"
                [required]="isVisibleField"></label>
-        <p><p-inputSwitch id="isVisible" formControlName="isVisible" [trueValue]="true"></p-inputSwitch></p>
+        <p>
+          <p-inputSwitch id="isVisible" formControlName="isVisible" [trueValue]="true"></p-inputSwitch>
+        </p>
         <small appErrorMessage
                [errors]="isVisibleField.errors"
                [touched]="isVisibleField.touched"
@@ -100,14 +104,15 @@
     <!-- code & codeSniese & acronym & slogan -->
     <div class="formgrid grid">
       <div class="field xl:col-2 lg:col-2 md:col-2 sm:col-12">
-        <label appLabel for="code" [label]="InstitutionFormEnum.code+':'"  [required]="codeField"></label>
+        <label appLabel for="code" [label]="InstitutionFormEnum.code+':'" [required]="codeField"></label>
         <input pInputText type="text" id="code" formControlName="code"/>
         <small appErrorMessage [errors]="codeField.errors" [touched]="codeField.touched" [dirty]="codeField.dirty">
         </small>
       </div>
 
       <div class="field xl:col-2 lg:col-2 md:col-2 sm:col-12">
-        <label appLabel for="codeSniese" [label]="InstitutionFormEnum.codeSniese+':'"  [required]="codeSnieseField"></label>
+        <label appLabel for="codeSniese" [label]="InstitutionFormEnum.codeSniese+':'"
+               [required]="codeSnieseField"></label>
         <input pInputText type="text" id="codeSniese" formControlName="codeSniese"/>
         <small appErrorMessage
                [errors]="codeSnieseField.errors"
@@ -117,7 +122,7 @@
       </div>
 
       <div class="field xl:col-2 lg:col-2 md:col-2 sm:col-12">
-        <label appLabel for="acronym" [label]="InstitutionFormEnum.acronym+':'"  [required]="acronymField"></label>
+        <label appLabel for="acronym" [label]="InstitutionFormEnum.acronym+':'" [required]="acronymField"></label>
         <input pInputText type="text" id="acronym" formControlName="acronym"/>
         <small appErrorMessage
                [errors]="acronymField.errors"

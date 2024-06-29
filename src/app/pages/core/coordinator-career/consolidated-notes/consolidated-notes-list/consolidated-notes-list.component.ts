@@ -16,7 +16,13 @@ import {
   RoutesService,
   TeacherChargeHttpService,
 } from '@services/core';
-import {IdButtonActionEnum, BreadcrumbEnum} from "@shared/enums";
+import {
+  IdButtonActionEnum,
+  BreadcrumbEnum,
+  IconButtonActionEnum,
+  SeverityButtonActionEnum,
+  LabelButtonActionEnum
+} from "@shared/enums";
 
 @Component({
   selector: 'app-consolidated-notes-list',
@@ -102,4 +108,7 @@ export class ConsolidatedNotesListComponent implements OnInit {
     });
   }
 
+  protected readonly IconButtonActionEnum = IconButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
 }

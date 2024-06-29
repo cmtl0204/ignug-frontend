@@ -40,7 +40,7 @@
     <!-- code & codeSniese -->
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="code"  [label]="SchoolPeriodFormEnum.code+':'" [required]="codeField"></label>
+        <label appLabel for="code" [label]="SchoolPeriodFormEnum.code+':'" [required]="codeField"></label>
         <input pInputText type="text" id="code" formControlName="code"/>
         <small appErrorMessage
                [errors]="codeField.errors"
@@ -50,7 +50,8 @@
       </div>
 
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="codeSniese" [label]="SchoolPeriodFormEnum.codeSniese+':'"  [required]="codeSnieseField"></label>
+        <label appLabel for="codeSniese" [label]="SchoolPeriodFormEnum.codeSniese+':'"
+               [required]="codeSnieseField"></label>
         <input pInputText type="text" id="codeSniese" formControlName="codeSniese"/>
         <small appErrorMessage
                [errors]="codeSnieseField.errors"
@@ -63,7 +64,7 @@
     <!-- name & shortName -->
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="name" [label]="SchoolPeriodFormEnum.name+':'"  [required]="nameField"></label>
+        <label appLabel for="name" [label]="SchoolPeriodFormEnum.name+':'" [required]="nameField"></label>
         <input pInputText type="text" id="name" formControlName="name"/>
         <small appErrorMessage
                [errors]="nameField.errors"
@@ -73,7 +74,8 @@
       </div>
 
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="shortName" [label]="SchoolPeriodFormEnum.shortName+':'"   [required]="shortNameField"></label>
+        <label appLabel for="shortName" [label]="SchoolPeriodFormEnum.shortName+':'"
+               [required]="shortNameField"></label>
         <input pInputText type="text" id="shortName" formControlName="shortName"/>
         <small appErrorMessage
                [errors]="shortNameField.errors"
@@ -86,7 +88,7 @@
     <!-- startedAt & endedAt -->
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="startedAt" [label]="SchoolPeriodFormEnum.startedAt+':'" 
+        <label appLabel for="startedAt" [label]="SchoolPeriodFormEnum.startedAt+':'"
                [required]="startedAtField"></label>
         <p-calendar id="startedAt"
                     formControlName="startedAt"
@@ -102,7 +104,7 @@
       </div>
 
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="endedAt" [label]="SchoolPeriodFormEnum.endedAt+':'"  [required]="endedAtField"></label>
+        <label appLabel for="endedAt" [label]="SchoolPeriodFormEnum.endedAt+':'" [required]="endedAtField"></label>
         <p-calendar id="endedAt"
                     formControlName="endedAt"
                     dateFormat="yy-mm-dd"
@@ -136,7 +138,8 @@
         </small>
       </div>
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="ordinaryEndedAt"[label]="SchoolPeriodFormEnum.ordinaryEndedAt+':'" [required]="ordinaryEndedAtField"></label>
+        <label appLabel for="ordinaryEndedAt" [label]="SchoolPeriodFormEnum.ordinaryEndedAt+':'"
+               [required]="ordinaryEndedAtField"></label>
         <p-calendar id="ordinaryEndedAt"
                     formControlName="ordinaryEndedAt"
                     dateFormat="yy-mm-dd"
@@ -155,7 +158,7 @@
     <!-- extraOrdinaryStartedAt & extraOrdinaryEndedAt -->
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="extraOrdinaryStartedAt"[label]="SchoolPeriodFormEnum.extraOrdinaryStartedAt+':'" 
+        <label appLabel for="extraOrdinaryStartedAt" [label]="SchoolPeriodFormEnum.extraOrdinaryStartedAt+':'"
                [required]="extraOrdinaryStartedAtField"></label>
         <p-calendar id="extraOrdinaryStartedAt"
                     formControlName="extraOrdinaryStartedAt"
@@ -171,7 +174,7 @@
       </div>
 
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="extraOrdinaryEndedAt" [label]="SchoolPeriodFormEnum.extraOrdinaryEndedAt+':'" 
+        <label appLabel for="extraOrdinaryEndedAt" [label]="SchoolPeriodFormEnum.extraOrdinaryEndedAt+':'"
                [required]="extraOrdinaryEndedAtField"></label>
         <p-calendar id="extraOrdinaryEndedAt"
                     formControlName="extraOrdinaryEndedAt"
@@ -191,7 +194,7 @@
     <!-- especialStartedAt & especialEndedAt -->
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="especialStartedAt" [label]="SchoolPeriodFormEnum.especialStartedAt+':'" 
+        <label appLabel for="especialStartedAt" [label]="SchoolPeriodFormEnum.especialStartedAt+':'"
                [required]="especialStartedAtField"></label>
         <p-calendar id="especialStartedAt"
                     formControlName="especialStartedAt"
@@ -207,7 +210,8 @@
       </div>
 
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="especialEndedAt"[label]="SchoolPeriodFormEnum.especialEndedAt+':'"  [required]="especialEndedAtField"></label>
+        <label appLabel for="especialEndedAt" [label]="SchoolPeriodFormEnum.especialEndedAt+':'"
+               [required]="especialEndedAtField"></label>
         <p-calendar id="especialEndedAt"
                     formControlName="especialEndedAt"
                     dateFormat="yy-mm-dd"
@@ -226,19 +230,21 @@
     <!-- Buttons Actions-->
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <button pButton pRipple type="button"
-                label="Cancelar"
-                class="p-button-info p-button-outlined"
-                [icon]="PrimeIcons.ARROW_LEFT"
-                [loading]="coreService.isLoading"
-                (click)="back()"></button>
+        <p-button
+          label="Cancelar"
+          severity="info"
+          [outlined]="true"
+          [icon]="PrimeIcons.ARROW_LEFT"
+          [loading]="coreService.isLoading"
+          (click)="back()"></p-button>
       </div>
 
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <button pButton pRipple type="submit"
-                label="Guardar"
-                [icon]="PrimeIcons.SAVE"
-                [loading]="coreService.isLoading"></button>
+        <p-button
+          type="submit"
+          [label]="LabelButtonActionEnum.SAVE"
+          [icon]="IconButtonActionEnum.SAVE"
+          [loading]="coreService.isLoading"></p-button>
       </div>
     </div>
   </form>

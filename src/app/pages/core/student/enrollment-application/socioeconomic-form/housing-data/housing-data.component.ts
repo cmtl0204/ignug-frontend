@@ -16,7 +16,7 @@ import {
 } from '@services/core';
 import {
   BreadcrumbEnum, CatalogueEnrollmentStateEnum,
-  CatalogueTypeEnum,
+  CatalogueTypeEnum, IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
   SkeletonEnum,
 } from '@shared/enums';
 
@@ -329,4 +329,8 @@ export class HousingDataComponent {
   get consumeNewsTypeField(): AbstractControl {
     return this.informationStudentForm.controls['consumeNewsType'];
   }
+
+  protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly IconButtonActionEnum = IconButtonActionEnum;
 }

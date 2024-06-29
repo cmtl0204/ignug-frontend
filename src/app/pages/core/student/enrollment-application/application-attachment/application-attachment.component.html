@@ -106,16 +106,17 @@
         </div>
       </td>
       <td class="text-center">
-        <button pButton pRipple type="button"
-                [icon]="PrimeIcons.DOWNLOAD"
-                class="p-button-info"
-                pTooltip="Descargar"
-                (click)="download(rowData)"></button>
-        <button *ngIf="enabled" pButton pRipple type="button"
-                [icon]="PrimeIcons.TRASH"
-                class="p-button-danger ml-2"
-                pTooltip="Eliminar"
-                (click)="removeFile(rowData)"></button>
+        <p-button
+          [icon]="PrimeIcons.DOWNLOAD"
+          severity="info"
+          pTooltip="Descargar"
+          (click)="download(rowData)"></p-button>
+        <p-button *ngIf="enabled"
+                  [icon]="PrimeIcons.TRASH"
+                  severity="danger"
+                  class="ml-2"
+                  pTooltip="Eliminar"
+                  (click)="removeFile(rowData)"></p-button>
       </td>
     </tr>
   </ng-template>
@@ -130,27 +131,26 @@
 
 <div class="formgrid grid">
   <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-    <button pButton
-            type="button"
-            class="p-button-warning"
-            label="Regresar"
-            [icon]="PrimeIcons.ARROW_LEFT"
-            iconPos="left"
-            (click)="previous()"></button>
+    <p-button
+      severity="warning"
+      label="Regresar"
+      [icon]="PrimeIcons.ARROW_LEFT"
+      iconPos="left"
+      (click)="previous()"></p-button>
   </div>
   <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-    <button *ngIf="enabled" pButton pRipple
-            class="p-button-success"
-            label="Enviar Solicitud"
-            [icon]="PrimeIcons.SEND"
-            iconPos="right"
-            [loading]="coreService.isLoading"
-            (click)="sendRequest()"></button>
-    <button *ngIf="!enabled" pButton
-            class="p-button-success"
-            label="Continuar a la siguiente sección"
-            [icon]="PrimeIcons.ARROW_RIGHT"
-            iconPos="right"
-            (click)="next()"></button>
+    <p-button *ngIf="enabled"
+              severity="success"
+              label="Enviar Solicitud"
+              [icon]="PrimeIcons.SEND"
+              iconPos="right"
+              [loading]="coreService.isLoading"
+              (click)="sendRequest()"></p-button>
+    <p-button *ngIf="!enabled"
+              severity="success"
+              label="Continuar a la siguiente sección"
+              [icon]="PrimeIcons.ARROW_RIGHT"
+              iconPos="right"
+              (click)="next()"></p-button>
   </div>
 </div>

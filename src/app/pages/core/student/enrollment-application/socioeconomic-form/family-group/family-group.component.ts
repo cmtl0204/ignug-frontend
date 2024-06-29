@@ -16,7 +16,12 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum} from '@shared/enums';
+import {
+  CatalogueEnrollmentStateEnum,
+  CatalogueTypeEnum, IconButtonActionEnum,
+  LabelButtonActionEnum,
+  SeverityButtonActionEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-family-group',
@@ -145,4 +150,8 @@ export class FamilyGroupComponent {
   get isDependsEconomicallyField(): AbstractControl {
     return this.informationStudentField.controls['isDependsEconomically'];
   }
+
+    protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly IconButtonActionEnum = IconButtonActionEnum;
 }

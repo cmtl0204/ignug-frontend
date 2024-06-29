@@ -200,7 +200,7 @@
       </div>
       <div class="formgrid grid">
         <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-          <label appLabel for="institutionHigherEducation" [label]="InformationTeacherFormEnum.institutionHigherEducation+':'" 
+          <label appLabel for="institutionHigherEducation" [label]="InformationTeacherFormEnum.institutionHigherEducation+':'"
             [required]="institutionHigherEducationField"></label>
           <input pInputText type="text" id="institutionHigherEducation" formControlName="institutionHigherEducation" />
           <small appErrorMessage [errors]="institutionHigherEducationField.errors"
@@ -208,7 +208,7 @@
           </small>
         </div>
         <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-          <label appLabel for="investigationHours" [label]="InformationTeacherFormEnum.investigationHours+':'" 
+          <label appLabel for="investigationHours" [label]="InformationTeacherFormEnum.investigationHours+':'"
             [required]="investigationHoursField"></label>
             <input pInputText type="number" id="investigationHours" formControlName="investigationHours"/>
           <small appErrorMessage [errors]="investigationHoursField.errors" [touched]="investigationHoursField.touched"
@@ -277,17 +277,16 @@
       </div>
       <div class="formgrid grid">
         <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-          <button pButton pRipple type="button" label="Cancelar" class="p-button-info p-button-outlined"
-            [icon]="PrimeIcons.ARROW_LEFT" [loading]="coreService.isLoading" (click)="back()"></button>
+          <p-button  label="Cancelar" class="p-button-info p-button-outlined"
+            [icon]="PrimeIcons.ARROW_LEFT" [loading]="coreService.isLoading" (click)="back()"></p-button>
         </div>
 
         <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-          <button
-          pButton pRipple
+          <p-button
           type="submit"
           label="Guardar"
           [icon]="PrimeIcons.SAVE"
-          [loading]="coreService.isLoading"></button>
+          [loading]="coreService.isLoading"></p-button>
         </div>
       </div>
     </div>

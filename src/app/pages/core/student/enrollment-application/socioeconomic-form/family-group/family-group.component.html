@@ -17,7 +17,8 @@
         </small>
       </div>
       <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-        <label appLabel for="familyIncome" label="Total de ingresos mensuales:" [required]="familyIncomeField" class="mb-4"></label>
+        <label appLabel for="familyIncome" label="Total de ingresos mensuales:" [required]="familyIncomeField"
+               class="mb-4"></label>
         <p-dropdown
           id="familyIncome"
           formControlName="familyIncome"
@@ -75,31 +76,25 @@
   </div>
   <div class="formgrid grid">
     <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-      <button
-        pButton
-        pRipple
-        type="button"
-        label="Atrás"
-        class="p-button-warning"
-        [icon]="PrimeIcons.ARROW_LEFT"
-        (click)="previous.emit(-1)"></button>
+      <p-button
+        [label]="LabelButtonActionEnum.RETURN"
+        [severity]="SeverityButtonActionEnum.RETURN"
+        [icon]="IconButtonActionEnum.RETURN"
+        (click)="previous.emit(-1)"></p-button>
     </div>
     <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-      <button *ngIf="!form.disabled"
-              pButton
-              pRipple
-              label="Guardar y Continuar"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"></button>
+      <p-button
+        *ngIf="!form.disabled"
+        label="Guardar y Continuar"
+        [icon]="IconButtonActionEnum.NEXT"
+        iconPos="right"></p-button>
 
-      <button *ngIf="form.disabled"
-              pButton
-              type="button"
-              pRipple
-              label="Continuar"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"
-              (click)="next.emit()"></button>
+      <p-button
+        *ngIf="form.disabled"
+        label="Continuar"
+        [icon]="IconButtonActionEnum.NEXT"
+        iconPos="right"
+        (click)="next.emit()"></p-button>
     </div>
   </div>
 </form>

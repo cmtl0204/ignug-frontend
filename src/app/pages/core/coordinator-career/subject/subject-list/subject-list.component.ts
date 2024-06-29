@@ -15,11 +15,11 @@ import {
   SubjectsService,
 } from '@services/core';
 import {
-  BreadcrumbEnum,
-  IdButtonActionEnum,
-  LabelButtonActionEnum,
-  IconButtonActionEnum,
-  ClassButtonActionEnum
+    BreadcrumbEnum,
+    IdButtonActionEnum,
+    LabelButtonActionEnum,
+    IconButtonActionEnum,
+    ClassButtonActionEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 
 @Component({
@@ -210,4 +210,6 @@ export class SubjectListComponent implements OnInit {
   redirectEditForm(id: string) {
     this.router.navigate([this.routesService.subjects, id]);
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

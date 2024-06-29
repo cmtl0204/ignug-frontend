@@ -16,7 +16,12 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum} from '@shared/enums';
+import {
+    CatalogueEnrollmentStateEnum,
+    CatalogueTypeEnum,
+    IconButtonActionEnum, LabelButtonActionEnum,
+    SeverityButtonActionEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-family-health',
@@ -198,4 +203,8 @@ export class FamilyHealthComponent {
   get familyKinshipDisabilityField(): AbstractControl {
     return this.InformationStudentForm.controls['familyKinshipDisability'];
   }
+
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+    protected readonly IconButtonActionEnum = IconButtonActionEnum;
+    protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
 }

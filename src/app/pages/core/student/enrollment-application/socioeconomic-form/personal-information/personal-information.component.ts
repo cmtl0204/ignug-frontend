@@ -11,7 +11,13 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, CatalogueEthnicOriginEnum, CatalogueTypeEnum, UsersFormEnum} from '@shared/enums';
+import {
+    CatalogueEnrollmentStateEnum,
+    CatalogueEthnicOriginEnum,
+    CatalogueTypeEnum,
+    IconButtonActionEnum,
+    UsersFormEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-personal-information',
@@ -555,4 +561,6 @@ export class PersonalInformationComponent implements OnInit {
   get sexField(): AbstractControl {
     return this.userField.controls['sex'];
   }
+
+    protected readonly IconButtonActionEnum = IconButtonActionEnum;
 }

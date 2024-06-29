@@ -1,28 +1,29 @@
 <p-toolbar>
   <div class="p-toolbar-group-left">
-    <button pButton pRipple type="button"
-            (click)="redirectCreateForm()"
-            [icon]="IconButtonActionEnum.CREATE"
-            [label]="LabelButtonActionEnum.CREATE"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.CREATE]">
-    </button>
+    <p-button
+      (click)="redirectCreateForm()"
+      [icon]="IconButtonActionEnum.CREATE"
+      [label]="LabelButtonActionEnum.CREATE"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.CREATE">
+    </p-button>
 
-    <button pButton pRipple type="button"
-            (click)="find()"
-            [icon]="IconButtonActionEnum.SYNC"
-            [label]="LabelButtonActionEnum.SYNC"
-            [loading]="coreService.isLoading"
-            [ngClass]="[ClassButtonActionEnum.SYNC,'ml-2']">
-    </button>
+    <p-button
+      (click)="find()"
+      [icon]="IconButtonActionEnum.SYNC"
+      [label]="LabelButtonActionEnum.SYNC"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.SYNC"
+      class="ml-2">
+    </p-button>
   </div>
   <div class="p-toolbar-group-right">
     <div class="p-inputgroup">
       <input pInputText type="text" [formControl]="search" placeholder="Buscar...">
-      <button pButton pRipple type="button"
-              [icon]="PrimeIcons.SEARCH"
-              [loading]="coreService.isLoading"
-              (click)="find()"></button>
+      <p-button
+        [icon]="PrimeIcons.SEARCH"
+        [loading]="coreService.isLoading"
+        (click)="find()"></p-button>
     </div>
   </div>
 </p-toolbar>
@@ -85,7 +86,7 @@
         </div>
       </td>
       <td class="text-center">
-        <button pButton pRipple type="button" [icon]="PrimeIcons.ELLIPSIS_V" (click)="selectItem(rowData)"></button>
+        <p-button [icon]="PrimeIcons.ELLIPSIS_V" (click)="selectItem(rowData)"></p-button>
       </td>
     </tr>
   </ng-template>

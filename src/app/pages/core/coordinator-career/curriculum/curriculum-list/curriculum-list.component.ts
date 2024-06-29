@@ -13,11 +13,11 @@ import {
 } from '@services/core';
 import {CurriculumsService} from "@services/core/curriculums.service";
 import {
-  IdButtonActionEnum,
-  BreadcrumbEnum,
-  IconButtonActionEnum,
-  LabelButtonActionEnum,
-  ClassButtonActionEnum
+    IdButtonActionEnum,
+    BreadcrumbEnum,
+    IconButtonActionEnum,
+    LabelButtonActionEnum,
+    ClassButtonActionEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 
 @Component({
@@ -179,4 +179,5 @@ export class CurriculumListComponent implements OnInit {
   protected readonly IconButtonActionEnum = IconButtonActionEnum;
   protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
   protected readonly ClassButtonActionEnum = ClassButtonActionEnum;
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

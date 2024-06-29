@@ -186,21 +186,18 @@
       </div>
     </div>
   </div>
-  <button *ngIf="!form.disabled"
-    pButton
-    pRipple
-    class="p-button-success"
+  <p-button
+    *ngIf="!form.disabled"
+    severity="success"
     label="Guardar y Continuar a la siguiente sección"
-    [icon]="PrimeIcons.ARROW_RIGHT"
-    iconPos="right"></button>
+    [icon]="IconButtonActionEnum.NEXT"
+    iconPos="right"></p-button>
 
-  <button *ngIf="form.disabled"
-          pButton
-          pRipple
-          type="button"
-          class="p-button-success"
-          label="Continuar a la siguiente sección"
-          [icon]="PrimeIcons.ARROW_RIGHT"
-          iconPos="right"
-          (click)="next.emit()"></button>
+  <p-button
+    *ngIf="form.disabled"
+    severity="success"
+    label="Continuar a la siguiente sección"
+    [icon]="IconButtonActionEnum.NEXT"
+    iconPos="right"
+    (click)="next.emit()"></p-button>
 </form>

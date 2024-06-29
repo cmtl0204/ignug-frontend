@@ -12,7 +12,14 @@ import {
   RoutesService,
   StudentsHttpService
 } from "@services/core";
-import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum, StudentFormEnum} from '@shared/enums';
+import {
+  BreadcrumbEnum,
+  CatalogueTypeEnum,
+  IconButtonActionEnum,
+  LabelButtonActionEnum, SeverityButtonActionEnum,
+  SkeletonEnum,
+  StudentFormEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-student-form',
@@ -154,7 +161,7 @@ export class StudentFormComponent implements OnInit, OnExitInterface {
       this.form.markAllAsTouched();
       this.messageService.errorsFields(this.formErrors);
     }
-    
+
   }
 
   back(): void {
@@ -238,7 +245,7 @@ get validateForm() {
  /** Validations **/
     //validateForm() {
       // this.formErrors = [];
-  
+
       // if (this.acronymField.errors) this.formErrors.push(InformationStudentEnum.acronym);
       // if (this.cellphoneField.errors) this.formErrors.push(InformationStudentEnum.cellphone);
       // if (this.codeField.errors) this.formErrors.push(InformationStudentEnum.code);
@@ -253,7 +260,7 @@ get validateForm() {
       // if (this.sloganField.errors) this.formErrors.push(InformationStudentEnum.slogan);
       // if (this.stateField.errors) this.formErrors.push('Estado');
       // if (this.webField.errors) this.formErrors.push(InstitutionFormEnum.web);
-  
+
       // this.formErrors.sort();
       // return this.formErrors.length === 0 && this.form.valid;
     //}
@@ -398,4 +405,7 @@ get validateForm() {
   }
 
   protected readonly SkeletonEnum = SkeletonEnum;
+    protected readonly IconButtonActionEnum = IconButtonActionEnum;
+  protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

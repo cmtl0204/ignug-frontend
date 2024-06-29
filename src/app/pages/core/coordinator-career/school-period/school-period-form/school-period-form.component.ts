@@ -13,7 +13,13 @@ import {
   RoutesService,
   SchoolPeriodsHttpService
 } from "@services/core";
-import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum,SchoolPeriodFormEnum} from "@shared/enums";
+import {
+  BreadcrumbEnum,
+  CatalogueTypeEnum,
+  SkeletonEnum,
+  SchoolPeriodFormEnum,
+  IconButtonActionEnum, LabelButtonActionEnum
+} from "@shared/enums";
 import {isAfter} from "date-fns";
 
 @Component({
@@ -265,4 +271,7 @@ export class SchoolPeriodFormComponent implements OnInit, OnExitInterface {
   get especialEndedAtField(): AbstractControl {
     return this.form.controls['especialEndedAt'];
   }
+
+    protected readonly IconButtonActionEnum = IconButtonActionEnum;
+  protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
 }

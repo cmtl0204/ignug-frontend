@@ -232,7 +232,8 @@
 
   <div class="formgrid grid">
     <div formGroupName="user" class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-      <label appLabel for="ethnicOrigin" [label]="UsersFormEnum.ethnicOrigin+':'" [required]="ethnicOriginField"></label>
+      <label appLabel for="ethnicOrigin" [label]="UsersFormEnum.ethnicOrigin+':'"
+             [required]="ethnicOriginField"></label>
       <p-dropdown
         id="ethnicOrigin"
         formControlName="ethnicOrigin"
@@ -843,19 +844,16 @@
     </div>
   </div>
 
-  <button *ngIf="!form.disabled"
-          pButton
-          pRipple
-          label="Guardar y Continuar"
-          [icon]="PrimeIcons.ARROW_RIGHT"
-          iconPos="right"></button>
+  <p-button
+    *ngIf="!form.disabled"
+    label="Guardar y Continuar"
+    [icon]="IconButtonActionEnum.NEXT"
+    iconPos="right"></p-button>
 
-  <button *ngIf="form.disabled"
-          pButton
-          type="button"
-          pRipple
-          label="Continuar"
-          [icon]="PrimeIcons.ARROW_RIGHT"
-          iconPos="right"
-          (click)="next.emit()"></button>
+  <p-button
+    *ngIf="form.disabled"
+    label="Continuar"
+    [icon]="IconButtonActionEnum.NEXT"
+    iconPos="right"
+    (click)="next.emit()"></p-button>
 </form>

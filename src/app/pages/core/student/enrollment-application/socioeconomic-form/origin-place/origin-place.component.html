@@ -224,7 +224,8 @@
             label="Longitud:"
             [required]="longitudeField"
           ></label>
-          <app-help-field (mouseenter)="opLongitudeField.toggle($event)" (mouseleave)="opLongitudeField.hide()"></app-help-field>
+          <app-help-field (mouseenter)="opLongitudeField.toggle($event)"
+                          (mouseleave)="opLongitudeField.hide()"></app-help-field>
           <input pInputText id="longitude" formControlName="longitude" readonly/>
           <small
             appErrorMessage
@@ -235,7 +236,8 @@
         </div>
         <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
           <label appLabel for="latitude" label="Latitud:" [required]="latitudeField"></label>
-          <app-help-field (mouseenter)="opLatitudeField.toggle($event)" (mouseleave)="opLatitudeField.hide()"></app-help-field>
+          <app-help-field (mouseenter)="opLatitudeField.toggle($event)"
+                          (mouseleave)="opLatitudeField.hide()"></app-help-field>
           <input pInputText id="latitude" formControlName="latitude" readonly/>
           <small
             appErrorMessage
@@ -256,31 +258,25 @@
   </div>
   <div class="formgrid grid">
     <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-      <button
-        pButton
-        pRipple
-        type="button"
-        label="Atrás"
-        class="p-button-warning"
-        [icon]="PrimeIcons.ARROW_LEFT"
-        (click)="previous.emit(-1)"></button>
+      <p-button
+        [label]="LabelButtonActionEnum.RETURN"
+        [severity]="SeverityButtonActionEnum.RETURN"
+        [icon]="IconButtonActionEnum.RETURN"
+        (click)="previous.emit(-1)"></p-button>
     </div>
     <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-      <button *ngIf="!form.disabled"
-              pButton
-              pRipple
-              label="Guardar y Continuar"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"></button>
+      <p-button
+        *ngIf="!form.disabled"
+        label="Guardar y Continuar"
+        [icon]="IconButtonActionEnum.NEXT"
+        iconPos="right"></p-button>
 
-      <button *ngIf="form.disabled"
-              pButton
-              type="button"
-              pRipple
-              label="Continuar"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"
-              (click)="next.emit()"></button>
+      <p-button
+        *ngIf="form.disabled"
+        label="Continuar"
+        [icon]="IconButtonActionEnum.NEXT"
+        iconPos="right"
+        (click)="next.emit()"></p-button>
     </div>
   </div>
 </form>

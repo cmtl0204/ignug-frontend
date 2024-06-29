@@ -16,10 +16,10 @@ import {
   SchoolPeriodsHttpService
 } from '@services/core';
 import {
-  IdButtonActionEnum,
-  BreadcrumbEnum,
-  CatalogueSchoolPeriodStateEnum,
-  IconButtonActionEnum, LabelButtonActionEnum, ClassButtonActionEnum
+    IdButtonActionEnum,
+    BreadcrumbEnum,
+    CatalogueSchoolPeriodStateEnum,
+    IconButtonActionEnum, LabelButtonActionEnum, ClassButtonActionEnum, SeverityButtonActionEnum
 } from "@shared/enums";
 
 @Component({
@@ -304,4 +304,5 @@ export class SchoolPeriodListComponent implements OnInit {
   protected readonly IconButtonActionEnum = IconButtonActionEnum;
   protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
   protected readonly ClassButtonActionEnum = ClassButtonActionEnum;
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }

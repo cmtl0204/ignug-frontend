@@ -11,7 +11,12 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum,} from '@shared/enums';
+import {
+  CatalogueEnrollmentStateEnum,
+  CatalogueTypeEnum, IconButtonActionEnum,
+  LabelButtonActionEnum,
+  SeverityButtonActionEnum,
+} from '@shared/enums';
 
 @Component({
   selector: 'app-other-academic-data',
@@ -175,4 +180,8 @@ export class AdditionalDataFormComponent {
   get internetTypeField(): AbstractControl {
     return this.informationStudentForm.controls['internetType'];
   }
+
+  protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly IconButtonActionEnum = IconButtonActionEnum;
 }

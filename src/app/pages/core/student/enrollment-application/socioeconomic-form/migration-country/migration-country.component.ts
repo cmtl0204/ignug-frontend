@@ -18,9 +18,9 @@ import {
   StudentsHttpService,
 } from '@services/core';
 import {
-  BreadcrumbEnum, CatalogueEnrollmentStateEnum,
-  CatalogueTypeEnum,
-  SkeletonEnum,
+    BreadcrumbEnum, CatalogueEnrollmentStateEnum,
+    CatalogueTypeEnum, IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
+    SkeletonEnum,
 } from '@shared/enums';
 import { AuthService } from '@services/auth';
 
@@ -131,4 +131,7 @@ export class MigrationCountryComponent {
     return this.informationStudentForm.controls['isFamilyEmigrant'];
   }
 
+    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+    protected readonly IconButtonActionEnum = IconButtonActionEnum;
+    protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
 }

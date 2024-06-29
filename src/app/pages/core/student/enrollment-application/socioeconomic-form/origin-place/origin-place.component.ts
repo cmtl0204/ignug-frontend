@@ -9,7 +9,12 @@ import {
   MessageService,
   StudentsHttpService
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum} from '@shared/enums';
+import {
+  CatalogueEnrollmentStateEnum,
+  IconButtonActionEnum,
+  LabelButtonActionEnum,
+  SeverityButtonActionEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-origin-place',
@@ -244,4 +249,8 @@ export class OriginPlaceComponent implements OnInit {
   get secondaryStreetField(): AbstractControl {
     return this.originAddressForm.controls['secondaryStreet'];
   }
+
+  protected readonly LabelButtonActionEnum = LabelButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly IconButtonActionEnum = IconButtonActionEnum;
 }

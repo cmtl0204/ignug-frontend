@@ -28,7 +28,13 @@ import {
   CareersHttpService,
   CareersService,
 } from '@services/core';
-import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum,TeacherDistributionFormEnum} from '@shared/enums';
+import {
+    BreadcrumbEnum,
+    CatalogueTypeEnum,
+    IconButtonActionEnum,
+    SkeletonEnum,
+    TeacherDistributionFormEnum
+} from '@shared/enums';
 
 @Component({
   selector: 'app-teacher-distribution-form',
@@ -222,4 +228,5 @@ export class TeacherDistributionFormComponent implements OnInit, OnExitInterface
   }
 
   protected readonly SkeletonEnum = SkeletonEnum;
+    protected readonly IconButtonActionEnum = IconButtonActionEnum;
 }
