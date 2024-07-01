@@ -1,0 +1,56 @@
+<div class="grid">
+  <p-toolbar class="col-12">
+    <div class="p-toolbar-group-left">
+      <p-dropdown id="schoolPeriodId"
+                  [formControl]="selectedSchoolPeriodId"
+                  dataKey="id"
+                  optionValue="id"
+                  [options]="schoolPeriods"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  placeholder="Seleccione">
+      </p-dropdown>
+
+      <p-dropdown id="stateId"
+                  [formControl]="selectedEnrollmentState"
+                  dataKey="id"
+                  class="ml-2"
+                  [options]="enrollmentStates"
+                  optionLabel="name"
+                  [filter]="true"
+                  filterBy="name"
+                  placeholder="Seleccione">
+      </p-dropdown>
+
+      <p-multiSelect id="careerId"
+                     [formControl]="selectedCareerId"
+                     dataKey="id"
+                     optionValue="id"
+                     class="ml-2"
+                     [options]="careersService.careers"
+                     optionLabel="name"
+                     [filter]="true"
+                     filterBy="name"
+                     [showClear]="true"
+                     display="chip"
+                     placeholder="Todas las Carreras">
+      </p-multiSelect>
+    </div>
+    <div class="p-toolbar-group-right">
+
+    </div>
+  </p-toolbar>
+
+  <p-panel header="Registro de estudiantes por estado" class="col-8 col-offset-2">
+    <p-chart type="bar" [data]="basicDataEnrollments" [options]="basicOptionsEnrollments" height="300"/>
+  </p-panel>
+
+  <p-panel header="Registro de estudiantes por sexo" class="col-8 col-offset-2">
+    <p-chart type="bar" [data]="basicDataSexes" [options]="basicOptionsSexes" height="300"/>
+  </p-panel>
+
+  <p-panel header="Registro de estudiantes por etnia" class="col-8 col-offset-2">
+    <p-chart type="bar" [data]="basicDataEthnicOrigins" [options]="basicOptionsEthnicOrigins" height="300"/>
+  </p-panel>
+</div>

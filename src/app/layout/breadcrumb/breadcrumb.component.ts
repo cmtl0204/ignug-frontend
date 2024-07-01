@@ -7,8 +7,7 @@ import {AuthService} from "@services/auth";
 @Component({
   selector: 'app-breadcrumb',
   templateUrl: './breadcrumb.component.html',
-  styleUrls: ['./breadcrumb.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./breadcrumb.component.scss']
 })
 export class BreadcrumbComponent {
   protected readonly PrimeIcons = PrimeIcons;

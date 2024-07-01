@@ -6,11 +6,16 @@ import {TeacherComponent} from "./teacher/teacher.component";
 import {StudentComponent} from "./student/student.component";
 import {CoordinatorAdministrativeComponent} from "./coordinator-administrative/coordinator-administrative.component";
 import {CoordinatorCareerComponent} from "./coordinator-career/coordinator-career.component";
+import {SecretaryModule} from "./secretary/secretary.module";
 
 const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent
+  },
+  {
+    path: 'secretary',
+    loadChildren: () => import('./secretary/secretary.module').then(m => SecretaryModule)
   },
   {
     path: 'rector',
