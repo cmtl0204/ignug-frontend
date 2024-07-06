@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {
-  BreadcrumbService,
+  BreadcrumbService, CareersService,
   CoreService,
   MessageService,
   RoutesService,
@@ -21,10 +21,12 @@ import {PrimeIcons} from "primeng/api";
   templateUrl: './enrollment-subject-list.component.html',
   styleUrls: ['./enrollment-subject-list.component.scss']
 })
-export class EnrollmentSubjectListComponent {
+export class EnrollmentSubjectListComponent implements OnInit{
+  protected readonly careersService = inject(CareersService);
   protected readonly PrimeIcons = PrimeIcons;
   protected readonly SkeletonEnum = SkeletonEnum;
   protected selectedSchoolPeriod: FormControl = new FormControl();
+  protected selectedCareer: FormControl = new FormControl();
   protected schoolPeriods: SchoolPeriodModel[] = [];
   protected enrollmentDetails: EnrollmentDetailModel[] = [];
 
@@ -41,8 +43,16 @@ export class EnrollmentSubjectListComponent {
     protected readonly messageService: MessageService,
   ) {
     this.breadcrumbService.setItems([{label: BreadcrumbEnum.TEACHER_DISTRIBUTIONS}]);
+  }
+
+  ngOnInit(): void {
+    this.selectedCareer.patchValue(this.careersService.career);
 
     this.selectedSchoolPeriod.valueChanges.subscribe(value => {
+      this.findEnrollmentSubjectsByStudent();
+    });
+
+    this.selectedCareer.valueChanges.subscribe(value => {
       this.findEnrollmentSubjectsByStudent();
     });
 
@@ -51,12 +61,11 @@ export class EnrollmentSubjectListComponent {
     this.selectedSchoolPeriod.patchValue(this.schoolPeriodsService.openSchoolPeriod);
   }
 
-  ngOnInit(): void {
-
-  }
-
   findEnrollmentSubjectsByStudent() {
-    this.studentsHttpService.findEnrollmentSubjectsByStudent(this.authService.auth.student.id!, this.selectedSchoolPeriod.value.id)
+    this.studentsHttpService.findEnrollmentSubjectsByStudent(
+      this.authService.auth.student.id!,
+      this.selectedSchoolPeriod.value.id,
+      this.selectedCareer.value.id)
       .subscribe(enrollmentDetails => {
         this.enrollmentDetails = enrollmentDetails;
       });

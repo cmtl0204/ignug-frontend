@@ -6,8 +6,15 @@
                 dataKey="id"
                 [options]="schoolPeriods"
                 optionLabel="name"
-                placeholder="Periodo Lectivo"
                 pTooltip="Periodo Lectivo">
+    </p-dropdown>
+
+    <p-dropdown [formControl]="selectedCareer"
+                dataKey="id"
+                [options]="careersService.careers"
+                class="ml-2"
+                optionLabel="name"
+                pTooltip="Carrera">
     </p-dropdown>
   </div>
 </p-toolbar>
@@ -21,8 +28,6 @@
 </div>
 
 <p-divider></p-divider>
-
-
 
 <div *ngIf="!coreService.isLoading" class="grid">
   <div class="xl:col-3 lg:col-3 md:col-4 sm:col-12" *ngFor="let item of enrollmentDetails">
