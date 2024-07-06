@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '@env/environment';
 import {Observable} from 'rxjs';
@@ -12,7 +12,7 @@ import {
   UpdateStudentDto
 } from '@models/core';
 import {ServerResponse} from '@models/http-response';
-import {CoreService, MessageService} from '@services/core';
+import {CareersService, CoreService, MessageService} from '@services/core';
 import {format} from "date-fns";
 
 @Injectable({
@@ -20,6 +20,7 @@ import {format} from "date-fns";
 })
 export class StudentsHttpService {
   API_URL = `${environment.API_URL}/students`;
+  protected readonly careersService = inject(CareersService);
 
   constructor(
     private coreService: CoreService,
@@ -304,7 +305,9 @@ export class StudentsHttpService {
   findEnrollmentByStudent(studentId: string): Observable<EnrollmentModel> {
     const url = `${this.API_URL}/${studentId}/enrollments`;
 
-    return this.httpClient.get<ServerResponse>(url).pipe(
+    const params = new HttpParams().append('careerId', this.careersService.career.id);
+
+    return this.httpClient.get<ServerResponse>(url, {params}).pipe(
       map((response) => {
         return response.data;
       })

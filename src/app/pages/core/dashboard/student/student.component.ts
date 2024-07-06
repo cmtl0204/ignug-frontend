@@ -19,7 +19,7 @@ export class StudentComponent {
   private readonly router = inject(Router);
   private readonly careersService = inject(CareersService);
   private readonly studentsHttpService = inject(StudentsHttpService);
-  private state: boolean = false;
+  protected state: boolean = true;
   protected enrollment!: EnrollmentModel;
 
   constructor() {
@@ -32,7 +32,7 @@ export class StudentComponent {
       .subscribe(enrollment => {
         this.enrollment = enrollment;
 
-        if (enrollment && enrollment.enrollmentState) {
+        if (enrollment?.enrollmentState) {
           switch (enrollment.enrollmentState.state.code) {
             case CatalogueEnrollmentStateEnum.ENROLLED:
             case CatalogueEnrollmentStateEnum.APPROVED:
@@ -42,10 +42,10 @@ export class StudentComponent {
             default:
               this.state = false;
           }
-
-          this.loadScheduleLinks();
-          this.loadMenus();
         }
+
+        this.loadScheduleLinks();
+        this.loadMenus();
       });
   }
 

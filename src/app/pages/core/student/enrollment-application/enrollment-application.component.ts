@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrimeIcons, MenuItem} from "primeng/api";
 import {EnrollmentModel, StudentModel} from "@models/core";
@@ -73,12 +73,14 @@ export class EnrollmentApplicationComponent implements OnInit {
       .subscribe(enrollment => {
         this.enrollment = enrollment;
 
-        switch (enrollment.enrollmentState.state.code) {
-          case CatalogueEnrollmentStateEnum.ENROLLED:
-          case CatalogueEnrollmentStateEnum.APPROVED:
-          case CatalogueEnrollmentStateEnum.REQUEST_SENT:
-            this.activeIndex = 4;
-            break
+        if (enrollment) {
+          switch (enrollment.enrollmentState.state.code) {
+            case CatalogueEnrollmentStateEnum.ENROLLED:
+            case CatalogueEnrollmentStateEnum.APPROVED:
+            case CatalogueEnrollmentStateEnum.REQUEST_SENT:
+              this.activeIndex = 4;
+              break
+          }
         }
       });
   }

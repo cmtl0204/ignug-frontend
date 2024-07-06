@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, inject, OnInit, Output} from '@angular/core';
 import {
   CataloguesHttpService, CoreService,
   EnrollmentsHttpService, FilesHttpService,
@@ -13,7 +13,7 @@ import {
 } from "@shared/enums";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-application-attachment',

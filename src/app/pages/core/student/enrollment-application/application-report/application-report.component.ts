@@ -1,7 +1,12 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {CoreService, EnrollmentsHttpService, FilesHttpService, StudentsHttpService} from "@services/core";
+import {Component, EventEmitter, inject, Output} from '@angular/core';
+import {
+  CoreService,
+  EnrollmentsHttpService,
+  FilesHttpService,
+  StudentsHttpService
+} from "@services/core";
 import {PrimeIcons} from "primeng/api";
-import {CatalogueEnrollmentStateEnum, SeverityButtonActionEnum, SkeletonEnum} from "@shared/enums";
+import {SeverityButtonActionEnum, SkeletonEnum} from "@shared/enums";
 import {AuthService} from "@services/auth";
 import {StudentModel} from "@models/core";
 

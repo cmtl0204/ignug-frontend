@@ -102,8 +102,8 @@
     <ng-template pTemplate="header" let-columns>
       <tr>
         <th style="width: 3rem">
-
         </th>
+
         <th *ngFor="let col of columns" [pSortableColumn]="col.field">
           {{ col.header }}
           <p-sortIcon [field]="col.field"></p-sortIcon>
@@ -116,16 +116,18 @@
           <!--          <p-tableCheckbox *ngIf="rowData?.academicState!='a'"-->
           <!--                           [disabled]="form.disabled"-->
           <!--                           [value]="rowData"></p-tableCheckbox>-->
-          <p-button *ngIf="!rowData?.enabled"
-                    [icon]="PrimeIcons.STOP"
-                    [rounded]="true"
-                    [text]="true"
-                    (click)="validateSubjectPrerequisites(rowData)"></p-button>
+          @if (form.enabled) {
+            <p-button *ngIf="!rowData?.enabled"
+                      [icon]="PrimeIcons.STOP"
+                      [rounded]="true"
+                      [text]="true"
+                      (click)="validateSubjectPrerequisites(rowData)"></p-button>
 
-          <p-button *ngIf="rowData?.enabled"
-                    [icon]="PrimeIcons.CHECK"
-                    [rounded]="true"
-                    (click)="removeSelectedSubject(rowData)"></p-button>
+            <p-button *ngIf="rowData?.enabled"
+                      [icon]="PrimeIcons.CHECK"
+                      [rounded]="true"
+                      (click)="removeSelectedSubject(rowData)"></p-button>
+          }
         </td>
         <td *ngFor="let col of columns">
           <!--Objects-->
@@ -179,21 +181,25 @@
         iconPos="left"
         (click)="previous()"></p-button>
     </div>
+
     <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
       <p-button
         *ngIf="form.enabled"
+        type="submit"
         label="Guardar y Continuar"
         [icon]="PrimeIcons.SAVE"
         [loading]="coreService.isLoading"
         iconPos="right"></p-button>
     </div>
+
     <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-      <p-button *ngIf="enrollment?.enrollmentStates"
-                [severity]="SeverityButtonActionEnum.CREATE"
-                label="Continuar a la siguiente sección"
-                [icon]="PrimeIcons.ARROW_RIGHT"
-                iconPos="right"
-                (click)="next()"></p-button>
+      <p-button
+        *ngIf="enrollment?.enrollmentStates"
+        [severity]="SeverityButtonActionEnum.CREATE"
+        label="Continuar a la siguiente sección"
+        [icon]="PrimeIcons.ARROW_RIGHT"
+        iconPos="right"
+        (click)="next()"></p-button>
     </div>
   </div>
 </form>

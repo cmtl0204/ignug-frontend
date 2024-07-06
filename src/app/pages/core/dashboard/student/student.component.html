@@ -1,15 +1,15 @@
-<div *ngIf="!enrollment" class="panel-messages-error text-center">
+<div *ngIf="!state" class="panel-messages-error text-center">
   <h1>Estimado estudiante, el proceso de matrícula para el periodo actual ha concluido.</h1>
   <p>Por favor esté pendiente a su correo institucional y a nuestros canales oficiales para la nueva etapa de matrícula
     del próximo semestre.
   </p>
 </div>
 
-<div *ngIf="!enrollment" class="text-center">
+<div *ngIf="!state" class="text-center">
   <img  src="images/components/student/advertising.png" alt="">
 </div>
 
-<p-accordion *ngIf="enrollment?.enrollmentState" [activeIndex]="0">
+<p-accordion *ngIf="state" [activeIndex]="0">
   <p-accordionTab>
     <ng-template pTemplate="header">
 
