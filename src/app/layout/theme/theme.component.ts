@@ -20,7 +20,10 @@ export class ThemeComponent implements OnInit {
   protected sidebarVisible: boolean = false;
 
   constructor() {
-    this.changeTheme(localStorage.getItem('theme') ? localStorage.getItem('theme')! : 'bootstrap4-light-blue');
+    setTimeout(
+      () => this.changeTheme(localStorage.getItem('theme') ? localStorage.getItem('theme')! : 'mdc-light-indigo'),
+      1000
+    )
   }
 
   ngOnInit(): void {
