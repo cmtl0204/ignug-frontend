@@ -6,6 +6,7 @@ export enum BreadcrumbEnum {
   SCHOOL_PERIODS = 'Periodos Lectivos',
   STUDENTS = 'Estudiantes',
   STUDENT_CARD = 'Carnet Estudiantil',
+  SOCIOECONOMIC_FORM = 'Ficha Socioeconómica',
   SUBJECTS = 'Asignaturas',
   ENROLLMENT_SUBJECTS = 'Mis Asignaturas',
   TEACHERS = 'Docentes',

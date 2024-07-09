@@ -126,6 +126,14 @@ export class StudentComponent {
         img: `${assetsPath}/student-card.png`,
         routerLink: '/core/student/student-card',
       },
+      {
+        code: 'socioEconomicForm',
+        enabled: this.state,
+        header: 'Ficha Socioeconómica',
+        subheader: 'Descargar',
+        img: `${assetsPath}/socioeconomic-pdf.png`,
+        routerLink: '/core/student/socioeconomic-pdf',
+      },
     );
   }
 

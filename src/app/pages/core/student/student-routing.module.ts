@@ -28,6 +28,12 @@ const routes: Routes = [
     canActivate: [RoleGuard],
     data: {roles: [RolesEnum.STUDENT]}
   },
+  {
+    path: 'socioeconomic-pdf',
+    loadChildren: () => import('./socioeconomic-pdf/socioeconomic-pdf.module').then(m => m.SocioeconomicPdfModule),
+    canActivate: [RoleGuard],
+    data: {roles: [RolesEnum.STUDENT]}
+  },
 ];
 
 @NgModule({
