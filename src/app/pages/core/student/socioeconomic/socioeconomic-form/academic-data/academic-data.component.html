@@ -2,7 +2,8 @@
   <div formGroupName="informationStudent">
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="typeSchool" [label]="InformationStudentEnum.typeSchool+':'" [required]="typeSchoolField"></label>
+        <label appLabel for="typeSchool" [label]="InformationStudentEnum.typeSchool+':'"
+               [required]="typeSchoolField"></label>
         <p-dropdown
           id="typeSchool"
           formControlName="typeSchool"
@@ -88,7 +89,8 @@
       </div>
       <div *ngIf="degreeSuperiorField.hasValidator(Validators.required)"
            class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-        <label appLabel for="degreeSuperior" [label]="InformationStudentEnum.degreeSuperior+':'" [required]="degreeSuperiorField"></label>
+        <label appLabel for="degreeSuperior" [label]="InformationStudentEnum.degreeSuperior+':'"
+               [required]="degreeSuperiorField"></label>
         <p-dropdown
           id="degreeSuperior"
           formControlName="degreeSuperior"
@@ -117,7 +119,7 @@
     </div>
     <div class="formgrid grid">
       <div class="field xl:col-3 lg:col-3 md:col-3 sm:col-12">
-        <label appLabel for="isStudyOtherCareer"[label]="InformationStudentEnum.isStudyOtherCareer+':'"
+        <label appLabel for="isStudyOtherCareer" [label]="InformationStudentEnum.isStudyOtherCareer+':'"
                [required]="isStudyOtherCareerField"></label>
         <p-dropdown
           id="isStudyOtherCareer"
@@ -157,7 +159,8 @@
       </div>
       <div *ngIf="typeStudyOtherCareerField.hasValidator(Validators.required)"
            class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
-        <label appLabel for="typeStudyOtherCareer" [label]="InformationStudentEnum.typeStudyOtherCareer+':'" [required]="typeStudyOtherCareerField"
+        <label appLabel for="typeStudyOtherCareer" [label]="InformationStudentEnum.typeStudyOtherCareer+':'"
+               [required]="typeStudyOtherCareerField"
                class="mb-4"></label>
         <p-dropdown
           id="typeStudyOtherCareer"
@@ -197,16 +200,17 @@
       ></p-button>
     </div>
     <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
-      <p-button *ngIf="!form.disabled"
-              label="Guardar y Continuar"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"></p-button>
+      <p-button
+        type="submit"
+        label="Guardar y Continuar"
+        [icon]="PrimeIcons.ARROW_RIGHT"
+        iconPos="right"></p-button>
 
       <p-button *ngIf="form.disabled"
-              label="Continuar"
-              [icon]="PrimeIcons.ARROW_RIGHT"
-              iconPos="right"
-              (click)="next.emit()"></p-button>
+                label="Continuar"
+                [icon]="PrimeIcons.ARROW_RIGHT"
+                iconPos="right"
+                (click)="next.emit()"></p-button>
     </div>
   </div>
 </form>

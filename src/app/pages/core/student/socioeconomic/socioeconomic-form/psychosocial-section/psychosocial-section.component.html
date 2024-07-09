@@ -186,9 +186,10 @@
       </div>
     </div>
   </div>
-  <p-button *ngIf="!form.disabled"
+  <p-button
+    type="submit"
             [severity]="SeverityButtonActionEnum.CREATE"
-            label="Guardar y Continuar a la siguiente sección"
+            label="Guardar"
             [icon]="PrimeIcons.ARROW_RIGHT"
             iconPos="right"></p-button>
 

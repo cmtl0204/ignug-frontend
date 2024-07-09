@@ -64,14 +64,14 @@ export class MigrationCountryComponent {
 
     this.validateForm();
 
-    if (this.enrollment?.enrollmentState) {
-      if (this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED ||
-        this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) { //reviewer
-        this.form.enable();
-      }else{
-        this.form.disable();
-      }
-    }
+    // if (this.enrollment?.enrollmentState) {
+    //   if (this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED ||
+    //     this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) { //reviewer
+    //     this.form.enable();
+    //   }else{
+    //     this.form.disable();
+    //   }
+    // }
 
     this.loadIsDisabilities();
   }

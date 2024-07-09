@@ -128,10 +128,10 @@ export class UserFormComponent implements OnInit, OnExitInterface {
     this.usernameField.setValue(this.identificationField.value);
 
     if (this.form.valid) {
-      if (this.id) {
-        this.update(this.form.value);
-      } else {
+      if (this.id === RoutesEnum.NEW) {
         this.create(this.form.value);
+      } else {
+        this.update(this.form.value);
       }
     } else {
       this.form.markAllAsTouched();

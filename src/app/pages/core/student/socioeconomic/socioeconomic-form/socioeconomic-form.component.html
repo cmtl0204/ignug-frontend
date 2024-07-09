@@ -1,21 +1,4 @@
-<p-button *ngIf="registered"
-          severity="success"
-          label="Continuar a la siguiente sección"
-          [icon]="PrimeIcons.ARROW_RIGHT"
-          iconPos="right"
-          (click)="nextOut.emit()"></p-button>
-
-<div *ngIf="!isNew && (enrollmentState?.state?.code != CatalogueEnrollmentStateEnum.REGISTERED &&
-            enrollmentState?.state?.code != CatalogueEnrollmentStateEnum.REJECTED)"
-     class="p-fluid">
-  <p-divider></p-divider>
-  <div class="grid formgrid">
-    <img class="xl:col-10 col-offset-1" src="/assets/images/components/enrollments/final-screen.png" alt="">
-  </div>
-</div>
-
-<p-panel *ngIf="isNew || enrollmentState?.state?.code === CatalogueEnrollmentStateEnum.REGISTERED ||
-            enrollmentState?.state?.code === CatalogueEnrollmentStateEnum.REJECTED" class="p-fluid">
+<p-panel class="p-fluid">
   <p-accordion [activeIndex]="activeIndex" (activeIndexChange)="changeActiveIndex($event)">
     <p-accordionTab [disabled]="activeIndex!==0 && activeIndex!=null">
       <ng-template pTemplate="header">

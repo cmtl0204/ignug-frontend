@@ -21,6 +21,45 @@ export class StudentComponent {
   private readonly studentsHttpService = inject(StudentsHttpService);
   protected state: boolean = true;
   protected enrollment!: EnrollmentModel;
+  private valid = ['1309824819',
+    '1050189750',
+    '2200506653',
+    '1725919458',
+    '1720434867',
+    '1753996915',
+    '1805266218',
+    '0850169319',
+    '1724147044',
+    '0803639301',
+    '1313779629',
+    '1721075883',
+    '1714090816',
+    '2200462188',
+    '1722625512',
+    '1751176783',
+    '1724499130',
+    '1050441615',
+    '1721033791',
+    '0550610612',
+    '1004373815',
+    '0604139519',
+    '1050199221',
+    '1400897029',
+    '0603839986',
+    '2300132533',
+    '1401219041',
+    '1752444370',
+    '1752459139',
+    '1207877851',
+    '1726391558',
+    '1756072037',
+    '1721124376',
+    '1721059663',
+    '1718275967',
+    '1727250969',
+    '2100061221',
+    '1004479760',
+    '1720354735'].includes(this.authService.auth.identification);
 
   constructor() {
     this.breadcrumbService.setItems([{label: 'Dashboard'}]);
@@ -127,14 +166,25 @@ export class StudentComponent {
         routerLink: '/core/student/student-card',
       },
       {
-        code: 'socioEconomicForm',
+        code: 'socioEconomicPdf',
         enabled: this.state,
-        header: 'Ficha Socioeconómica',
+        header: 'PDF Ficha Socioeconómica',
         subheader: 'Descargar',
         img: `${assetsPath}/socioeconomic-pdf.png`,
         routerLink: '/core/student/socioeconomic-pdf',
       },
     );
+
+    if (this.valid) {
+      this.transactionMenus.push({
+        code: 'socioEconomicForm',
+        enabled: this.valid,
+        header: 'Ficha Socioeconómica',
+        subheader: 'Descargar',
+        img: `${assetsPath}/socioeconomic-form.png`,
+        routerLink: '/core/student/socioeconomic',
+      });
+    }
   }
 
   redirect(menu: any) {
@@ -145,7 +195,52 @@ export class StudentComponent {
       document.body.appendChild(downloadLink);
       downloadLink.click();
     } else {
-      this.router.navigate([menu.routerLink]);
+      if (menu.code === 'socioEconomicForm') {
+        const valid = ['1309824819',
+          '1050189750',
+          '2200506653',
+          '1725919458',
+          '1720434867',
+          '1753996915',
+          '1805266218',
+          '0850169319',
+          '1724147044',
+          '0803639301',
+          '1313779629',
+          '1721075883',
+          '1714090816',
+          '2200462188',
+          '1722625512',
+          '1751176783',
+          '1724499130',
+          '1050441615',
+          '1721033791',
+          '0550610612',
+          '1004373815',
+          '0604139519',
+          '1050199221',
+          '1400897029',
+          '0603839986',
+          '2300132533',
+          '1401219041',
+          '1752444370',
+          '1752459139',
+          '1207877851',
+          '1726391558',
+          '1756072037',
+          '1721124376',
+          '1721059663',
+          '1718275967',
+          '1727250969',
+          '2100061221',
+          '1004479760',
+          '1720354735'].includes(this.authService.auth.identification);
+
+        if (valid)
+          this.router.navigate([menu.routerLink]);
+      } else {
+        this.router.navigate([menu.routerLink]);
+      }
     }
   }
 }

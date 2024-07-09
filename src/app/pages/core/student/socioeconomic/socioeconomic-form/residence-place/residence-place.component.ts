@@ -53,14 +53,14 @@ export class ResidencePlaceComponent {
   ngOnInit(): void {
     this.form.patchValue(this.student);
 
-    if (this.enrollment?.enrollmentStates) {
-      if (this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED ||
-        this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) { //reviewer
-        this.form.enable();
-      } else {
-        this.form.disable();
-      }
-    }
+    // if (this.enrollment?.enrollmentStates) {
+    //   if (this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED ||
+    //     this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) { //reviewer
+    //     this.form.enable();
+    //   } else {
+    //     this.form.disable();
+    //   }
+    // }
 
     this.loadCountries();
   }

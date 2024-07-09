@@ -5,10 +5,10 @@ import {PrimeIcons} from "primeng/api";
 import {CatalogueModel, EnrollmentModel, StudentModel} from "@models/core";
 import {CataloguesHttpService, CoreService, MessageService, RoutesService, StudentsHttpService} from "@services/core";
 import {
-    CatalogueEnrollmentStateEnum,
-    CatalogueTypeEnum,
-    InformationStudentEnum,
-    SeverityButtonActionEnum
+  CatalogueEnrollmentStateEnum,
+  CatalogueTypeEnum,
+  InformationStudentEnum,
+  SeverityButtonActionEnum
 } from '@shared/enums';
 
 @Component({
@@ -54,14 +54,14 @@ export class AcademicDataComponent implements OnInit {
     this.form.patchValue(this.student);
 
     this.validateForm;
-    if (this.enrollment?.enrollmentState) {
-      if (this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED ||
-        this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) { //reviewer
-        this.form.enable();
-      } else {
-        this.form.disable();
-      }
-    }
+    // if (this.enrollment?.enrollmentState) {
+    //   if (this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED ||
+    //     this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) { //reviewer
+    //     this.form.enable();
+    //   } else {
+    //     this.form.disable();
+    //   }
+    // }
 
     this.loadDegreeSuperiors();
     this.loadTypeSchools();
@@ -122,6 +122,7 @@ export class AcademicDataComponent implements OnInit {
     this.validForm.emit(this.formErrors.length === 0 && this.form.valid);
     return this.formErrors.length === 0 && this.form.valid;
   }
+
   loadDegreeSuperiors(): void {
     this.degreeSuperiors = this.cataloguesHttpService.findByType(CatalogueTypeEnum.DEGREE_SUPERIOR);
   }
@@ -201,5 +202,5 @@ export class AcademicDataComponent implements OnInit {
     return this.informationStudentForm.controls['typeSchool'];
   }
 
-    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }
