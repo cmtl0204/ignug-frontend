@@ -39,7 +39,8 @@ import { AboutComponent } from '@layout';
 import {InputTextModule} from "primeng/inputtext";
 import {BadgeModule} from "primeng/badge";
 import {SidebarModule} from "primeng/sidebar";
-import {PanelMenuModule} from "primeng/panelmenu";
+import {PanelMenuModule} from "primeng/panelmenu"
+import { ChartModule } from 'primeng/chart';
 
 registerLocaleData(localEs, 'es');
 
@@ -80,6 +81,7 @@ registerLocaleData(localEs, 'es');
     BadgeModule,
     SidebarModule,
     PanelMenuModule,
+    ChartModule
   ],
   providers: [
     // {

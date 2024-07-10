@@ -30,9 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'coordinator-career',
-    component: CoordinatorCareerComponent
+    loadChildren: ()=>import('./coordinator-career/coordinator-career.module').then(m => m.CoordinatorCareerModule),
   },
-
 
 ];
 
