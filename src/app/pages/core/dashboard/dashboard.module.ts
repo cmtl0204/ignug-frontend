@@ -14,6 +14,7 @@ import {ButtonModule} from "primeng/button";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TagModule} from "primeng/tag";
 import { InputOtpModule } from 'primeng/inputotp';
+import {CoordinatorCareerModule} from "./coordinator-career/coordinator-career.module";
 
 @NgModule({
   declarations: [
@@ -24,16 +25,17 @@ import { InputOtpModule } from 'primeng/inputotp';
     CoordinatorAdministrativeComponent,
     CoordinatorCareerComponent
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule,
-    ReactiveFormsModule,
-    AccordionModule,
-    CardModule,
-    ButtonModule,
-    TagModule,
-    InputOtpModule,
-    FormsModule
-  ]
+    imports: [
+        CommonModule,
+        DashboardRoutingModule,
+        ReactiveFormsModule,
+        AccordionModule,
+        CardModule,
+        ButtonModule,
+        TagModule,
+        InputOtpModule,
+        FormsModule,
+        CoordinatorCareerModule
+    ]
 })
 export class DashboardModule { }

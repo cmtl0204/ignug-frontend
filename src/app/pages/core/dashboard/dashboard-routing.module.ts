@@ -7,6 +7,7 @@ import {StudentComponent} from "./student/student.component";
 import {CoordinatorAdministrativeComponent} from "./coordinator-administrative/coordinator-administrative.component";
 import {CoordinatorCareerComponent} from "./coordinator-career/coordinator-career.component";
 import {SecretaryModule} from "./secretary/secretary.module";
+import {CoordinatorCareerModule} from "./coordinator-career/coordinator-career.module";
 
 const routes: Routes = [
   {
@@ -35,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'coordinator-career',
-    component: CoordinatorCareerComponent
+    loadChildren: () => import('./coordinator-career/coordinator-career.module').then(m => CoordinatorCareerModule)
   },
 
 
