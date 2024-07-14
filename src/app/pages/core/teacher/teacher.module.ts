@@ -23,9 +23,14 @@ import {CalendarModule} from 'primeng/calendar';
 // Components
 import {PanelModule} from "primeng/panel";
 import {DividerModule} from "primeng/divider";
+import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
+import { EvaluationListComponent } from './evaluation-list/evaluation-list.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    EvaluationFormComponent,
+    EvaluationListComponent
+  ],
   imports: [
     NgCommonModule,
     TeacherRoutingModule,

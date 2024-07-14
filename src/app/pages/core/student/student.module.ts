@@ -26,11 +26,15 @@ import {ToolbarModule} from "primeng/toolbar";
 import {StudentFormComponent} from './student-form/student-form.component';
 import {StudentListComponent} from './student-list/student-list.component';
 import {PdfViewerModule} from "ng2-pdf-viewer";
+import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
+import { EvaluationListComponent } from './evaluation-list/evaluation-list.component';
 
 @NgModule({
   declarations: [
     StudentFormComponent,
     StudentListComponent,
+    EvaluationFormComponent,
+    EvaluationListComponent,
   ],
   imports: [
     NgCommonModule,
