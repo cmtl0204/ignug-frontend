@@ -27,3 +27,4 @@ export * from './enrollment-detail.model';
 export * from './enrollment-detail-state.model';
 export * from './partial-permission.model';
 export * from './career-parallel.model';
+export * from './evaluation.model';

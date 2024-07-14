@@ -31,3 +31,5 @@ export * from './enrollment-details-http.service';
 export * from './locations-http.service';
 export * from './grades-http.service';
 export * from './dashboards-http.service';
+export * from './message-dialog.service';
+export * from './evaluations-http.service';

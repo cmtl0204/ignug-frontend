@@ -1,0 +1,19 @@
+<i [ngClass]="[PrimeIcons.QUESTION_CIRCLE,'ml-1']"
+   (mouseenter)="overlayPanel.toggle($event)"
+   (click)="overlayPanel.toggle($event)"
+   (mouseleave)="overlayPanel.hide()"
+   style="font-size: 1rem"></i>
+
+<p-overlayPanel #overlayPanel>
+  <ng-template pTemplate="content">
+    @if (Array.isArray(content)) {
+      <ul>
+        @for(item of content;track item){
+        <li style="font-size:0.8rem">{{ item }}</li>
+        }
+      </ul>
+    } @else {
+      <p style="font-size:0.8rem">{{ content }}</p>
+    }
+  </ng-template>
+</p-overlayPanel>

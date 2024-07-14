@@ -1,1 +1,80 @@
-<p>evaluation-list works!</p>
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <p-button
+      label="Refrescar"
+      severity="info"
+      class="ml-2"
+      [icon]="PrimeIcons.REFRESH"
+      [loading]="coreService.isLoading"
+      (click)="findAll()"></p-button>
+  </div>
+  <div class="p-toolbar-group-right">
+
+  </div>
+</p-toolbar>
+
+<p-table
+  dataKey="id"
+  styleClass="p-datatable-striped"
+  [value]="items"
+  [columns]="columns"
+  [loading]="coreService.isLoading">
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th class="text-center">
+        Acciones
+      </th>
+
+      @for (col of columns; track col) {
+        <th [pSortableColumn]="col.field">
+          {{ col.header }}
+          <p-sortIcon [field]="col.field"></p-sortIcon>
+        </th>
+      }
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+    <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+      <td style="width: 3rem" class="text-center">
+        <p-button
+          [icon]="PrimeIcons.ELLIPSIS_V"
+          (click)="selectItem(rowData)"></p-button>
+      </td>
+      @for (col of columns; track col) {
+        <td>
+          <!--Objects-->
+          @if (rowData[col.field]?.id) {
+            @switch (col.field) {
+              @case ('object') {
+                {{ rowData[col.field].name }}
+              }
+            }
+          }
+
+          <!--Fields-->
+          @if (!rowData[col.field]?.id) {
+            @switch (col.field) {
+              @default {
+                {{ rowData[col.field] }}
+              }
+            }
+          }
+        </td>
+      }
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage" let-columns>
+    <tr>
+      <td [attr.colspan]="columns.length">
+        {{ messageService.paginatorNoRecordsFound }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    {{ messageService.paginatorTotalRegisters(items.length) }}
+  </ng-template>
+</p-table>
+
+<p-sidebar [(visible)]="isButtonActions" position="right">
+  <p-panelMenu [model]="buttonActions" [style]="{'width':'300px'}" (click)="isButtonActions=false"></p-panelMenu>
+</p-sidebar>

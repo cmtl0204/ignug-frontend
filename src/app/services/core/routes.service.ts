@@ -165,6 +165,10 @@ export class RoutesService {
     this.router.navigateByUrl(`/core/welfare/enrollments`);
   }
 
+  dashboardCoordinatorAcademic() {
+    this.router.navigateByUrl(`/core/dashboards/coordinator-academic`);
+  }
+
   passwordReset() {
     this.router.navigateByUrl(`/password-reset`);
   }

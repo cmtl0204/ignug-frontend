@@ -99,6 +99,7 @@ export class AuthService {
 
   selectDashboard() {
     this.messageService.successCustom('Bienvenido', 'Ingreso Correcto');
+
     switch (this.role.code) {
       case RolesEnum.ADMIN: {
         this.routesService.dashboardAdmin();
@@ -134,6 +135,10 @@ export class AuthService {
       }
       case RolesEnum.WELFARE: {
         this.routesService.dashboardWelfare();
+        break;
+      }
+      case RolesEnum.COORDINATOR_ACADEMIC: {
+        this.routesService.dashboardCoordinatorAcademic();
         break;
       }
     }

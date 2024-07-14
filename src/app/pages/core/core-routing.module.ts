@@ -58,6 +58,12 @@ const routes: Routes = [
     data: {roles: [RolesEnum.WELFARE]}
   },
   {
+    path: 'coordinator-academic',
+    loadChildren: () => import('./coordinator-academic/coordinator-academic.module').then(m => m.CoordinatorAcademicModule),
+    canActivate: [RoleGuard],
+    data: {roles: [RolesEnum.COORDINATOR_ACADEMIC]}
+  },
+  {
     path: 'events',
     loadChildren: () => import('./event/event.module').then(m => m.EventModule)
   },

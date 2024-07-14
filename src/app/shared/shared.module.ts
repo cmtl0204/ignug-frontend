@@ -59,6 +59,7 @@ import {AcademicStatePipe} from "@shared/pipes/core/academic-state.pipe";
 import {EnrollmentStatePipe} from "@shared/pipes/core/enrollment-state.pipe";
 import {AcademicStateSeverityPipe} from "@shared/pipes/core/academic-state-severity.pipe";
 import {FormButtonActionComponent} from "@shared/components/form-button-action/form-button-action.component";
+import {FormHelpFieldComponent} from "@shared/components/form-help-field/form-help-field.component";
 
 @NgModule({
   declarations: [
@@ -95,7 +96,9 @@ import {FormButtonActionComponent} from "@shared/components/form-button-action/f
     RequiredSeverityPipe,
     PartialPermissionPipe,
     AcademicStateSeverityPipe,
-    FormButtonActionComponent
+    FormButtonActionComponent,
+    HelpFieldComponent,
+    FormHelpFieldComponent
   ],
   exports: [
     SkeletonComponent,
@@ -131,7 +134,8 @@ import {FormButtonActionComponent} from "@shared/components/form-button-action/f
     RequiredSeverityPipe,
     PartialPermissionPipe,
     AcademicStateSeverityPipe,
-    FormButtonActionComponent
+    FormButtonActionComponent,
+    FormHelpFieldComponent
   ],
   imports: [
     CommonModule,

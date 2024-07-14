@@ -24,5 +24,7 @@ export enum BreadcrumbEnum {
   USERS = 'Usuarios',
   TEACHER_CHARGE = 'Consolidado de notas',
   SUBJECT_REQUIREMENTS = 'Pre y Co Requisitos',
-  GRADES = 'Calificaciones'
+  GRADES = 'Calificaciones',
+  TEACHER_EVALUATIONS = 'Evaluación Docente',
+  EVALUATIONS = 'Evaluaciones'
 }

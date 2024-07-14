@@ -8,4 +8,5 @@ export enum RolesEnum {
   REVIEWER = 'reviewer',
   SECRETARY = 'secretary',
   WELFARE = 'welfare',
+  COORDINATOR_ACADEMIC = 'coordinator-academic',
 }

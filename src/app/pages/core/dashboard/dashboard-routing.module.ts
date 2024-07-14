@@ -8,6 +8,7 @@ import {CoordinatorAdministrativeComponent} from "./coordinator-administrative/c
 import {CoordinatorCareerComponent} from "./coordinator-career/coordinator-career.component";
 import {SecretaryModule} from "./secretary/secretary.module";
 import {CoordinatorCareerModule} from "./coordinator-career/coordinator-career.module";
+import {CoordinatorAcademicModule} from "./coordinator-academic/coordinator-academic.module";
 
 const routes: Routes = [
   {
@@ -38,8 +39,10 @@ const routes: Routes = [
     path: 'coordinator-career',
     loadChildren: () => import('./coordinator-career/coordinator-career.module').then(m => CoordinatorCareerModule)
   },
-
-
+  {
+    path: 'coordinator-academic',
+    loadChildren: () => import('./coordinator-academic/coordinator-academic.module').then(m => CoordinatorAcademicModule)
+  },
 ];
 
 @NgModule({
