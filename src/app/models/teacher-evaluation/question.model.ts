@@ -1,15 +1,11 @@
-import {CatalogueModel} from '@models/core';
+import {CatalogueModel} from "@models/core/catalogue.model";
 
 export interface QuestionModel {
-  id: string;
-  createAt: Date;
-  updateAt: Date;
-  deleteAt: Date;
-  enabled: boolean;
-
+  id?: string;
   code?: string;
+  description?: string;
   name?: string;
-  category?: CatalogueModel;
+  type?: string;
   evaluationType?: CatalogueModel;
-  sort?: number;
+  evaluationTypeId?: string;
 }
