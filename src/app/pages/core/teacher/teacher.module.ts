@@ -23,8 +23,8 @@ import {CalendarModule} from 'primeng/calendar';
 // Components
 import {PanelModule} from "primeng/panel";
 import {DividerModule} from "primeng/divider";
-import { EvaluationFormComponent } from './evaluation-form/evaluation-form.component';
-import { EvaluationListComponent } from './evaluation-list/evaluation-list.component';
+import { EvaluationFormComponent } from './teacher-evaluation/evaluation-form/evaluation-form.component';
+import { EvaluationListComponent } from './teacher-evaluation/evaluation-list/evaluation-list.component';
 
 @NgModule({
   declarations: [
