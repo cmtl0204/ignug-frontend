@@ -2,7 +2,18 @@ import {Component, inject, Input, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PrimeIcons} from "primeng/api";
 import {CatalogueModel} from '@models/core';
-import {BreadcrumbService,CataloguesHttpService, CoreService,QuestionsHttpService, MessageDialogService, RoutesService} from "@services/core";
+import {
+  BreadcrumbService,
+  CataloguesHttpService,
+  CoreService,
+  MessageDialogService,
+  RoutesService
+} from "@services/core";
+
+import {
+  QuestionsHttpService
+} from "@services/teacher-evaluation";
+
 import {BreadcrumbEnum, CatalogueTypeEnum, QuestionFormEnum, RoutesEnum, SkeletonEnum} from "@shared/enums";
 
 @Component({
@@ -37,7 +48,7 @@ export class QuestionFormComponent implements OnInit {
   constructor() {
     this.breadcrumbService.setItems([
       {label: BreadcrumbEnum.TEACHER_EVALUATIONS},
-      {label: BreadcrumbEnum.QUESTIONS,routerLink:'/core/coordinator-academic/teacher-evaluations/question-form'},
+      {label: BreadcrumbEnum.QUESTIONS, routerLink: '/core/coordinator-academic/teacher-evaluations/question-form'},
       {label: BreadcrumbEnum.FORM},
     ]);
     this.buildForm();
@@ -60,18 +71,21 @@ export class QuestionFormComponent implements OnInit {
   }
 
   loadEvaluationTypes() {
-   this.evaluationTypes = this.cataloguesHttpService.findByType(CatalogueTypeEnum.QUESTIONS_EVALUATION_TYPE);
+    this.evaluationTypes = this.cataloguesHttpService.findByType(CatalogueTypeEnum.QUESTIONS_EVALUATION_TYPE);
   }
+
   loadTypes() {
     this.types = this.cataloguesHttpService.findByType(CatalogueTypeEnum.QUESTIONS_TYPE);
   }
-  redirectRegistration(){}
+
+  redirectRegistration() {
+  }
 
   onSubmit() {
     if (this.validateForm()) {
-      if(this.id === RoutesEnum.NEW) {
+      if (this.id === RoutesEnum.NEW) {
         this.create();
-      }else {
+      } else {
         this.update();
       }
     } else {
@@ -92,7 +106,7 @@ export class QuestionFormComponent implements OnInit {
     return this.form.valid && this.formErrors.length === 0;
   }
 
-  create(){
+  create() {
     this.questionsHttpService.create(this.form.value).subscribe(
       response => {
         console.log('Question created successfully!', response);
@@ -105,7 +119,7 @@ export class QuestionFormComponent implements OnInit {
     );
   }
 
-  update(){
+  update() {
     this.questionsHttpService.create(this.form.value).subscribe(
       response => {
         console.log('Question created successfully!', response);

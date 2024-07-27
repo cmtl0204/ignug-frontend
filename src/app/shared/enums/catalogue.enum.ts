@@ -74,6 +74,8 @@ export enum CatalogueTypeEnum {
   WATER_SERVICE_TYPE = 'WATER_SERVICE_TYPE',
   YES_NO = 'YES_NO',
   YES_NO_NA = 'YES_NO_NA',
+  QUESTIONS_EVALUATION_TYPE = 'QUESTIONS_EVALUATION_TYPE',
+  QUESTIONS_TYPE = 'QUESTIONS_TYPE',
 }
 
 export enum CatalogueStateEnum {

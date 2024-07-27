@@ -449,7 +449,12 @@ export enum LoginFormEnum {
   roleSelect = 'Seleccione un rol',
 }
 
-export enum EvaluationFormEnum {
+export enum QuestionFormEnum {
+  category = 'Categoría',
   code = 'Código',
-  name = 'Nombre'
+  description = 'Descripción de la pregunta',
+  name = 'Nombre de la pregunta',
+  type = 'Tipo de pregunta',
+  evaluationType = 'Tipo de Evaluación',
+  enabled = 'Habilitado'
 }
