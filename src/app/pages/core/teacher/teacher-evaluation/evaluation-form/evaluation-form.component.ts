@@ -21,8 +21,8 @@ export class EvaluationFormComponent implements OnInit {
   private readonly routesService = inject(RoutesService);
   private readonly router = inject(Router);
 
-  protected columns: ColumnModel[] = [];
   @Input() id: string = '';
+  protected columns: ColumnModel[] = [];
   protected questions: QuestionModel[] = [];
   protected results: ResultModel[] = [];
   protected missingQuestions: string[] = [];
