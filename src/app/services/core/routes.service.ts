@@ -105,6 +105,10 @@ export class RoutesService {
     return this.core + '/teacher/teacher-distributions/grades';
   }
 
+  get teacherEvaluationsAuto(): string {
+    return this.core + '/teacher/teacher-evaluations/auto';
+  }
+
   get common(): string {
     return '/common';
   }

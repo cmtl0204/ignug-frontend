@@ -65,6 +65,16 @@ export class EvaluationsHttpService {
     );
   }
 
+  findEvaluationsByUser(userId:string): Observable<EvaluationModel> {
+    const url = `${this.API_URL}/users/${userId}`;
+
+    return this.httpClient.get<ServerResponse>(url).pipe(
+      map((response) => {
+        return response.data;
+      })
+    );
+  }
+
   update(id: string, payload: EvaluationModel): Observable<EvaluationModel> {
     const url = `${this.API_URL}/${id}`;
 

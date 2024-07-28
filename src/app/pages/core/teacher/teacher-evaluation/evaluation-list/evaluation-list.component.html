@@ -1,1 +1,38 @@
-<p>evaluation-list works!</p>
+@if (!autoEvaluation) {
+  <div class="panel-messages-error">
+    <h1>Su autoevaluación no ha sido generada</h1>
+    <p>Por favor comuníquese con el Director de Carrera</p>
+  </div>
+}
+
+@if (autoEvaluation) {
+  <p-card
+    [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"/>
+    </ng-template>
+    <ng-template pTemplate="title">
+      Autoevaluación
+    </ng-template>
+
+    <ng-template pTemplate="subtitle">
+      {{ autoEvaluation.evaluated?.name }} {{ autoEvaluation.evaluated?.lastname }}
+    </ng-template>
+
+    <ng-template pTemplate="subtitle">
+      <p>
+        Puntaje: <b>{{ autoEvaluation.totalScore ? autoEvaluation.totalScore : 'Pendiente' }}</b>
+      </p>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <div class="flex gap-3 mt-1">
+        <p-button
+          label="Ingresar"
+          class="w-full"
+          [routerLink]="['/core/teacher/teacher-evaluations/evaluation-types',autoEvaluation.evaluationType?.id]"
+          styleClass="w-full"/>
+      </div>
+    </ng-template>
+  </p-card>
+}

@@ -46,11 +46,6 @@ export class QuestionFormComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons; //pending
 
   constructor() {
-    this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.TEACHER_EVALUATIONS},
-      {label: BreadcrumbEnum.QUESTIONS, routerLink: '/core/coordinator-academic/teacher-evaluations/question-form'},
-      {label: BreadcrumbEnum.FORM},
-    ]);
     this.buildForm();
   }
 

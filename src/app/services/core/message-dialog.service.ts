@@ -26,12 +26,12 @@ export class MessageDialogService {
   private _modalAcceptSeverity: Severity = null;
   private _modalRejectSeverity: Severity = 'danger';
   private _modalMessage: string | string[] = '';
-  private _modalIcon: string  = '';
-  private _modalIconColor: string  = '';
-  private _toastSummary: string  = '';
-  private _toastDetail: string  = '';
+  private _modalIcon: string = '';
+  private _modalIconColor: string = '';
+  private _toastSummary: string = '';
+  private _toastDetail: string = '';
   private _modalResult = new BehaviorSubject<boolean>(true);
-  public modalResult$:Observable<boolean> = this._modalResult.asObservable();
+  public modalResult$: Observable<boolean> = this._modalResult.asObservable();
 
   accept(): void {
     console.log('accept component')
@@ -45,8 +45,10 @@ export class MessageDialogService {
   constructor() {
   }
 
-  errorCustom(title: string, message: string | string[]) {
-    if (Array.isArray(message)) message.sort();
+  errorCustom(title: string, message: string | string[], ordered = true) {
+
+    if (ordered)
+      if (Array.isArray(message)) message.sort();
 
     this._modalVisible = true;
     this._modalAcceptSeverity = 'danger';

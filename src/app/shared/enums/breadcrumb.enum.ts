@@ -27,5 +27,6 @@ export enum BreadcrumbEnum {
   GRADES = 'Calificaciones',
   TEACHER_EVALUATIONS = 'Evaluación Docente',
   EVALUATIONS = 'Evaluaciones',
+  AUTO_EVALUATION = 'Autoevaluación',
   QUESTIONS = 'Preguntas',
 }

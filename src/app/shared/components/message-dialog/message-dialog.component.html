@@ -1,0 +1,31 @@
+<p-dialog [modal]="true"
+          [(visible)]="messageDialogService.modalVisible"
+          [style]="{ width: '30rem' }"
+          [closable]="false">
+  <ng-template pTemplate="header">
+    {{ messageDialogService.modalTitle }}
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <div class="text-center">
+      <i [class]="PrimeIcons.TIMES_CIRCLE" style="font-size: 3rem;color:red"></i>
+    </div>
+
+    @if (Array.isArray(messageDialogService.modalMessage)) {
+      @for (message of messageDialogService.modalMessage; track message) {
+        <ul>
+          <li><h3>{{ message }}</h3></li>
+        </ul>
+      }
+    } @else {
+      <p>{{ messageDialogService.modalMessage }}</p>
+    }
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <div class="flex justify-content-center gap-2">
+      <p-button label="Cerrar" [severity]="messageDialogService.modalAcceptSeverity"
+                (click)="messageDialogService.modalVisible=false"/>
+    </div>
+  </ng-template>
+</p-dialog>

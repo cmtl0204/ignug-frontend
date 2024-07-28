@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TeacherEvaluationRoutingModule } from './teacher-evaluation-routing.module';
 import { TeacherEvaluationComponent } from './teacher-evaluation.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TeacherEvaluationComponent } from './teacher-evaluation.component';
   ],
   imports: [
     CommonModule,
-    TeacherEvaluationRoutingModule
+    TeacherEvaluationRoutingModule,
+    FormsModule
   ]
 })
 export class TeacherEvaluationModule { }

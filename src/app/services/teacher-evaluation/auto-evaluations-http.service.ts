@@ -3,15 +3,15 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '@env/environment';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {QuestionModel} from '@models/teacher-evaluation';
+import {AutoEvaluationModel, QuestionModel} from '@models/teacher-evaluation';
 import {ServerResponse} from '@models/http-response';
 import {CoreService, MessageService} from '@services/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class QuestionsHttpService {
-  private readonly API_URL = `${environment.API_URL}/teacher-evaluations/questions`;
+export class AutoEvaluationsHttpService {
+  private readonly API_URL = `${environment.API_URL}/teacher-evaluations/auto-evaluations`;
   private readonly coreService = inject(CoreService);
   private readonly httpClient = inject(HttpClient);
   private readonly messageService = inject(MessageService);
@@ -19,7 +19,7 @@ export class QuestionsHttpService {
   constructor() {
   }
 
-  create(payload: QuestionModel): Observable<QuestionModel> {
+  create(payload: AutoEvaluationModel[]): Observable<QuestionModel> {
     const url = `${this.API_URL}`;
 
     return this.httpClient.post<ServerResponse>(url, payload).pipe(
@@ -55,8 +55,8 @@ export class QuestionsHttpService {
     );
   }
 
-  findQuestionsByEvaluationType(evaluationTypeId: string): Observable<QuestionModel[]> {
-    const url = `${this.API_URL}/evaluation-types/${evaluationTypeId}`;
+  findAutoEvaluationByEvaluated(evaluatedId: string): Observable<AutoEvaluationModel> {
+    const url = `${this.API_URL}/evaluated/${evaluatedId}`;
 
     return this.httpClient.get<ServerResponse>(url).pipe(
       map((response) => {

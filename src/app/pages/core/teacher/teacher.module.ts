@@ -25,34 +25,40 @@ import {PanelModule} from "primeng/panel";
 import {DividerModule} from "primeng/divider";
 import { EvaluationFormComponent } from './teacher-evaluation/evaluation-form/evaluation-form.component';
 import { EvaluationListComponent } from './teacher-evaluation/evaluation-list/evaluation-list.component';
+import {RadioButtonModule} from "primeng/radiobutton";
+import {RatingModule} from "primeng/rating";
+import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
     EvaluationFormComponent,
     EvaluationListComponent
   ],
-  imports: [
-    NgCommonModule,
-    TeacherRoutingModule,
-    ReactiveFormsModule,
-    SharedModule,
-    ButtonModule,
-    RippleModule,
-    MessageModule,
-    ToolbarModule,
-    PaginatorModule,
-    TableModule,
-    TabViewModule,
-    TagModule,
-    SplitButtonModule,
-    InputTextModule,
-    SidebarModule,
-    PanelMenuModule,
-    InputNumberModule,
-    CalendarModule,
-    PanelModule,
-    DividerModule,
-  ]
+    imports: [
+        NgCommonModule,
+        TeacherRoutingModule,
+        ReactiveFormsModule,
+        SharedModule,
+        ButtonModule,
+        RippleModule,
+        MessageModule,
+        ToolbarModule,
+        PaginatorModule,
+        TableModule,
+        TabViewModule,
+        TagModule,
+        SplitButtonModule,
+        InputTextModule,
+        SidebarModule,
+        PanelMenuModule,
+        InputNumberModule,
+        CalendarModule,
+        PanelModule,
+        DividerModule,
+        RadioButtonModule,
+        RatingModule,
+        CardModule,
+    ]
 })
 export class TeacherModule {
 }
