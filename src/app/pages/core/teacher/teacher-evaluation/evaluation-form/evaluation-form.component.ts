@@ -1,9 +1,10 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
-import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evaluation";
+import {ColumnModel} from "@models/core";
 import {QuestionModel, ResponseModel, ResultModel} from "@models/teacher-evaluation";
 import {BreadcrumbService, CoreService, MessageDialogService, RoutesService} from "@services/core";
-import {ColumnModel} from "@models/core";
+import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evaluation";
 import {BreadcrumbEnum} from "@shared/enums";
 
 @Component({
@@ -13,14 +14,15 @@ import {BreadcrumbEnum} from "@shared/enums";
 })
 export class EvaluationFormComponent implements OnInit {
   private readonly breadcrumbService = inject(BreadcrumbService);
-  private readonly resultsHttpService = inject(ResultsHttpService);
-  private readonly questionsHttpService = inject(QuestionsHttpService);
   protected readonly coreService = inject(CoreService);
+  private readonly questionsHttpService = inject(QuestionsHttpService);
   protected readonly messageDialogService = inject(MessageDialogService);
+  private readonly resultsHttpService = inject(ResultsHttpService);
   private readonly routesService = inject(RoutesService);
+  private readonly router = inject(Router);
 
   protected columns: ColumnModel[] = [];
-  @Input() id: string = '4f3bb443-3278-4e02-a674-31e39bf4bb6e';
+  @Input() id: string = '';
   protected questions: QuestionModel[] = [];
   protected results: ResultModel[] = [];
   protected missingQuestions: string[] = [];
@@ -29,7 +31,7 @@ export class EvaluationFormComponent implements OnInit {
 
   constructor() {
     this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.EVALUATIONS, routerLink: [this.routesService.teacherEvaluationsAuto]},
+      {label: BreadcrumbEnum.TEACHER_EVALUATIONS, routerLink: [this.routesService.teacherEvaluations]},
       {label: BreadcrumbEnum.AUTO_EVALUATION}
     ]);
     this.buildColumns();
@@ -75,6 +77,7 @@ export class EvaluationFormComponent implements OnInit {
 
     if (this.results.length === this.questions.length) {
       this.resultsHttpService.createAutoEvaluation(this.results).subscribe(response => {
+        this.router.navigate([this.routesService.teacherEvaluations]);
       });
     } else {
       this.messageDialogService.errorCustom(
@@ -89,13 +92,10 @@ export class EvaluationFormComponent implements OnInit {
   validateResults() {
     this.missingQuestions = [];
 
-    console.log(this.results);
     this.questions.forEach(question => {
       if (!this.results.find(result => result.questionId === question.id)) {
-        console.log('entro');
         if (question?.name)
           this.missingQuestions.push(`${question.sort} ${question.name}`);
-          // this.missingQuestions.push(question.sort.toString());
       }
     });
 

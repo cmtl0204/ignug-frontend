@@ -5,11 +5,11 @@ import {EvaluationFormComponent} from "./evaluation-form/evaluation-form.compone
 
 const routes: Routes = [
   {
-    path: 'evaluation-types',
+    path: '',
     component: EvaluationListComponent
   },
   {
-    path: 'evaluation-types/:id',
+    path: ':id',
     component: EvaluationFormComponent,
   }
 ];

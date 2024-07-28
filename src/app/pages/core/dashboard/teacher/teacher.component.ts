@@ -34,10 +34,10 @@ export class TeacherComponent {
       {
         enabled: true,
         code: 'evaluations',
-        header: 'Evaluaciones',
+        header: 'Evaluación Docente',
         subheader: 'Gestionar',
         img: `${assetsPath}/evaluation.png`,
-        routerLink: '/core/teacher/teacher-evaluations/evaluation-types',
+        routerLink: '/core/teacher/teacher-evaluations',
       },
       {
         enabled: true,

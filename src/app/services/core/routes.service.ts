@@ -105,6 +105,10 @@ export class RoutesService {
     return this.core + '/teacher/teacher-distributions/grades';
   }
 
+  get teacherEvaluations(): string {
+    return this.core + '/teacher/teacher-evaluations';
+  }
+
   get teacherEvaluationsAuto(): string {
     return this.core + '/teacher/teacher-evaluations/auto';
   }
@@ -141,8 +145,7 @@ export class RoutesService {
   }
 
   dashboardTeacher() {
-    // this.router.navigateByUrl(`/core/dashboards/teacher`);
-    this.router.navigateByUrl(`/core/teacher/teacher-distributions`);
+    this.router.navigateByUrl(`/core/dashboards/teacher`);
   }
 
   dashboardStudent() {

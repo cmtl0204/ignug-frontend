@@ -5,34 +5,82 @@
   </div>
 }
 
-@if (autoEvaluation) {
-  <p-card
-    [style]="{ width: '360px' }">
-    <ng-template pTemplate="header">
-      <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"/>
-    </ng-template>
-    <ng-template pTemplate="title">
-      Autoevaluación
-    </ng-template>
-
-    <ng-template pTemplate="subtitle">
-      {{ autoEvaluation.evaluated?.name }} {{ autoEvaluation.evaluated?.lastname }}
-    </ng-template>
-
-    <ng-template pTemplate="subtitle">
-      <p>
-        Puntaje: <b>{{ autoEvaluation.totalScore ? autoEvaluation.totalScore : 'Pendiente' }}</b>
-      </p>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-      <div class="flex gap-3 mt-1">
-        <p-button
-          label="Ingresar"
-          class="w-full"
-          [routerLink]="['/core/teacher/teacher-evaluations/evaluation-types',autoEvaluation.evaluationType?.id]"
-          styleClass="w-full"/>
-      </div>
-    </ng-template>
-  </p-card>
+@if (!partnerEvaluation) {
+  <div class="panel-messages-error">
+    <h1>Su evaluación por pares no ha sido generada</h1>
+    <p>Por favor comuníquese con el Director de Carrera</p>
+  </div>
 }
+
+
+<div class="grid mt-5">
+  @if (autoEvaluation) {
+    <p-card class="col-3 text-center col-offset-3" [style]="{ height: '450px' }">
+      <ng-template pTemplate="title">
+        Autoevaluación
+      </ng-template>
+
+      <ng-template pTemplate="subtitle">
+        {{ autoEvaluation.evaluated?.name }} {{ autoEvaluation.evaluated?.lastname }}
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <p>
+          Puntaje
+        </p>
+        <h1>
+          {{ autoEvaluation.totalScore ? autoEvaluation.totalScore : 'Pendiente' }}
+        </h1>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        @if (!autoEvaluation.totalScore) {
+          <p-button
+            label="Ingresar"
+            class="w-full"
+            [routerLink]="['/core/teacher/teacher-evaluations',autoEvaluation.evaluationType?.id]"
+            styleClass="w-full"/>
+        }
+      </ng-template>
+    </p-card>
+  }
+
+  @if (partnerEvaluation) {
+    <p-card class="col-3 text-center" [style]="{ height: '450px' }">
+      <ng-template pTemplate="title">
+        Pares Docentes
+      </ng-template>
+
+      <ng-template pTemplate="subtitle">
+        <p>Docente Evaluado</p>
+        {{ partnerEvaluation.evaluated?.name }} {{ partnerEvaluation.evaluated?.lastname }}
+
+        <p>Docente Evaluador</p>
+        {{ partnerEvaluation.evaluator?.name }} {{ partnerEvaluation.evaluator?.lastname }}
+      </ng-template>
+
+      <ng-template pTemplate="content">
+        <p>
+          Puntaje
+        </p>
+
+        <h1>
+          {{ partnerEvaluation.totalScore ? partnerEvaluation.totalScore : 'Pendiente' }}
+        </h1>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <div class="flex gap-3 mt-1">
+          @if (!partnerEvaluation.totalScore) {
+            <p-button
+              label="Ingresar"
+              class="w-full"
+              [routerLink]="['/core/teacher/teacher-evaluations',partnerEvaluation.evaluationType?.id]"
+              styleClass="w-full"/>
+          }
+        </div>
+      </ng-template>
+    </p-card>
+  }
+</div>
+

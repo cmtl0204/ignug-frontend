@@ -7,9 +7,20 @@ import {
   MessageDialogService,
   RoutesService
 } from "@services/core";
-import {AutoEvaluationsHttpService, QuestionsHttpService, ResultsHttpService} from "@services/teacher-evaluation";
+import {
+  AutoEvaluationsHttpService,
+  PartnerEvaluationsHttpService,
+  QuestionsHttpService,
+  ResultsHttpService
+} from "@services/teacher-evaluation";
 import {ColumnModel} from "@models/core";
-import {AutoEvaluationModel, QuestionModel, ResponseModel, ResultModel} from "@models/teacher-evaluation";
+import {
+  AutoEvaluationModel,
+  PartnerEvaluationModel,
+  QuestionModel,
+  ResponseModel,
+  ResultModel
+} from "@models/teacher-evaluation";
 import {BreadcrumbEnum} from "@shared/enums";
 import {AuthService} from "@services/auth";
 
@@ -23,31 +34,40 @@ export class EvaluationListComponent implements OnInit {
   private readonly breadcrumbService = inject(BreadcrumbService);
   private readonly resultsHttpService = inject(ResultsHttpService);
   private readonly autoEvaluationsHttpService = inject(AutoEvaluationsHttpService);
+  private readonly partnerEvaluationsHttpService = inject(PartnerEvaluationsHttpService);
   protected readonly coreService = inject(CoreService);
   protected readonly messageDialogService = inject(MessageDialogService);
   private readonly routesService = inject(RoutesService);
 
   protected columns: ColumnModel[] = [];
-  @Input() id: string = '4f3bb443-3278-4e02-a674-31e39bf4bb6e';
+  @Input() id: string = '';
   protected autoEvaluation!: AutoEvaluationModel;
+  protected partnerEvaluation!: PartnerEvaluationModel;
   protected results: ResultModel[] = [];
 
   protected readonly PrimeIcons = PrimeIcons;
 
   constructor() {
     this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.EVALUATIONS},
+      {label: BreadcrumbEnum.TEACHER_EVALUATIONS},
     ]);
     this.buildColumns();
   }
 
   ngOnInit(): void {
-    this.findEvaluations();
+    this.findAutoEvaluationByEvaluated();
+    this.findPartnerEvaluationByEvaluated();
   }
 
-  findEvaluations() {
+  findAutoEvaluationByEvaluated() {
     this.autoEvaluationsHttpService.findAutoEvaluationByEvaluated(this.authService.auth.id).subscribe(response => {
       this.autoEvaluation = response;
+    });
+  }
+
+  findPartnerEvaluationByEvaluated() {
+    this.partnerEvaluationsHttpService.findPartnerEvaluationByEvaluated(this.authService.auth.id).subscribe(response => {
+      this.partnerEvaluation = response;
     });
   }
 
