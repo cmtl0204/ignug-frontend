@@ -1,19 +1,21 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminComponent} from "./admin/admin.component";
-import {RectorComponent} from "./rector/rector.component";
 import {TeacherComponent} from "./teacher/teacher.component";
 import {StudentComponent} from "./student/student.component";
 import {CoordinatorAdministrativeComponent} from "./coordinator-administrative/coordinator-administrative.component";
-import {CoordinatorCareerComponent} from "./coordinator-career/coordinator-career.component";
 import {SecretaryModule} from "./secretary/secretary.module";
 import {CoordinatorCareerModule} from "./coordinator-career/coordinator-career.module";
 import {CoordinatorAcademicModule} from "./coordinator-academic/coordinator-academic.module";
+import {AdminModule} from "./admin/admin.module";
+import {RectorModule} from "./rector/rector.module";
+import {TeacherModule} from "./teacher/teacher.module";
+import {StudentModule} from "./student/student.module";
+import {CoordinatorAdministrativeModule} from "./coordinator-administrative/coordinator-administrative.module";
 
 const routes: Routes = [
   {
     path: 'admin',
-    component: AdminComponent
+    loadChildren: () => import('./admin/admin.module').then(m => AdminModule)
   },
   {
     path: 'secretary',
@@ -21,19 +23,20 @@ const routes: Routes = [
   },
   {
     path: 'rector',
-    component: RectorComponent
+    loadChildren: () => import('./rector/rector.module').then(m => RectorModule)
   },
   {
     path: 'teacher',
-    component: TeacherComponent
+    loadChildren: () => import('./teacher/teacher.module').then(m => TeacherModule)
   },
   {
     path: 'student',
-    component: StudentComponent
+    loadChildren: () => import('./student/student.module').then(m => StudentModule)
   },
   {
     path: 'coordinator-administrative',
-    component: CoordinatorAdministrativeComponent
+    loadChildren: () => import('./coordinator-administrative/coordinator-administrative.module').then(m => CoordinatorAdministrativeModule)
+
   },
   {
     path: 'coordinator-career',
