@@ -61,6 +61,8 @@ import {AcademicStateSeverityPipe} from "@utils/pipes/core/academic-state-severi
 import {FormButtonActionComponent} from "@utils/components/form-button-action/form-button-action.component";
 import {FormHelpFieldComponent} from "@utils/components/form-help-field/form-help-field.component";
 import {MessageDialogComponent} from "@utils/components/message-dialog/message-dialog.component";
+import {MessageConfirmDialogComponent} from "@utils/components/message-confirm-dialog/message-confirm-dialog.component";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -100,7 +102,8 @@ import {MessageDialogComponent} from "@utils/components/message-dialog/message-d
     FormButtonActionComponent,
     HelpFieldComponent,
     FormHelpFieldComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    MessageConfirmDialogComponent
   ],
   exports: [
     SkeletonComponent,
@@ -138,7 +141,8 @@ import {MessageDialogComponent} from "@utils/components/message-dialog/message-d
     AcademicStateSeverityPipe,
     FormButtonActionComponent,
     FormHelpFieldComponent,
-    MessageDialogComponent
+    MessageDialogComponent,
+    MessageConfirmDialogComponent
   ],
   imports: [
     CommonModule,
@@ -166,6 +170,7 @@ import {MessageDialogComponent} from "@utils/components/message-dialog/message-d
     ConfirmDialogModule,
     PanelModule,
     DialogModule,
+    ToastModule,
   ],
   providers: [ConfirmationService]
 })

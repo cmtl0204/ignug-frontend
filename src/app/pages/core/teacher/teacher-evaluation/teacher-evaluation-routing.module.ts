@@ -1,7 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {EvaluationListComponent} from "./evaluation-list/evaluation-list.component";
-import {EvaluationFormComponent} from "./evaluation-form/evaluation-form.component";
+import {AutoEvaluationFormComponent} from "./auto-evaluation-form/auto-evaluation-form.component";
+import {PartnerEvaluationFormComponent} from "./partner-evaluation-form/partner-evaluation-form.component";
+
 
 const routes: Routes = [
   {
@@ -9,8 +11,12 @@ const routes: Routes = [
     component: EvaluationListComponent
   },
   {
-    path: ':id',
-    component: EvaluationFormComponent,
+    path: 'auto-evaluations/:id',
+    component: AutoEvaluationFormComponent,
+  },
+  {
+    path: 'partner-evaluations/:id',
+    component: PartnerEvaluationFormComponent,
   }
 ];
 

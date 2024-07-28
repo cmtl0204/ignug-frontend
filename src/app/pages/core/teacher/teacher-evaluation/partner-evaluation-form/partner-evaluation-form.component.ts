@@ -29,7 +29,7 @@ export class PartnerEvaluationFormComponent {
   }
 
   save(results:ResultModel[]) {
-    this.resultsHttpService.createAutoEvaluation(results).subscribe(response => {
+    this.resultsHttpService.createPartnerEvaluation(results).subscribe(response => {
       this.router.navigate([this.routesService.teacherEvaluations]);
     });
   }

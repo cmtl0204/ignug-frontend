@@ -67,6 +67,10 @@ const routes: Routes = [
     path: 'events',
     loadChildren: () => import('./event/event.module').then(m => m.EventModule)
   },
+  {
+    path: 'shared',
+    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
+  },
 ];
 
 @NgModule({

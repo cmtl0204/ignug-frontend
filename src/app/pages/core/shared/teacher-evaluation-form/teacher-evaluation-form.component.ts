@@ -44,9 +44,9 @@ export class TeacherEvaluationFormComponent implements OnInit {
   findQuestionsByEvaluationType() {
     this.questionsHttpService.findQuestionsByEvaluationType(this.id).subscribe(questions => {
       this.questions = questions;
-      // this.questions.forEach(question => {
-      //   this.reply(question.id!, question.responses[0]);
-      // })
+      this.questions.forEach(question => {
+        this.reply(question.id!, question.responses[0]);
+      })
     });
   }
 
@@ -73,18 +73,22 @@ export class TeacherEvaluationFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.validateResults();
+    this.messageDialogService.questionOnExit().subscribe(result => {
+      if (result) {
+        this.validateResults();
 
-    if (this.results.length === this.questions.length) {
-      this.resultsOut.emit(this.results);
-    } else {
-      this.messageDialogService.errorCustom(
-        'Debe responder todas las preguntas',
-        [
-          `Preguntas respondidas ${this.results.length} de ${this.questions.length}`,
-          ...this.missingQuestions
-        ], false);
-    }
+        if (this.results.length === this.questions.length) {
+          this.resultsOut.emit(this.results);
+        } else {
+          this.messageDialogService.errorCustom(
+            'Debe responder todas las preguntas',
+            [
+              `Preguntas respondidas ${this.results.length} de ${this.questions.length}`,
+              ...this.missingQuestions
+            ], false);
+        }
+      }
+    });
   }
 
   validateResults() {
