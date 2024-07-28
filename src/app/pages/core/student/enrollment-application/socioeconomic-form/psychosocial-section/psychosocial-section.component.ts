@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PrimeIcons, MenuItem} from 'primeng/api';
-import {OnExitInterface} from '@shared/interfaces';
+import {OnExitInterface} from '@utils/interfaces';
 import {CatalogueModel, EnrollmentModel, StudentModel} from '@models/core';
 import {
   BreadcrumbService,
@@ -21,7 +21,7 @@ import {
   BreadcrumbEnum, CatalogueEnrollmentStateEnum,
   CatalogueTypeEnum, IconButtonActionEnum,
   SkeletonEnum,
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-psychosocial-section',

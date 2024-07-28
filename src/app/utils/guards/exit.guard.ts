@@ -1,7 +1,7 @@
 // import {Injectable} from '@angular/core';
 // import {ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree} from '@angular/router';
 // import {Observable} from 'rxjs';
-// import {OnExitInterface} from '@shared/interfaces/on-exit.interface';
+// import {OnExitInterface} from '@utils/interfaces/on-exit.interface';
 //
 //
 // @Injectable({

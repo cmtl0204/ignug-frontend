@@ -1,7 +1,7 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
-import {IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum} from "@shared/enums";
+import {IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum} from "@utils/enums";
 import {CoreService} from "@services/core";
-import {Severity} from "@shared/pipes/types.type";
+import {Severity} from "@utils/pipes/types.type";
 
 @Component({
   selector: 'app-form-button-action',

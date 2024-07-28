@@ -9,7 +9,7 @@ import {
   TeacherDistributionsHttpService,
   TeacherDistributionsService
 } from "@services/core";
-import {BreadcrumbEnum, SkeletonEnum} from "@shared/enums";
+import {BreadcrumbEnum, SkeletonEnum} from "@utils/enums";
 import {FormControl} from "@angular/forms";
 import {EnrollmentDetailModel, SchoolPeriodModel, TeacherDistributionModel} from "@models/core";
 import {AuthService} from "@services/auth";

@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AuthRoutingModule} from './auth-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {SharedModule} from '@shared/shared.module';
+import {UtilsModule} from '@utils/utils.module';
 import {CheckboxModule} from 'primeng/checkbox';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
@@ -19,7 +19,7 @@ import {DividerModule} from 'primeng/divider';
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    SharedModule,
+    UtilsModule,
     ButtonModule,
     CardModule,
     CheckboxModule,

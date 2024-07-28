@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {MenuItem, PrimeIcons} from "primeng/api";
 import {ColumnModel, PaginatorModel, SelectStudentDto, StudentModel} from '@models/core';
 import {BreadcrumbService, CoreService, MessageService, RoutesService, StudentsHttpService} from '@services/core';
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-student-list',

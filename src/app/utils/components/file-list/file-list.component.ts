@@ -3,7 +3,7 @@ import {FormControl} from "@angular/forms";
 import {ConfirmationService, MenuItem, PrimeIcons} from "primeng/api";
 import {CatalogueModel, ColumnModel, EventModel, FileModel, ModelI, PaginatorModel, SelectEventDto} from "@models/core";
 import {CoreService, FilesHttpService, MessageService, OverlaysService} from "@services/core";
-import {SeverityButtonActionEnum} from "@shared/enums";
+import {SeverityButtonActionEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-file-list',

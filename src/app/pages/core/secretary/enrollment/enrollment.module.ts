@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
 import {EnrollmentRoutingModule} from './enrollment-routing.module';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 // PrimeNg Modules
 import {ButtonModule} from "primeng/button";
@@ -46,7 +46,7 @@ import {InputGroupAddonModule} from "primeng/inputgroupaddon";
     NgCommonModule,
     EnrollmentRoutingModule,
     ReactiveFormsModule,
-    SharedModule,
+    UtilsModule,
     AccordionModule,
     BadgeModule,
     ButtonModule,

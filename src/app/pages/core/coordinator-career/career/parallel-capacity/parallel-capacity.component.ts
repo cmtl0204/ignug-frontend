@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 import {BreadcrumbService, RoutesService} from "@services/core";
 
 @Component({

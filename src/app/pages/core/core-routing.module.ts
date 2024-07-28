@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {RoleGuard, TokenGuard} from "@shared/guards";
-import {RolesEnum} from "@shared/enums";
+import {RoleGuard, TokenGuard} from "@utils/guards";
+import {RolesEnum} from "@utils/enums";
 
 const routes: Routes = [
   {

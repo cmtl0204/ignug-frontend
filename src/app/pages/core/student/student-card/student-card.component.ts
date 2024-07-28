@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {BreadcrumbService, CareersService, SchoolPeriodsService, StudentsHttpService} from "@services/core";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-student-card',

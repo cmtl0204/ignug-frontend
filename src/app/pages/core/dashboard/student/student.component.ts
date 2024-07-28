@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {BreadcrumbService, CareersService, RoutesService, StudentsHttpService} from "@services/core";
 import {Router} from "@angular/router";
 import {AuthService} from "@services/auth";
-import {CatalogueEnrollmentStateEnum, EnrollmentEnum, EnrollmentSateEnum} from "@shared/enums";
+import {CatalogueEnrollmentStateEnum, EnrollmentEnum, EnrollmentSateEnum} from "@utils/enums";
 import {EnrollmentModel} from "@models/core";
 
 @Component({

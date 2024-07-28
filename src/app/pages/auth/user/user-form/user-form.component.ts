@@ -11,7 +11,7 @@ import {
   MessageService,
   RoutesService
 } from '@services/core';
-import {OnExitInterface} from '@shared/interfaces';
+import {OnExitInterface} from '@utils/interfaces';
 import {PrimeIcons} from "primeng/api";
 import {
   BreadcrumbEnum,
@@ -21,7 +21,7 @@ import {
   SeverityButtonActionEnum,
   SkeletonEnum,
   UsersIdentificationTypeStateEnum
-} from "@shared/enums";
+} from "@utils/enums";
 import {CareerModel, CatalogueModel, InstitutionModel} from "@models/core";
 
 @Component({

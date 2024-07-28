@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EnrollmentSubjectRoutingModule } from './enrollment-subject-routing.module';
 import {EnrollmentSubjectListComponent} from "./enrollment-subject-list/enrollment-subject-list.component";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {ToolbarModule} from "primeng/toolbar";
 import {ButtonModule} from "primeng/button";
 import {CalendarModule} from "primeng/calendar";
@@ -33,7 +33,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     EnrollmentSubjectRoutingModule,
     ReactiveFormsModule,
-    SharedModule,
+    UtilsModule,
     ButtonModule,
     CalendarModule,
     DividerModule,

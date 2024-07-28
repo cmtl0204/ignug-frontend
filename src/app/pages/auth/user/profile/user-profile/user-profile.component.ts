@@ -6,10 +6,10 @@ import {UpdateUserDto} from '@models/auth';
 import {CatalogueModel} from '@models/core';
 import {AuthHttpService, AuthService} from '@services/auth';
 import {BreadcrumbService, CataloguesHttpService, CoreService, MessageService} from '@services/core';
-import {OnExitInterface} from '@shared/interfaces';
-import {DateValidators} from '@shared/validators';
-import {DateFormatPipe} from "@shared/pipes";
-import {CatalogueTypeEnum, SkeletonEnum, UsersIdentificationTypeStateEnum} from "@shared/enums";
+import {OnExitInterface} from '@utils/interfaces';
+import {DateValidators} from '@utils/validators';
+import {DateFormatPipe} from "@utils/pipes";
+import {CatalogueTypeEnum, SkeletonEnum, UsersIdentificationTypeStateEnum} from "@utils/enums";
 import {environment} from "@env/environment";
 
 @Component({

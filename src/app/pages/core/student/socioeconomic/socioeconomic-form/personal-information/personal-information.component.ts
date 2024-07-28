@@ -17,7 +17,7 @@ import {
     CatalogueTypeEnum,
     IconButtonActionEnum,
     UsersFormEnum
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-personal-information',

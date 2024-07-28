@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
 import {CareerRoutingModule} from './career-routing.module';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 // PrimeNg Modules
 import {ButtonModule} from "primeng/button";
@@ -40,7 +40,7 @@ import {ParallelCapacityComponent} from './parallel-capacity/parallel-capacity.c
     NgCommonModule,
     CareerRoutingModule,
     ReactiveFormsModule,
-    SharedModule,
+    UtilsModule,
     ButtonModule,
     CalendarModule,
     CheckboxModule,

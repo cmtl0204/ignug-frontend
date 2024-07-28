@@ -10,7 +10,7 @@ import {
   BreadcrumbEnum,
   CatalogueEnrollmentStateEnum,
   CatalogueTypeEnum, LabelButtonActionEnum, SkeletonEnum
-} from "@shared/enums";
+} from "@utils/enums";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
 import {FormBuilder} from "@angular/forms";

@@ -22,7 +22,7 @@ import {
     IconButtonActionEnum,
     LabelButtonActionEnum,
     SeverityButtonActionEnum
-} from "@shared/enums";
+} from "@utils/enums";
 import { EnrollmentDetailsHttpService } from '@services/core/enrollment-details-http.service';
 
 @Component({

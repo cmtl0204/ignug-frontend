@@ -10,7 +10,7 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, SkeletonEnum,} from '@shared/enums';
+import {CatalogueEnrollmentStateEnum, SkeletonEnum,} from '@utils/enums';
 import {AuthService} from '@services/auth';
 import {EnrollmentStateModel} from "@models/core/enrollment-state.model";
 

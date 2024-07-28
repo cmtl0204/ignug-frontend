@@ -7,7 +7,7 @@ import {
   SelectEnrollmentDetailDto,
   SubjectModel
 } from '@models/core';
-import {OnExitInterface} from '@shared/interfaces';
+import {OnExitInterface} from '@utils/interfaces';
 import {PrimeIcons} from 'primeng/api';
 import {ActivatedRoute, Router} from '@angular/router';
 import {
@@ -27,7 +27,7 @@ import {
     SkeletonEnum,
     LabelButtonActionEnum,
     IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
-} from '@shared/enums';
+} from '@utils/enums';
 
 import {EnrollmentDetailsHttpService} from '@services/core';
 

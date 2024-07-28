@@ -1,14 +1,14 @@
 import {NgModule,} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RolesPermissionsDirective} from '@shared/directives/roles-permissions.directive';
-import {ErrorMessageDirective} from '@shared/directives/error-message.directive';
-import {TokenDirective} from '@shared/directives/token.directive';
+import {RolesPermissionsDirective} from '@utils/directives/roles-permissions.directive';
+import {ErrorMessageDirective} from '@utils/directives/error-message.directive';
+import {TokenDirective} from '@utils/directives/token.directive';
 import {SkeletonModule} from 'primeng/skeleton';
 import {TableModule} from 'primeng/table';
 import {LabelDirective} from './directives/label.directive';
 import {ProgressBarModule} from "primeng/progressbar";
 import {ProgressBarComponent} from './components/progress-bar/progress-bar.component';
-import {SkeletonComponent} from '@shared/components/skeleton/skeleton.component';
+import {SkeletonComponent} from '@utils/components/skeleton/skeleton.component';
 import {PaginatorModule} from "primeng/paginator";
 import {ToolbarModule} from "primeng/toolbar";
 import {ButtonModule} from "primeng/button";
@@ -31,9 +31,9 @@ import {
   RolePipe,
   SelecetedPipe,
   StatePipe
-} from '@shared/pipes';
-import {UserStatePipe} from "@shared/pipes/auth/userState.pipe";
-import {SchoolPeriodsStatePipe} from "@shared/pipes/core/school-periods-state.pipe";
+} from '@utils/pipes';
+import {UserStatePipe} from "@utils/pipes/auth/userState.pipe";
+import {SchoolPeriodsStatePipe} from "@utils/pipes/core/school-periods-state.pipe";
 import {LocationComponent} from './components/location/location.component';
 import {TagModule} from "primeng/tag";
 import {FileListComponent} from './components/file-list/file-list.component';
@@ -43,24 +43,24 @@ import {SidebarModule} from "primeng/sidebar";
 import {SpeedDialModule} from "primeng/speeddial";
 import {ConfirmPopupModule} from "primeng/confirmpopup";
 import {ConfirmationService} from "primeng/api";
-import {SizesPipe} from "@shared/pipes/common/sizes.pipe";
-import {ImageUploadComponent} from "@shared/components/image-upload/image-upload.component";
+import {SizesPipe} from "@utils/pipes/common/sizes.pipe";
+import {ImageUploadComponent} from "@utils/components/image-upload/image-upload.component";
 import {HeaderFormComponent} from './components/header-form/header-form.component';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import {HelpFieldComponent} from './components/help-field/help-field.component';
 import {ErrorsFieldComponent} from './components/errors-field/errors-field.component';
 import {PanelModule} from "primeng/panel";
-import {IsVisiblePipe} from "@shared/pipes/core/is-visible.pipe";
+import {IsVisiblePipe} from "@utils/pipes/core/is-visible.pipe";
 import {VisibleComponent} from './components/visible/visible.component';
 import {DialogModule} from "primeng/dialog";
 import {ButtonActionComponent} from './components/button-action/button-action.component';
 import {MapComponent} from './components/map/map.component';
-import {AcademicStatePipe} from "@shared/pipes/core/academic-state.pipe";
-import {EnrollmentStatePipe} from "@shared/pipes/core/enrollment-state.pipe";
-import {AcademicStateSeverityPipe} from "@shared/pipes/core/academic-state-severity.pipe";
-import {FormButtonActionComponent} from "@shared/components/form-button-action/form-button-action.component";
-import {FormHelpFieldComponent} from "@shared/components/form-help-field/form-help-field.component";
-import {MessageDialogComponent} from "@shared/components/message-dialog/message-dialog.component";
+import {AcademicStatePipe} from "@utils/pipes/core/academic-state.pipe";
+import {EnrollmentStatePipe} from "@utils/pipes/core/enrollment-state.pipe";
+import {AcademicStateSeverityPipe} from "@utils/pipes/core/academic-state-severity.pipe";
+import {FormButtonActionComponent} from "@utils/components/form-button-action/form-button-action.component";
+import {FormHelpFieldComponent} from "@utils/components/form-help-field/form-help-field.component";
+import {MessageDialogComponent} from "@utils/components/message-dialog/message-dialog.component";
 
 @NgModule({
   declarations: [
@@ -169,5 +169,5 @@ import {MessageDialogComponent} from "@shared/components/message-dialog/message-
   ],
   providers: [ConfirmationService]
 })
-export class SharedModule {
+export class UtilsModule {
 }

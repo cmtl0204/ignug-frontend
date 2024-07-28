@@ -8,7 +8,7 @@ import {
   SchoolPeriodsService,
   TeacherDistributionsHttpService, TeacherDistributionsService, TeachersHttpService
 } from "@services/core";
-import {BreadcrumbEnum, SkeletonEnum} from "@shared/enums";
+import {BreadcrumbEnum, SkeletonEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
 import {Router} from "@angular/router";

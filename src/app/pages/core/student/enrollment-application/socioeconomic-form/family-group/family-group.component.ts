@@ -21,7 +21,7 @@ import {
   CatalogueTypeEnum, IconButtonActionEnum,
   LabelButtonActionEnum,
   SeverityButtonActionEnum
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-family-group',

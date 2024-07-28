@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SkeletonEnum} from "@shared/enums";
+import {SkeletonEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-skeleton',

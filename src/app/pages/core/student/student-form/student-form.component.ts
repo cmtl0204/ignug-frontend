@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrimeIcons, MenuItem} from "primeng/api";
-import {OnExitInterface} from "@shared/interfaces";
+import {OnExitInterface} from "@utils/interfaces";
 import {CatalogueModel, StudentModel} from "@models/core";
 import {
   BreadcrumbService,
@@ -19,7 +19,7 @@ import {
   LabelButtonActionEnum, SeverityButtonActionEnum,
   SkeletonEnum,
   StudentFormEnum
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-student-form',

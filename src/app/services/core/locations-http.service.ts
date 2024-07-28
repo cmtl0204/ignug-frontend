@@ -6,7 +6,7 @@ import {CreateUserDto, UpdateUserDto, UserModel} from '@models/auth';
 import {map} from 'rxjs/operators';
 import {ServerResponse} from '@models/http-response';
 import {MessageService} from '@services/core';
-import {CatalogueTypeEnum} from "@shared/enums";
+import {CatalogueTypeEnum} from "@utils/enums";
 import {LocationModel} from "@models/core";
 
 @Injectable({

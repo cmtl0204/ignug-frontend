@@ -11,7 +11,7 @@ import {PaginatorModule} from "primeng/paginator";
 import {PanelMenuModule} from "primeng/panelmenu";
 import {PanelModule} from "primeng/panel";
 import {RippleModule} from "primeng/ripple";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {SidebarModule} from "primeng/sidebar";
 import {SplitButtonModule} from "primeng/splitbutton";
 import {TableModule} from "primeng/table";
@@ -50,7 +50,7 @@ import {SocioeconomicReportComponent} from "./socioeconomic-report/socioeconomic
     InputTextModule,
     SidebarModule,
     PanelMenuModule,
-    SharedModule,
+    UtilsModule,
     PanelModule,
     DividerModule,
     InputSwitchModule,

@@ -10,8 +10,8 @@
 // } from "@services/core";
 // import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 // import {CatalogueModel} from "@models/core";
-// import {BreadcrumbEnum, CatalogueTypeEnum, EvaluationFormEnum, RoutesEnum, SkeletonEnum} from "@shared/enums";
-// import {OnExitInterface} from "@shared/interfaces";
+// import {BreadcrumbEnum, CatalogueTypeEnum, EvaluationFormEnum, RoutesEnum, SkeletonEnum} from "@utils/enums";
+// import {OnExitInterface} from "@utils/interfaces";
 // import {EvaluationsHttpService} from "@services/core/evaluations-http.service";
 //
 // @Component({

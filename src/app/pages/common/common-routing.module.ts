@@ -6,7 +6,7 @@ import {ForbiddenComponent} from './forbidden/forbidden.component';
 import {UnauthorizedComponent} from './unauthorized/unauthorized.component';
 import {InternalServerErrorComponent} from './internal-server-error/internal-server-error.component'
 
-import {ExitGuard, RoleGuard} from '@shared/guards';
+import {ExitGuard, RoleGuard} from '@utils/guards';
 
 const routes: Routes = [
   {

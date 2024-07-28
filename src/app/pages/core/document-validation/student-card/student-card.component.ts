@@ -2,7 +2,7 @@ import {Component, inject, Input, OnInit} from '@angular/core';
 import {BreadcrumbService, CareersService, SchoolPeriodsService, StudentsHttpService} from "@services/core";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
-import {BreadcrumbEnum, SeverityButtonActionEnum} from "@shared/enums";
+import {BreadcrumbEnum, SeverityButtonActionEnum} from "@utils/enums";
 import {ActivatedRoute, Router, RouterStateSnapshot} from "@angular/router";
 
 @Component({

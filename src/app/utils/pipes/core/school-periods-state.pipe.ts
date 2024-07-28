@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {CatalogueSchoolPeriodStateEnum} from "@shared/enums";
-import {Severity} from "@shared/pipes/types.type";
+import {CatalogueSchoolPeriodStateEnum} from "@utils/enums";
+import {Severity} from "@utils/pipes/types.type";
 
 @Pipe({
   name: 'schoolPeriodsState'

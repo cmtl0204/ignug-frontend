@@ -11,7 +11,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {PasswordModule} from "primeng/password";
 import {RippleModule} from "primeng/ripple";
 
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 import {LoginComponent} from "./login/login.component";
 import {PasswordChangeComponent} from "./password-change/password-change.component";
@@ -30,7 +30,7 @@ import {PanelModule} from "primeng/panel";
         CommonModule,
         AuthenticationRoutingModule,
         ReactiveFormsModule,
-        SharedModule,
+        UtilsModule,
         ButtonModule,
         CardModule,
         CheckboxModule,

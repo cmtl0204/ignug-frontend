@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {LabelButtonActionEnum} from "@shared/enums";
+import {LabelButtonActionEnum} from "@utils/enums";
 import {MenuItem} from "primeng/api";
 
 @Component({

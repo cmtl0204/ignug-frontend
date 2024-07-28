@@ -2,7 +2,7 @@
 // import {BreadcrumbService, CoreService, EvaluationsHttpService, MessageService} from "@services/core";
 // import {ColumnModel, EvaluationModel} from "@models/core";
 // import {MenuItem, PrimeIcons} from "primeng/api";
-// import {BreadcrumbEnum, IconButtonActionEnum, LabelButtonActionEnum} from "@shared/enums";
+// import {BreadcrumbEnum, IconButtonActionEnum, LabelButtonActionEnum} from "@utils/enums";
 // import {Router} from "@angular/router";
 //
 // @Component({

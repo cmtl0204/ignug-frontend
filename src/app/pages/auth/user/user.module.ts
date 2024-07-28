@@ -13,7 +13,7 @@ import {UserFormComponent} from './user-form/user-form.component';
 import {ToolbarModule} from 'primeng/toolbar';
 import {TooltipModule} from 'primeng/tooltip';
 import {InputTextModule} from 'primeng/inputtext';
-import {SharedModule} from '@shared/shared.module';
+import {UtilsModule} from '@utils/utils.module';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import {PasswordModule} from 'primeng/password';
@@ -58,7 +58,7 @@ import {InputGroupModule} from "primeng/inputgroup";
         ReactiveFormsModule,
         AuthModule,
         AuthenticationModule,
-        SharedModule,
+        UtilsModule,
         //PrimeNg
         BadgeModule,
         ButtonModule,

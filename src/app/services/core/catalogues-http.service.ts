@@ -7,7 +7,7 @@ import {map} from 'rxjs/operators';
 import {ServerResponse} from '@models/http-response';
 import {MessageService} from '@services/core';
 import {CatalogueModel, PaginatorModel} from '@models/core';
-import {CatalogueTypeEnum} from "@shared/enums";
+import {CatalogueTypeEnum} from "@utils/enums";
 
 @Injectable({
   providedIn: 'root'

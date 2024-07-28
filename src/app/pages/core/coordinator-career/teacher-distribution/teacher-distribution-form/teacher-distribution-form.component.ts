@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PrimeIcons} from 'primeng/api';
-import {OnExitInterface} from '@shared/interfaces';
+import {OnExitInterface} from '@utils/interfaces';
 import {
   CatalogueModel,
   CareerModel,
@@ -34,7 +34,7 @@ import {
     IconButtonActionEnum,
     SkeletonEnum,
     TeacherDistributionFormEnum
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-teacher-distribution-form',

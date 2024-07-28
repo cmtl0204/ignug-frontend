@@ -26,7 +26,7 @@ import {
   IconButtonActionEnum,
   ClassButtonActionEnum,
   CatalogueTypeEnum, CatalogueEnrollmentStateEnum, EnrollmentSateEnum, SeverityButtonActionEnum
-} from "@shared/enums";
+} from "@utils/enums";
 import {AuthService} from "@services/auth";
 
 @Component({

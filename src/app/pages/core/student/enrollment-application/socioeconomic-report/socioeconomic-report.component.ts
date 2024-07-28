@@ -2,7 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import {CoreService, FilesHttpService, StudentsHttpService} from "@services/core";
 import {AuthService} from "@services/auth";
 import {PrimeIcons} from "primeng/api";
-import {SeverityButtonActionEnum, SkeletonEnum} from "@shared/enums";
+import {SeverityButtonActionEnum, SkeletonEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-socioeconomic-report',

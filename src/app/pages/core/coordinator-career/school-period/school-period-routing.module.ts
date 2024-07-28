@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ExitGuard} from "@shared/guards";
+import {ExitGuard} from "@utils/guards";
 import {SchoolPeriodListComponent} from "./school-period-list/school-period-list.component";
 import {SchoolPeriodFormComponent} from "./school-period-form/school-period-form.component";
 

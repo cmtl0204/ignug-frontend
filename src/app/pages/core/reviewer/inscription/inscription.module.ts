@@ -16,7 +16,7 @@ import {SplitButtonModule} from "primeng/splitbutton";
 import {InputTextModule} from "primeng/inputtext";
 import {SidebarModule} from "primeng/sidebar";
 import {PanelMenuModule} from "primeng/panelmenu";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {PanelModule} from "primeng/panel";
 import {DividerModule} from "primeng/divider";
 import {InputSwitchModule} from "primeng/inputswitch";
@@ -52,7 +52,7 @@ import {InscriptionDetailFormComponent} from "./inscription-detail-form/inscript
     InputTextModule,
     SidebarModule,
     PanelMenuModule,
-    SharedModule,
+    UtilsModule,
     PanelModule,
     DividerModule,
     InputSwitchModule,

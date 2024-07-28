@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
 import {WelfareRoutingModule} from './welfare-routing.module';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 // PrimeNg Modules
 import {AccordionModule} from "primeng/accordion";
@@ -51,7 +51,7 @@ import {InputGroupModule} from "primeng/inputgroup";
         InputTextModule,
         SidebarModule,
         PanelMenuModule,
-        SharedModule,
+        UtilsModule,
         PanelModule,
         DividerModule,
         InputSwitchModule,

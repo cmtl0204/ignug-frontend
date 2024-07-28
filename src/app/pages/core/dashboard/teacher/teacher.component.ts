@@ -3,7 +3,7 @@ import {BreadcrumbService, CareersService, RoutesService, StudentsHttpService} f
 import {AuthService} from "@services/auth";
 import {Router} from "@angular/router";
 import {EnrollmentModel} from "@models/core";
-import {CatalogueEnrollmentStateEnum} from "@shared/enums";
+import {CatalogueEnrollmentStateEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-teacher',

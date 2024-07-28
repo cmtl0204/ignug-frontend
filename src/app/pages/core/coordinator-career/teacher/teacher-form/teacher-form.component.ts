@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
-import {OnExitInterface} from "@shared/interfaces";
+import {OnExitInterface} from "@utils/interfaces";
 import {CatalogueModel, TeacherModel} from "@models/core";
 import {UserModel} from '@models/auth';
 import {
@@ -13,7 +13,7 @@ import {
   RoutesService,
   TeachersHttpService
 } from "@services/core";
-import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum,InformationTeacherFormEnum} from "@shared/enums";
+import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum,InformationTeacherFormEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-teacher-form',
@@ -216,7 +216,7 @@ export class TeacherFormComponent implements OnInit, OnExitInterface {
   if (this.technologyField.errors) this.formErrors.push(InformationTeacherFormEnum.technology);
   if (this.totalPublicationsField.errors) this.formErrors.push(InformationTeacherFormEnum.totalPublications);
   //if (this.webField.errors) this.formErrors.push(InformationTeacherFormEnum.web);
-  
+
 
   this.formErrors.sort();
   return this.formErrors.length === 0 && this.form.valid;

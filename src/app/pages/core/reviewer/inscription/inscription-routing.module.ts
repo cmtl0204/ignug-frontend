@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ExitGuard} from "@shared/guards";
+import {ExitGuard} from "@utils/guards";
 import {InscriptionListComponent} from "./inscription-list/inscription-list.component";
 import {InscriptionFormComponent} from "./inscription-form/inscription-form.component";
 import {

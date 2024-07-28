@@ -10,7 +10,7 @@ import {
   RoutesService, SchoolPeriodsService,
   StudentsHttpService
 } from "@services/core";
-import {BreadcrumbEnum, CatalogueEnrollmentStateEnum, SkeletonEnum} from '@shared/enums';
+import {BreadcrumbEnum, CatalogueEnrollmentStateEnum, SkeletonEnum} from '@utils/enums';
 import {AuthService} from "@services/auth";
 import {isAfter, isBefore, isEqual} from "date-fns";
 

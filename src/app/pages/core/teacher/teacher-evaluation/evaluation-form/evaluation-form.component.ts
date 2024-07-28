@@ -5,7 +5,7 @@ import {ColumnModel} from "@models/core";
 import {QuestionModel, ResponseModel, ResultModel} from "@models/teacher-evaluation";
 import {BreadcrumbService, CoreService, MessageDialogService, RoutesService} from "@services/core";
 import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evaluation";
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-evaluation-form',

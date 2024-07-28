@@ -16,7 +16,7 @@ import {
   RoutesService,
   CareersHttpService, TeacherDistributionsHttpService, TeacherDistributionsService, SchoolPeriodsService
 } from '@services/core';
-import {IdButtonActionEnum, BreadcrumbEnum} from "@shared/enums";
+import {IdButtonActionEnum, BreadcrumbEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-teacher-distribution-list',

@@ -29,7 +29,7 @@ import {
   IconButtonActionEnum,
   LabelButtonActionEnum,
   CatalogueEnrollmentStateEnum
-} from "@shared/enums";
+} from "@utils/enums";
 import {debounceTime} from "rxjs";
 
 @Component({

@@ -15,7 +15,7 @@ import {
   RoutesService,
 } from '@services/core';
 import {EventsHttpService} from "@services/core/events-http.service";
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-event-list',

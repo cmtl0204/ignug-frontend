@@ -14,7 +14,7 @@ import {
   QuestionsHttpService
 } from "@services/teacher-evaluation";
 
-import {BreadcrumbEnum, CatalogueTypeEnum, QuestionFormEnum, RoutesEnum, SkeletonEnum} from "@shared/enums";
+import {BreadcrumbEnum, CatalogueTypeEnum, QuestionFormEnum, RoutesEnum, SkeletonEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-question-form',

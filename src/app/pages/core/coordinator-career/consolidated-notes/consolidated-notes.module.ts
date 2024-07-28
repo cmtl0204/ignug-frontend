@@ -23,7 +23,7 @@ import {KeyFilterModule} from "primeng/keyfilter";
 import {MultiSelectModule} from "primeng/multiselect";
 import {PanelModule} from "primeng/panel";
 import {PasswordModule} from "primeng/password";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {CalendarModule} from "primeng/calendar";
 
 import { FileUploadModule } from 'primeng/fileupload';
@@ -59,7 +59,7 @@ import { ConsolidatedNotesRoutingModule } from './consolidated-notes-routing.mod
     MultiSelectModule,
     PanelModule,
     PasswordModule,
-    SharedModule,
+    UtilsModule,
     CalendarModule,
     FileUploadModule,
     DialogModule

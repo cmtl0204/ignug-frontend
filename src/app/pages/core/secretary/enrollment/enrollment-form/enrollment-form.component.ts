@@ -3,7 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, AbstractControl, Validators, FormGroup} from '@angular/forms';
 import {PrimeIcons} from 'primeng/api';
 import {CatalogueModel, EnrollmentModel, SelectEnrollmentDto} from '@models/core';
-import {OnExitInterface} from '@shared/interfaces';
+import {OnExitInterface} from '@utils/interfaces';
 import {ActivatedRoute, Router} from '@angular/router';
 import {
   BreadcrumbService,
@@ -20,7 +20,7 @@ import {
   SkeletonEnum,
   LabelButtonActionEnum,
   IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-enrollment-form',

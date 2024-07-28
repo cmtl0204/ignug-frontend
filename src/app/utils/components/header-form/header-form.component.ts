@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {PrimeIcons} from "primeng/api";
-import {RoutesEnum} from "@shared/enums";
+import {RoutesEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-header-form',

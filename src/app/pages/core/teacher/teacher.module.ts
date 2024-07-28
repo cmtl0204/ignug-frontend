@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from "@angular/forms";
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {TeacherRoutingModule} from './teacher-routing.module';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 // PrimeNg Modules
 import {ButtonModule} from "primeng/button";
@@ -38,7 +38,7 @@ import {CardModule} from "primeng/card";
         NgCommonModule,
         TeacherRoutingModule,
         ReactiveFormsModule,
-        SharedModule,
+        UtilsModule,
         ButtonModule,
         RippleModule,
         MessageModule,

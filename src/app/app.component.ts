@@ -7,7 +7,7 @@ import {
   SchoolPeriodsHttpService,
   SchoolPeriodsService
 } from "@services/core";
-import {BreadcrumbEnum, CoreMessageEnum} from "@shared/enums";
+import {BreadcrumbEnum, CoreMessageEnum} from "@utils/enums";
 import {DOCUMENT} from "@angular/common";
 
 @Component({

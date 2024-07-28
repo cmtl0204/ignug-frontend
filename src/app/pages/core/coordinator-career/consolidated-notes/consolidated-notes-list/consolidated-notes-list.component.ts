@@ -22,7 +22,7 @@ import {
   IconButtonActionEnum,
   SeverityButtonActionEnum,
   LabelButtonActionEnum
-} from "@shared/enums";
+} from "@utils/enums";
 
 @Component({
   selector: 'app-consolidated-notes-list',

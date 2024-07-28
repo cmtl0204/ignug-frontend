@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ExitGuard} from "@shared/guards";
+import {ExitGuard} from "@utils/guards";
 import {EnrollmentListComponent} from "./enrollment-list/enrollment-list.component";
 import {EnrollmentFormComponent} from './enrollment-form/enrollment-form.component';
 import {

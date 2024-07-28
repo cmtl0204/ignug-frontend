@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ExitGuard} from "@shared/guards";
+import {ExitGuard} from "@utils/guards";
 import {EventListComponent} from "./event-list/event-list.component";
 import {EventFormComponent} from "./event-form/event-form.component";
 

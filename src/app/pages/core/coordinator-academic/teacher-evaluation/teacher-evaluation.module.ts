@@ -6,7 +6,7 @@ import { QuestionFormComponent } from './question-form/question-form.component';
 import { ResponseFormComponent } from './response-form/response-form.component';
 import { ResponseListComponent } from './response-list/response-list.component';
 import {ReactiveFormsModule} from "@angular/forms";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {ButtonModule} from "primeng/button";
 import {CardModule} from "primeng/card";
 import {CheckboxModule} from "primeng/checkbox";
@@ -37,7 +37,7 @@ import {TagModule} from "primeng/tag";
         CommonModule,
         TeacherEvaluationRoutingModule,
         ReactiveFormsModule,
-        SharedModule,
+        UtilsModule,
         ButtonModule,
         CardModule,
         CheckboxModule,

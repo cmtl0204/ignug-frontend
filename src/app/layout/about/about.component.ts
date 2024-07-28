@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {PrimeIcons} from "primeng/api";
 import {Clipboard} from '@angular/cdk/clipboard';
-import {CoreMessageEnum, SeverityButtonActionEnum} from "@shared/enums";
+import {CoreMessageEnum, SeverityButtonActionEnum} from "@utils/enums";
 import {MessageService as MessageServicePn} from "primeng/api";
 import {CoreService} from "@services/core";
 

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
-import {OnExitInterface} from "@shared/interfaces";
+import {OnExitInterface} from "@utils/interfaces";
 import {CatalogueModel, SchoolPeriodModel} from "@models/core";
 import {
   BreadcrumbService,
@@ -19,7 +19,7 @@ import {
   SkeletonEnum,
   SchoolPeriodFormEnum,
   IconButtonActionEnum, LabelButtonActionEnum
-} from "@shared/enums";
+} from "@utils/enums";
 import {isAfter} from "date-fns";
 
 @Component({

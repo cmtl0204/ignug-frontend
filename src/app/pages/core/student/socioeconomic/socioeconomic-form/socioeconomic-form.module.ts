@@ -20,7 +20,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
-import { SharedModule } from '@shared/shared.module';
+import { UtilsModule } from '@utils/utils.module';
 import { SidebarModule } from 'primeng/sidebar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TableModule } from 'primeng/table';
@@ -86,7 +86,7 @@ import {OverlayPanelModule} from "primeng/overlaypanel";
         PanelModule,
         PasswordModule,
         RippleModule,
-        SharedModule,
+        UtilsModule,
         SidebarModule,
         SplitButtonModule,
         TableModule,

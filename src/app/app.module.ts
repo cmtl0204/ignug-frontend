@@ -18,7 +18,7 @@ import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {MenubarModule} from 'primeng/menubar';
 import {ButtonModule} from 'primeng/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {DialogModule} from "primeng/dialog";
 import {ProgressBarModule} from "primeng/progressbar";
 import {DividerModule} from "primeng/divider";
@@ -60,7 +60,7 @@ registerLocaleData(localEs, 'es');
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
+    UtilsModule,
     BreadcrumbModule,
     MenubarModule,
     ButtonModule,

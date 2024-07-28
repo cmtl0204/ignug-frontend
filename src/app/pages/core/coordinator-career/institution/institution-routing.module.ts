@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ExitGuard} from "@shared/guards";
+import {ExitGuard} from "@utils/guards";
 import {InstitutionListComponent} from "./institution-list/institution-list.component";
 import {InstitutionFormComponent} from "./institution-form/institution-form.component";
 

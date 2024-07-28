@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ExitGuard} from "@shared/guards";
+import {ExitGuard} from "@utils/guards";
 import { ConsolidatedNotesComponent } from './consolidated-notes/consolidated-notes.component';
 import { ConsolidatedNotesListComponent } from './consolidated-notes-list/consolidated-notes-list.component';
 

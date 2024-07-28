@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {ReactiveFormsModule} from "@angular/forms";
 import {SubjectRoutingModule} from './subject-routing.module';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 // PrimeNg Modules
 import {AccordionModule} from "primeng/accordion";
@@ -47,7 +47,7 @@ import {SubjectRequirementComponent} from "./subject-requirement/subject-require
     NgCommonModule,
     ReactiveFormsModule,
     SubjectRoutingModule,
-    SharedModule,
+    UtilsModule,
     AccordionModule,
     ButtonModule,
     CalendarModule,

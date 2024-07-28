@@ -20,7 +20,7 @@ import {TableModule} from "primeng/table";
 import {TabViewModule} from 'primeng/tabview';
 import {TagModule} from "primeng/tag";
 import {ToolbarModule} from "primeng/toolbar";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import {SharedModule} from "@shared/shared.module";
     ReactiveFormsModule,
     CommonModule,
     SecretaryRoutingModule,
-    SharedModule,
+    UtilsModule,
     ButtonModule,
     CalendarModule,
     DividerModule,

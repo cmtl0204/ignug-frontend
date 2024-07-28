@@ -6,7 +6,7 @@ import {
   StudentsHttpService
 } from "@services/core";
 import {PrimeIcons} from "primeng/api";
-import {SeverityButtonActionEnum, SkeletonEnum} from "@shared/enums";
+import {SeverityButtonActionEnum, SkeletonEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
 import {StudentModel} from "@models/core";
 

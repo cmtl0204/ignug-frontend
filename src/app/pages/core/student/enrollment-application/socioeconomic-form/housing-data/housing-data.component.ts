@@ -18,7 +18,7 @@ import {
   BreadcrumbEnum, CatalogueEnrollmentStateEnum,
   CatalogueTypeEnum, IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
   SkeletonEnum,
-} from '@shared/enums';
+} from '@utils/enums';
 
 @Component({
   selector: 'app-housing-data',

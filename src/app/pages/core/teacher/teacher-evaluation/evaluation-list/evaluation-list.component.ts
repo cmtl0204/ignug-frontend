@@ -21,7 +21,7 @@ import {
   ResponseModel,
   ResultModel
 } from "@models/teacher-evaluation";
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
 
 @Component({

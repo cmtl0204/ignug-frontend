@@ -14,9 +14,9 @@ import {
   MessageService,
   SchoolPeriodsService
 } from '@services/core';
-// import {AuthRoutesEnum, RoutesEnum} from "@shared/enums";
+// import {AuthRoutesEnum, RoutesEnum} from "@utils/enums";
 import {RoutesService} from "@services/core/routes.service";
-import {RolePipe} from "@shared/pipes";
+import {RolePipe} from "@utils/pipes";
 import {EventModel} from "@models/core";
 
 @Injectable({

@@ -36,8 +36,8 @@
       "@models/*": [
         "src/app/models/*"
       ],
-      "@shared/*": [
-        "src/app/shared/*"
+      "@utils/*": [
+        "src/app/utils/*"
       ],
       "@services/*": [
         "src/app/services/*"

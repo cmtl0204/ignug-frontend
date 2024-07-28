@@ -3,7 +3,7 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/form
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
 import {isAfter} from "date-fns";
-import {OnExitInterface} from "@shared/interfaces";
+import {OnExitInterface} from "@utils/interfaces";
 import {CatalogueModel, EventModel} from "@models/core";
 import {
   BreadcrumbService,
@@ -13,7 +13,7 @@ import {
   MessageService,
   RoutesService
 } from "@services/core";
-import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum,EventEnum} from "@shared/enums";
+import {BreadcrumbEnum, CatalogueTypeEnum, SkeletonEnum,EventEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-event-form',

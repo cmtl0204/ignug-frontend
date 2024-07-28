@@ -20,7 +20,7 @@ import {
     BreadcrumbEnum,
     CatalogueSchoolPeriodStateEnum,
     IconButtonActionEnum, LabelButtonActionEnum, ClassButtonActionEnum, SeverityButtonActionEnum
-} from "@shared/enums";
+} from "@utils/enums";
 
 @Component({
   selector: 'app-school-period-list',

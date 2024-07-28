@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
-import {CustomValidators} from "@shared/validators";
+import {CustomValidators} from "@utils/validators";
 import {AuthHttpService, AuthService} from '@services/auth';
 import {CoreService, MessageService} from '@services/core';
 

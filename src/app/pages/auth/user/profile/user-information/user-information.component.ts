@@ -4,10 +4,10 @@ import {ActivatedRoute} from '@angular/router';
 import {UpdateUserDto} from '@models/auth';
 import {AuthHttpService, AuthService} from '@services/auth';
 import {BreadcrumbService, CataloguesHttpService, CoreService, MessageService} from '@services/core';
-import {OnExitInterface} from '@shared/interfaces';
-import {SkeletonEnum} from "@shared/enums";
+import {OnExitInterface} from '@utils/interfaces';
+import {SkeletonEnum} from "@utils/enums";
 import {PrimeIcons} from "primeng/api";
-import {CustomValidators} from "@shared/validators";
+import {CustomValidators} from "@utils/validators";
 
 @Component({
   selector: 'app-user-information',

@@ -7,7 +7,7 @@ import {MessageService as MessageServicePn} from 'primeng/api';
 import {EventModel, FileModel} from "@models/core";
 import {ServerResponse} from '@models/http-response';
 import {CoreService, MessageService} from '@services/core';
-import {CoreMessageEnum} from "@shared/enums";
+import {CoreMessageEnum} from "@utils/enums";
 
 @Injectable({
   providedIn: 'root'

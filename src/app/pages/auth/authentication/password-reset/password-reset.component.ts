@@ -1,10 +1,10 @@
 import {Component, inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {PrimeIcons} from "primeng/api";
-import {CustomValidators} from "@shared/validators";
+import {CustomValidators} from "@utils/validators";
 import {AuthHttpService, AuthService} from '@services/auth';
 import {CoreService, MessageService, RoutesService} from '@services/core';
-import {LoginFormEnum} from "@shared/enums";
+import {LoginFormEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-password-reset',

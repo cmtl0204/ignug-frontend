@@ -8,7 +8,7 @@ import {
 } from "@services/core";
 import {FormControl} from "@angular/forms";
 import {CatalogueModel, SchoolPeriodModel} from "@models/core";
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum, EnrollmentEnum, EnrollmentSateEnum} from "@shared/enums";
+import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum, EnrollmentEnum, EnrollmentSateEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-enrollment',

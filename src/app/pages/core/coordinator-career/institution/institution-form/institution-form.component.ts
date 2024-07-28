@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
-import {OnExitInterface} from "@shared/interfaces";
+import {OnExitInterface} from "@utils/interfaces";
 import {CatalogueModel, InstitutionModel} from "@models/core";
 import {
   BreadcrumbService,
@@ -18,8 +18,8 @@ import {
     ClassButtonActionEnum,
     IconButtonActionEnum, InstitutionFormEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
     SkeletonEnum
-} from "@shared/enums";
-import {Expressions} from "@shared/regular-expresions";
+} from "@utils/enums";
+import {Expressions} from "@utils/regular-expresions";
 
 @Component({
   selector: 'app-institution-form',

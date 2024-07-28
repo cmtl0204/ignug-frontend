@@ -26,8 +26,8 @@ import {
     CatalogueSubjectRequirementTypeEnum,
     CatalogueTypeEnum, ClassButtonActionEnum, IconButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
     SkeletonEnum, SubjectFormEnum
-} from '@shared/enums';
-import {OnExitInterface} from '@shared/interfaces';
+} from '@utils/enums';
+import {OnExitInterface} from '@utils/interfaces';
 
 @Component({
   selector: 'app-subject-form',

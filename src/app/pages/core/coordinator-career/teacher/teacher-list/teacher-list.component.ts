@@ -11,7 +11,7 @@ import {
   RoutesService,
   CareersHttpService, CareersService
 } from '@services/core';
-import {BreadcrumbEnum} from "@shared/enums";
+import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
   selector: 'app-teacher-list',

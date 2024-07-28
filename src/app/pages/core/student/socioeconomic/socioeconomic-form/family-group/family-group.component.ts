@@ -16,7 +16,7 @@ import {
   RoutesService,
   StudentsHttpService,
 } from '@services/core';
-import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum} from '@shared/enums';
+import {CatalogueEnrollmentStateEnum, CatalogueTypeEnum} from '@utils/enums';
 
 @Component({
   selector: 'app-family-group',

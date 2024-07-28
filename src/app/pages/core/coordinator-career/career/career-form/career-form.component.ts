@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PrimeIcons} from 'primeng/api';
-import {OnExitInterface} from '@shared/interfaces';
+import {OnExitInterface} from '@utils/interfaces';
 import {CareerModel, CatalogueModel, InstitutionModel} from '@models/core';
 import {
   BreadcrumbService,
@@ -21,7 +21,7 @@ import {
     IconButtonActionEnum,
     LabelButtonActionEnum, SeverityButtonActionEnum,
     SkeletonEnum
-} from '@shared/enums';
+} from '@utils/enums';
 import {AuthService} from "@services/auth";
 
 @Component({

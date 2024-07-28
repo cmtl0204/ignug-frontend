@@ -6,7 +6,7 @@ import { SecretaryComponent } from './secretary.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 
 import { ChartModule } from 'primeng/chart';
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {ToolbarModule} from "primeng/toolbar";
 import {DropdownModule} from "primeng/dropdown";
 import {PaginatorModule} from "primeng/paginator";
@@ -23,7 +23,7 @@ import {PanelModule} from "primeng/panel";
     CommonModule,
     SecretaryRoutingModule,
     ChartModule,
-    SharedModule,
+    UtilsModule,
     ToolbarModule,
     DropdownModule,
     PaginatorModule,

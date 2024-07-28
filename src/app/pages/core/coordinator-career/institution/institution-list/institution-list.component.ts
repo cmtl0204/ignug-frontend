@@ -17,7 +17,7 @@ import {
     IconButtonActionEnum,
     LabelButtonActionEnum,
     ClassButtonActionEnum, SeverityButtonActionEnum
-} from "@shared/enums";
+} from "@utils/enums";
 
 @Component({
   selector: 'app-institution-list',

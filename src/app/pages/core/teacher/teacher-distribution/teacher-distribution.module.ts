@@ -9,7 +9,7 @@ import {ButtonModule} from "primeng/button";
 import {DropdownModule} from "primeng/dropdown";
 import {ToolbarModule} from "primeng/toolbar";
 import {ReactiveFormsModule} from "@angular/forms";
-import {SharedModule} from "@shared/shared.module";
+import {UtilsModule} from "@utils/utils.module";
 import {CalendarModule} from "primeng/calendar";
 import {DividerModule} from "primeng/divider";
 import {InputSwitchModule} from "primeng/inputswitch";
@@ -41,7 +41,7 @@ import {FileUploadModule} from "primeng/fileupload";
         CommonModule,
         TeacherDistributionRoutingModule,
         ReactiveFormsModule,
-        SharedModule,
+        UtilsModule,
         ButtonModule,
         CalendarModule,
         DividerModule,

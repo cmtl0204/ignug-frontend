@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {PermissionModel, RoleModel, UserModel} from '@models/auth';
 import {environment} from "@env/environment";
 import {CareerModel, InstitutionModel} from "@models/core";
-import {RolesEnum} from "@shared/enums";
+import {RolesEnum} from "@utils/enums";
 import {MessageService, RoutesService} from "@services/core";
 
 @Injectable({

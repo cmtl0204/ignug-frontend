@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CareerModel, EnrollmentDetailModel, GradeModel} from "@models/core";
 import {PrimeIcons} from 'primeng/api';
-import {SkeletonEnum} from "@shared/enums";
+import {SkeletonEnum} from "@utils/enums";
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {CoreService, GradesHttpService, MessageService, TeacherDistributionsService} from "@services/core";
 
