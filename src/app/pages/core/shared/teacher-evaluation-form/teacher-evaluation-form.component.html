@@ -1,0 +1,77 @@
+<div class="panel-messages-info">
+  <h3>Aviso Importante:</h3>
+
+  <p>
+    <b>(1)</b> Nunca
+    <b class="ml-5">(2)</b> Casi Nunca
+    <b class="ml-5">(3)</b> De vez en Cuando
+    <b class="ml-5">(4)</b> Con Frecuencia
+    <b class="ml-5">(5)</b> Siempre
+  </p>
+</div>
+<p-table
+  dataKey="id"
+  rowGroupMode="rowspan"
+  groupRowsBy="category.sort"
+  [value]="questions"
+  [columns]="columns"
+  [loading]="coreService.isLoading">
+  <ng-template pTemplate="header">
+    <tr>
+      <th rowspan="3" style="width:5%" class="text-center">N°</th>
+      <th rowspan="3" style="width:5%" class="text-center">Categoría</th>
+      <th rowspan="3" style="width:65%" class="text-center">Pregunta</th>
+    </tr>
+    <tr>
+      <th colspan="5" class="text-center">Puntuación</th>
+    </tr>
+    <tr>
+      <th class="text-center">1</th>
+      <th class="text-center">2</th>
+      <th class="text-center">3</th>
+      <th class="text-center">4</th>
+      <th class="text-center">5</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="groupheader" let-groupheader>
+    <tr pRowGroupHeader>
+      <td colspan="5">
+        <span class="font-bold ml-2">{{ groupheader.category.name }}</span>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template
+    pTemplate="body"
+    let-rowData
+    let-rowIndex="rowIndex"
+    let-rowgroup="rowgroup"
+    let-rowspan="rowspan">
+    <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
+      <td class="text-center">{{ rowData.sort }}</td>
+      <td *ngIf="rowgroup" [attr.rowspan]="rowspan" class="text-center">
+        <span class="font-bold ml-2">{{ rowData.category.name }}</span>
+      </td>
+      <td>
+        {{ rowData.name }}
+      </td>
+      @for (response of rowData.responses; track response.id) {
+        <td class="text-center">
+          <p-radioButton
+            [name]="rowData.id"
+            [value]="response"
+            [(ngModel)]="rowData.selected"
+            (click)="reply(rowData.id, response)"/>
+        </td>
+      }
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-divider/>
+
+<div class="grid p-fluid">
+  <div class="col-3 col-offset-4">
+    <p-button label="Enviar" size="large" (click)="onSubmit()"></p-button>
+  </div>
+</div>
+

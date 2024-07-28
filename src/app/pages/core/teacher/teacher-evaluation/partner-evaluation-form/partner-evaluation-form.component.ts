@@ -8,11 +8,11 @@ import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evalua
 import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
-  selector: 'app-evaluation-form',
-  templateUrl: './evaluation-form.component.html',
-  styleUrl: './evaluation-form.component.scss'
+  selector: 'app-partner-evaluation-form',
+  templateUrl: './partner-evaluation-form.component.html',
+  styleUrl: './partner-evaluation-form.component.scss'
 })
-export class EvaluationFormComponent {
+export class PartnerEvaluationFormComponent {
   private readonly breadcrumbService = inject(BreadcrumbService);
   protected readonly coreService = inject(CoreService);
   private readonly resultsHttpService = inject(ResultsHttpService);

@@ -15,9 +15,9 @@
 // import {EvaluationsHttpService} from "@services/core/evaluations-http.service";
 //
 // @Component({
-//   selector: 'app-evaluation-form',
-//   templateUrl: './evaluation-form.component.html',
-//   styleUrl: './evaluation-form.component.scss'
+//   selector: 'app-teacher-evaluation-form',
+//   templateUrl: './teacher-evaluation-form.component.html',
+//   styleUrl: './teacher-evaluation-form.component.scss'
 // })
 // export class EvaluationFormComponent implements OnInit, OnExitInterface {
 //   /** Services **/

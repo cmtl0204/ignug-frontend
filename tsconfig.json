@@ -39,6 +39,9 @@
       "@utils/*": [
         "src/app/utils/*"
       ],
+      "@coreShared/*": [
+        "src/app/pages/core/shared/*"
+      ],
       "@services/*": [
         "src/app/services/*"
       ],

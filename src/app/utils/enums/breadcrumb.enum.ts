@@ -1,6 +1,7 @@
 export enum BreadcrumbEnum {
   CAREERS = 'Carreras',
   CURRICULUMS = 'Mallas Curriculares',
+  DASHBOARD = 'Dashboard',
   EVENTS = 'Eventos',
   INSTITUTIONS = 'Instituciones',
   SCHOOL_PERIODS = 'Periodos Lectivos',
@@ -27,5 +28,6 @@ export enum BreadcrumbEnum {
   GRADES = 'Calificaciones',
   TEACHER_EVALUATIONS = 'Evaluación Docente',
   AUTO_EVALUATION = 'Autoevaluación',
+  EVALUATION = 'Evaluación',
   QUESTIONS = 'Preguntas',
 }
