@@ -19,10 +19,11 @@ import {
   PartnerEvaluationModel,
   QuestionModel,
   ResponseModel,
-  ResultModel
+  ResultModel, StudentEvaluationModel
 } from "@models/teacher-evaluation";
 import {BreadcrumbEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-evaluation-list',
@@ -36,8 +37,7 @@ export class EvaluationListComponent implements OnInit {
   private readonly autoEvaluationsHttpService = inject(AutoEvaluationsHttpService);
   private readonly partnerEvaluationsHttpService = inject(PartnerEvaluationsHttpService);
   protected readonly coreService = inject(CoreService);
-  protected readonly messageDialogService = inject(MessageDialogService);
-  private readonly routesService = inject(RoutesService);
+  private readonly router = inject(Router);
 
   protected columns: ColumnModel[] = [];
   @Input() id: string = '';
@@ -83,7 +83,15 @@ export class EvaluationListComponent implements OnInit {
     ];
   }
 
-  onSubmit() {
+  redirectAutoEvaluationForm(autoEvaluation: AutoEvaluationModel) {
+    this.router.navigate(['/core/teacher/teacher-evaluations/auto-evaluations',
+      autoEvaluation.id], {queryParams: {evaluationTypeId: autoEvaluation.evaluationType?.id}}
+    );
+  }
 
+  redirectPartnerEvaluationForm(partnerEvaluation: PartnerEvaluationModel) {
+    this.router.navigate(['/core/teacher/teacher-evaluations/partner-evaluations',
+      partnerEvaluation.id], {queryParams: {evaluationTypeId: partnerEvaluation.evaluationType?.id}}
+    );
   }
 }

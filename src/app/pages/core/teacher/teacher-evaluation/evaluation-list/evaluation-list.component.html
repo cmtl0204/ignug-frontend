@@ -5,7 +5,7 @@
   </div>
 }
 
-@if (!partnerEvaluation) {
+@if (partnerEvaluation) {
   <div class="panel-messages-error">
     <h1>Su evaluación por pares no ha sido generada</h1>
     <p>Por favor comuníquese con el Director de Carrera</p>
@@ -30,7 +30,14 @@
           Puntación
         </p>
         <h1>
-          {{ autoEvaluation.totalScore ? autoEvaluation.totalScore : 'Pendiente' }}
+          {{ autoEvaluation.totalScore ? autoEvaluation.totalScore  : 'Pendiente' }}
+        </h1>
+
+        <p>
+          Equivalencia
+        </p>
+        <h1>
+          {{ autoEvaluation.totalScore ? autoEvaluation.totalScore / 14 +'%' : 'Pendiente' }}
         </h1>
       </ng-template>
 
@@ -39,7 +46,7 @@
           <p-button
             label="Ingresar"
             class="w-full"
-            [routerLink]="['/core/teacher/teacher-evaluations/auto-evaluations',autoEvaluation.id+'?evaluationTypeId='+autoEvaluation.evaluationType?.id]"
+            (click)="redirectAutoEvaluationForm(autoEvaluation)"
             styleClass="w-full"/>
         }
       </ng-template>
@@ -66,7 +73,7 @@
         </p>
 
         <h1>
-          {{ partnerEvaluation.totalScore ? partnerEvaluation.totalScore : 'Pendiente' }}
+          {{ partnerEvaluation.totalScore ? partnerEvaluation.totalScore / 14 : 'Pendiente' }}
         </h1>
       </ng-template>
 
@@ -76,7 +83,7 @@
             <p-button
               label="Ingresar"
               class="w-full"
-              [routerLink]="['/core/teacher/teacher-evaluations/partner-evaluations',partnerEvaluation.id+'?evaluationTypeId='+partnerEvaluation.evaluationType?.id]"
+              (click)="redirectPartnerEvaluationForm(partnerEvaluation)"
               styleClass="w-full"/>
           }
         </div>

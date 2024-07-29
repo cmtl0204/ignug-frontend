@@ -31,7 +31,7 @@ export class PartnerEvaluationFormComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.evaluationTypeId = this.activatedRoute.snapshot.params['evaluationTypeId'];
+    this.evaluationTypeId = this.activatedRoute.snapshot.queryParams['evaluationTypeId'];
   }
 
   save(results:ResultModel[]) {

@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
 import {ColumnModel} from "@models/core";
 import {QuestionModel, ResponseModel, ResultModel} from "@models/teacher-evaluation";
-import {BreadcrumbService, CoreService, MessageDialogService, RoutesService} from "@services/core";
+import {BreadcrumbService, CoreService, MessageDialogService, MessageService, RoutesService} from "@services/core";
 import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evaluation";
 import {BreadcrumbEnum} from "@utils/enums";
 
@@ -17,6 +17,7 @@ export class TeacherEvaluationFormComponent implements OnInit {
   protected readonly coreService = inject(CoreService);
   private readonly questionsHttpService = inject(QuestionsHttpService);
   protected readonly messageDialogService = inject(MessageDialogService);
+  protected messageService = inject(MessageService);
 
   @Input({required: true}) id: string = '';
   @Input({required: true}) evaluationTypeId: string = '';
@@ -42,9 +43,9 @@ export class TeacherEvaluationFormComponent implements OnInit {
   findQuestionsByEvaluationType() {
     this.questionsHttpService.findQuestionsByEvaluationType(this.evaluationTypeId).subscribe(questions => {
       this.questions = questions;
-      this.questions.forEach(question => {
-        this.reply(question.id!, question.responses[0]);
-      })
+      // this.questions.forEach(question => {
+      //   this.reply(question.id!, question.responses[0]);
+      // })
     });
   }
 
@@ -71,22 +72,21 @@ export class TeacherEvaluationFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.messageDialogService.questionOnExit().subscribe(result => {
-      if (result) {
-        this.validateResults();
-
-        if (this.results.length === this.questions.length) {
+    this.validateResults();
+    if (this.results.length === this.questions.length) {
+      this.messageService.questionCustom('¿Está seguro de enviar?', 'No podrá modificar después de enviado!').then((result) => {
+        if (result.isConfirmed) {
           this.resultsOut.emit(this.results);
-        } else {
-          this.messageDialogService.errorCustom(
-            'Debe responder todas las preguntas',
-            [
-              `Preguntas respondidas ${this.results.length} de ${this.questions.length}`,
-              ...this.missingQuestions
-            ], false);
         }
-      }
-    });
+      });
+    } else {
+      this.messageDialogService.errorCustom(
+        'Debe responder todas las preguntas',
+        [
+          `Preguntas respondidas ${this.results.length} de ${this.questions.length}`,
+          ...this.missingQuestions
+        ], false);
+    }
   }
 
   validateResults() {
