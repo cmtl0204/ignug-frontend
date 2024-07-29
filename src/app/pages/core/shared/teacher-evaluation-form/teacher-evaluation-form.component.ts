@@ -17,11 +17,9 @@ export class TeacherEvaluationFormComponent implements OnInit {
   protected readonly coreService = inject(CoreService);
   private readonly questionsHttpService = inject(QuestionsHttpService);
   protected readonly messageDialogService = inject(MessageDialogService);
-  private readonly resultsHttpService = inject(ResultsHttpService);
-  private readonly routesService = inject(RoutesService);
-  private readonly router = inject(Router);
 
   @Input({required: true}) id: string = '';
+  @Input({required: true}) evaluationTypeId: string = '';
   @Output() resultsOut: EventEmitter<ResultModel[]> = new EventEmitter();
   protected columns: ColumnModel[] = [];
   protected questions: QuestionModel[] = [];
@@ -42,7 +40,7 @@ export class TeacherEvaluationFormComponent implements OnInit {
   }
 
   findQuestionsByEvaluationType() {
-    this.questionsHttpService.findQuestionsByEvaluationType(this.id).subscribe(questions => {
+    this.questionsHttpService.findQuestionsByEvaluationType(this.evaluationTypeId).subscribe(questions => {
       this.questions = questions;
       this.questions.forEach(question => {
         this.reply(question.id!, question.responses[0]);

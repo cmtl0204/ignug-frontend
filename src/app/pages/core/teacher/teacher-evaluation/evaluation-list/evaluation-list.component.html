@@ -21,12 +21,13 @@
       </ng-template>
 
       <ng-template pTemplate="subtitle">
-        {{ autoEvaluation.evaluated?.name }} {{ autoEvaluation.evaluated?.lastname }}
+        <p>Docente Evaluado</p>
+        <h3>{{ autoEvaluation.evaluated?.name }} {{ autoEvaluation.evaluated?.lastname }}</h3>
       </ng-template>
 
       <ng-template pTemplate="content">
         <p>
-          Puntaje
+          Puntación
         </p>
         <h1>
           {{ autoEvaluation.totalScore ? autoEvaluation.totalScore : 'Pendiente' }}
@@ -38,7 +39,7 @@
           <p-button
             label="Ingresar"
             class="w-full"
-            [routerLink]="['/core/teacher/teacher-evaluations/auto-evaluations',autoEvaluation.evaluationType?.id]"
+            [routerLink]="['/core/teacher/teacher-evaluations/auto-evaluations',autoEvaluation.id+'?evaluationTypeId='+autoEvaluation.evaluationType?.id]"
             styleClass="w-full"/>
         }
       </ng-template>
@@ -53,10 +54,10 @@
 
       <ng-template pTemplate="subtitle">
         <p>Docente Evaluado</p>
-        {{ partnerEvaluation.evaluated?.name }} {{ partnerEvaluation.evaluated?.lastname }}
+        <h3>{{ partnerEvaluation.evaluated?.name }} {{ partnerEvaluation.evaluated?.lastname }}</h3>
 
         <p>Docente Evaluador</p>
-        {{ partnerEvaluation.evaluator?.name }} {{ partnerEvaluation.evaluator?.lastname }}
+        <h3>{{ partnerEvaluation.evaluator?.name }} {{ partnerEvaluation.evaluator?.lastname }}</h3>
       </ng-template>
 
       <ng-template pTemplate="content">
@@ -75,7 +76,7 @@
             <p-button
               label="Ingresar"
               class="w-full"
-              [routerLink]="['/core/teacher/teacher-evaluations/partner-evaluations',partnerEvaluation.evaluationType?.id]"
+              [routerLink]="['/core/teacher/teacher-evaluations/partner-evaluations',partnerEvaluation.id+'?evaluationTypeId='+partnerEvaluation.evaluationType?.id]"
               styleClass="w-full"/>
           }
         </div>

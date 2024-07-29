@@ -1,0 +1,48 @@
+@if (studentEvaluations.length === 0) {
+  <div class="panel-messages-error">
+    <h1>Su autoevaluación no ha sido generada</h1>
+    <p>Por favor comuníquese con el Director de Carrera</p>
+  </div>
+}
+
+<div class="grid mt-5">
+  @if (studentEvaluations.length > 0) {
+    @for (studentEvaluation of studentEvaluations; track studentEvaluation.id) {
+      <p-card class="col-3 text-center" [style]="{height:'550px'}">
+        <ng-template pTemplate="content">
+          <h3>
+            {{ studentEvaluation.teacherDistribution?.subject?.name }}
+          </h3>
+          <h5>
+            {{ studentEvaluation.teacherDistribution?.subject?.code }}
+          </h5>
+
+          <p-divider></p-divider>
+
+          <p>Docente</p>
+          <h4>{{ studentEvaluation.teacherDistribution?.teacher?.user?.name }} {{ studentEvaluation.teacherDistribution?.teacher?.user?.lastname }}</h4>
+
+          <p>Evalaución Estudiante a Docente</p>
+
+          <p-divider></p-divider>
+          <p>
+            Puntuación
+          </p>
+          <h3>
+            {{ studentEvaluation.totalScore ? studentEvaluation.totalScore : 'Pendiente' }}
+          </h3>
+
+          @if (!studentEvaluation.totalScore) {
+            <p-divider></p-divider>
+            <p-button
+              label="Ingresar"
+              class="w-full"
+              (click)="redirectEvaluationForm(studentEvaluation)"
+              styleClass="w-full"/>
+          }
+        </ng-template>
+      </p-card>
+    }
+  }
+</div>
+

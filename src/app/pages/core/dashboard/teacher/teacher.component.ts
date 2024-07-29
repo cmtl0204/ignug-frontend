@@ -29,7 +29,7 @@ export class TeacherComponent {
         code: 'evaluations',
         header: 'Evaluación Docente',
         subheader: 'Gestionar',
-        img: `${assetsPath}/evaluation.png`,
+        img: `${assetsPath}/teacher-evaluation.png`,
         routerLink: '/core/teacher/teacher-evaluations',
       },
       {

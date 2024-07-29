@@ -3,7 +3,13 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {environment} from '@env/environment';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {AutoEvaluationModel, PartnerEvaluationModel, QuestionModel, ResultModel} from '@models/teacher-evaluation';
+import {
+  AutoEvaluationModel,
+  PartnerEvaluationModel,
+  QuestionModel,
+  ResultModel,
+  StudentEvaluationModel
+} from '@models/teacher-evaluation';
 import {ServerResponse} from '@models/http-response';
 import {CoreService, MessageService} from '@services/core';
 
@@ -19,8 +25,8 @@ export class ResultsHttpService {
   constructor() {
   }
 
-  createAutoEvaluation(payload: AutoEvaluationModel[]): Observable<ResultModel> {
-    const url = `${this.API_URL}/auto-evaluations`;
+  createAutoEvaluation(autoEvaluationId: string, payload: AutoEvaluationModel[]): Observable<ResultModel> {
+    const url = `${this.API_URL}/auto-evaluations/${autoEvaluationId}`;
 
     return this.httpClient.post<ServerResponse>(url, payload).pipe(
       map((response) => {
@@ -30,8 +36,19 @@ export class ResultsHttpService {
     );
   }
 
-  createPartnerEvaluation(payload: PartnerEvaluationModel[]): Observable<ResultModel> {
-    const url = `${this.API_URL}/partner-evaluations`;
+  createPartnerEvaluation(partnerEvaluationId: string, payload: PartnerEvaluationModel[]): Observable<ResultModel> {
+    const url = `${this.API_URL}/partner-evaluations/${partnerEvaluationId}`;
+
+    return this.httpClient.post<ServerResponse>(url, payload).pipe(
+      map((response) => {
+        this.messageService.success(response);
+        return response.data;
+      })
+    );
+  }
+
+  createStudentEvaluation(studentEvaluationId: string, payload: StudentEvaluationModel[]): Observable<ResultModel> {
+    const url = `${this.API_URL}/student-evaluations/${studentEvaluationId}`;
 
     return this.httpClient.post<ServerResponse>(url, payload).pipe(
       map((response) => {

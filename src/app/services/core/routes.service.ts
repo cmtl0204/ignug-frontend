@@ -113,6 +113,14 @@ export class RoutesService {
     return this.core + '/teacher/teacher-evaluations/auto';
   }
 
+  get teacherEvaluationsStudent(): string {
+    return this.core + '/student/teacher-evaluations';
+  }
+
+  get teacherEvaluationsCoordinator(): string {
+    return this.core + '/coordinator-career/teacher-evaluations';
+  }
+
   get common(): string {
     return '/common';
   }

@@ -1,5 +1,5 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, ActivatedRouteSnapshot, Router} from "@angular/router";
 import {PrimeIcons} from "primeng/api";
 import {ColumnModel} from "@models/core";
 import {QuestionModel, ResponseModel, ResultModel} from "@models/teacher-evaluation";
@@ -8,11 +8,11 @@ import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evalua
 import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
-  selector: 'app-auto-evaluation-form',
-  templateUrl: './auto-evaluation-form.component.html',
-  styleUrl: './auto-evaluation-form.component.scss'
+  selector: 'app-student-evaluation-form',
+  templateUrl: './student-evaluation-form.component.html',
+  styleUrl: './student-evaluation-form.component.scss'
 })
-export class AutoEvaluationFormComponent implements OnInit {
+export class StudentEvaluationFormComponent implements OnInit {
   private readonly breadcrumbService = inject(BreadcrumbService);
   protected readonly coreService = inject(CoreService);
   private readonly resultsHttpService = inject(ResultsHttpService);
@@ -31,12 +31,12 @@ export class AutoEvaluationFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.evaluationTypeId = this.activatedRoute.snapshot.params['evaluationTypeId'];
+    this.evaluationTypeId = this.activatedRoute.snapshot.queryParams['evaluationTypeId'];
   }
 
   save(results: ResultModel[]) {
-    this.resultsHttpService.createAutoEvaluation(this.id, results).subscribe(response => {
-      this.router.navigate([this.routesService.teacherEvaluations]);
+    this.resultsHttpService.createStudentEvaluation(this.id, results).subscribe(response => {
+      this.router.navigate([this.routesService.teacherEvaluationsStudent]);
     });
   }
 }

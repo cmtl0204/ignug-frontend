@@ -3,26 +3,23 @@ import {PrimeIcons} from "primeng/api";
 import {
   BreadcrumbService,
   CoreService,
-  EvaluationsHttpService,
   MessageDialogService,
-  RoutesService, SchoolPeriodsHttpService, SchoolPeriodsService
+  RoutesService, SchoolPeriodsService
 } from "@services/core";
 import {
   AutoEvaluationsHttpService,
   PartnerEvaluationsHttpService,
-  QuestionsHttpService,
-  ResultsHttpService
+  ResultsHttpService, StudentEvaluationsHttpService
 } from "@services/teacher-evaluation";
 import {ColumnModel} from "@models/core";
 import {
   AutoEvaluationModel,
   PartnerEvaluationModel,
-  QuestionModel,
-  ResponseModel,
-  ResultModel
+  ResultModel, StudentEvaluationModel
 } from "@models/teacher-evaluation";
 import {BreadcrumbEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-evaluation-list',
@@ -33,17 +30,15 @@ export class EvaluationListComponent implements OnInit {
   private readonly authService = inject(AuthService);
   private readonly breadcrumbService = inject(BreadcrumbService);
   private readonly schoolPeriodsService = inject(SchoolPeriodsService);
-  private readonly autoEvaluationsHttpService = inject(AutoEvaluationsHttpService);
+  private readonly studentEvaluationsHttpService = inject(StudentEvaluationsHttpService);
   private readonly partnerEvaluationsHttpService = inject(PartnerEvaluationsHttpService);
   protected readonly coreService = inject(CoreService);
   protected readonly messageDialogService = inject(MessageDialogService);
-  private readonly routesService = inject(RoutesService);
+  private readonly router = inject(Router);
 
   protected columns: ColumnModel[] = [];
   @Input() id: string = '';
-  protected autoEvaluation!: AutoEvaluationModel;
-  protected partnerEvaluation!: PartnerEvaluationModel;
-  protected results: ResultModel[] = [];
+  protected studentEvaluations: StudentEvaluationModel[] = [];
 
   protected readonly PrimeIcons = PrimeIcons;
 
@@ -55,25 +50,15 @@ export class EvaluationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findAutoEvaluationByEvaluated();
-    this.findPartnerEvaluationByEvaluated();
+    this.findAutoEvaluationsByEvaluator();
   }
 
-  findAutoEvaluationByEvaluated() {
-    this.autoEvaluationsHttpService.findAutoEvaluationByEvaluated(
+  findAutoEvaluationsByEvaluator() {
+    this.studentEvaluationsHttpService.findStudentEvaluationsByEvaluator(
       this.authService.auth.id,
       this.schoolPeriodsService.openSchoolPeriod.id)
       .subscribe(response => {
-        this.autoEvaluation = response;
-      });
-  }
-
-  findPartnerEvaluationByEvaluated() {
-    this.partnerEvaluationsHttpService.findPartnerEvaluationByEvaluator(
-      this.authService.auth.id,
-      this.schoolPeriodsService.openSchoolPeriod.id)
-      .subscribe(response => {
-        this.partnerEvaluation = response;
+        this.studentEvaluations = response;
       });
   }
 
@@ -83,7 +68,9 @@ export class EvaluationListComponent implements OnInit {
     ];
   }
 
-  onSubmit() {
-
+  redirectEvaluationForm(studentEvaluation: StudentEvaluationModel) {
+    this.router.navigate(['/core/student/teacher-evaluations/student-evaluations',
+      studentEvaluation.id], {queryParams: {evaluationTypeId: studentEvaluation.evaluationType?.id}}
+    );
   }
 }
