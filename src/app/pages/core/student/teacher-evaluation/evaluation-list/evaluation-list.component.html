@@ -11,16 +11,16 @@
       <p-card class="col-3 text-center" [style]="{height:'550px'}">
         <ng-template pTemplate="content">
           <h3>
-            {{ studentEvaluation.teacherDistribution?.subject?.name }}
+            {{ studentEvaluation.enrollmentDetail?.subject?.name }}
           </h3>
           <h5>
-            {{ studentEvaluation.teacherDistribution?.subject?.code }}
+            {{ studentEvaluation.enrollmentDetail?.subject?.code }}
           </h5>
 
           <p-divider></p-divider>
 
           <p>Docente</p>
-          <h4>{{ studentEvaluation.teacherDistribution?.teacher?.user?.name }} {{ studentEvaluation.teacherDistribution?.teacher?.user?.lastname }}</h4>
+          <h4>{{ studentEvaluation.evaluated?.name }} {{ studentEvaluation.evaluated?.lastname }}</h4>
 
           <p>Evalaución Estudiante a Docente</p>
 

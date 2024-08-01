@@ -175,7 +175,7 @@ export class StudentComponent {
       },
       {
         code: 'teacherEvaluation',
-        enabled: false,
+        enabled: true,
         header: 'Evaluación Docente',
         subheader: 'Ingresar',
         img: `${assetsPath}/teacher-evaluation.png`,
