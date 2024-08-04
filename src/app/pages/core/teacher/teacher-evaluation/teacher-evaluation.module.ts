@@ -10,6 +10,7 @@ import {CardModule} from "primeng/card";
 import {Button} from "primeng/button";
 import {PartnerEvaluationFormComponent} from "./partner-evaluation-form/partner-evaluation-form.component";
 import {AutoEvaluationFormComponent} from "./auto-evaluation-form/auto-evaluation-form.component";
+import {DividerModule} from "primeng/divider";
 
 
 @NgModule({
@@ -19,13 +20,14 @@ import {AutoEvaluationFormComponent} from "./auto-evaluation-form/auto-evaluatio
     EvaluationListComponent,
     PartnerEvaluationFormComponent
   ],
-  imports: [
-    CommonModule,
-    TeacherEvaluationRoutingModule,
-    FormsModule,
-    SharedModule,
-    CardModule,
-    Button
-  ]
+    imports: [
+        CommonModule,
+        TeacherEvaluationRoutingModule,
+        FormsModule,
+        SharedModule,
+        CardModule,
+        Button,
+        DividerModule
+    ]
 })
 export class TeacherEvaluationModule { }

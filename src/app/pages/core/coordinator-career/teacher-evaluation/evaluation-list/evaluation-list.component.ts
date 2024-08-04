@@ -3,23 +3,18 @@ import {PrimeIcons} from "primeng/api";
 import {
   BreadcrumbService,
   CoreService,
-  EvaluationsHttpService,
-  MessageDialogService,
-  RoutesService, SchoolPeriodsHttpService, SchoolPeriodsService
+  SchoolPeriodsService
 } from "@services/core";
 import {
-  AutoEvaluationsHttpService, CoordinatorEvaluationsHttpService,
+  AutoEvaluationsHttpService,
+  CoordinatorEvaluationsHttpService,
   PartnerEvaluationsHttpService,
-  QuestionsHttpService,
-  ResultsHttpService
 } from "@services/teacher-evaluation";
 import {ColumnModel} from "@models/core";
 import {
   AutoEvaluationModel, CoordinatorEvaluationModel,
   PartnerEvaluationModel,
-  QuestionModel,
-  ResponseModel,
-  ResultModel, StudentEvaluationModel
+  ResultModel
 } from "@models/teacher-evaluation";
 import {BreadcrumbEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
@@ -34,18 +29,13 @@ export class EvaluationListComponent implements OnInit {
   private readonly authService = inject(AuthService);
   private readonly breadcrumbService = inject(BreadcrumbService);
   private readonly schoolPeriodsService = inject(SchoolPeriodsService);
-  private readonly autoEvaluationsHttpService = inject(AutoEvaluationsHttpService);
-  private readonly partnerEvaluationsHttpService = inject(PartnerEvaluationsHttpService);
   private readonly coordinatorEvaluationsHttpService = inject(CoordinatorEvaluationsHttpService);
   protected readonly coreService = inject(CoreService);
   private readonly router = inject(Router);
 
   protected columns: ColumnModel[] = [];
   @Input() id: string = '';
-  protected autoEvaluation!: AutoEvaluationModel;
-  protected partnerEvaluationEvaluator!: PartnerEvaluationModel;
-  protected partnerEvaluationEvaluated!: PartnerEvaluationModel;
-  protected coordinatorEvaluation!: CoordinatorEvaluationModel;
+  protected coordinatorEvaluations!: CoordinatorEvaluationModel[];
   protected results: ResultModel[] = [];
 
   protected readonly PrimeIcons = PrimeIcons;
@@ -58,51 +48,23 @@ export class EvaluationListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.findAutoEvaluationByEvaluated();
-    this.findPartnerEvaluationByEvaluator();
-    this.findPartnerEvaluationByEvaluated();
-    this.findCoordinatorEvaluationByEvaluated();
+    this.findCoordinatorEvaluationsByEvaluator();
   }
 
-  findAutoEvaluationByEvaluated() {
-    this.autoEvaluationsHttpService.findAutoEvaluationByEvaluated(
+  findCoordinatorEvaluationsByEvaluator() {
+    this.coordinatorEvaluationsHttpService.findCoordinatorEvaluationsByEvaluator(
       this.authService.auth.id,
       this.schoolPeriodsService.openSchoolPeriod.id)
       .subscribe(response => {
-        this.autoEvaluation = response;
-      });
-  }
-
-  findPartnerEvaluationByEvaluator() {
-    this.partnerEvaluationsHttpService.findPartnerEvaluationByEvaluator(
-      this.authService.auth.id,
-      this.schoolPeriodsService.openSchoolPeriod.id)
-      .subscribe(response => {
-        this.partnerEvaluationEvaluator = response;
-      });
-  }
-
-  findPartnerEvaluationByEvaluated() {
-    this.partnerEvaluationsHttpService.findPartnerEvaluationByEvaluated(
-      this.authService.auth.id,
-      this.schoolPeriodsService.openSchoolPeriod.id)
-      .subscribe(response => {
-        this.partnerEvaluationEvaluated = response;
-      });
-  }
-
-  findCoordinatorEvaluationByEvaluated() {
-    this.coordinatorEvaluationsHttpService.findCoordinatorEvaluationByEvaluated(
-      this.authService.auth.id,
-      this.schoolPeriodsService.openSchoolPeriod.id)
-      .subscribe(response => {
-        this.coordinatorEvaluation = response;
+        this.coordinatorEvaluations = response;
       });
   }
 
   buildColumns() {
     this.columns = [
-      {field: 'name', header: 'Pregunta'},
+      {field: 'evaluated', header: 'Evaluado'},
+      {field: 'totalScore', header: 'Puntuación'},
+      {field: 'enabled', header: 'Habilitado'},
     ];
   }
 
@@ -118,5 +80,8 @@ export class EvaluationListComponent implements OnInit {
     );
   }
 
+  selectItem(item:CoordinatorEvaluationModel){
+
+  }
   protected readonly Math = Math;
 }
