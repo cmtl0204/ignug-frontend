@@ -63,6 +63,7 @@ import {FormHelpFieldComponent} from "@utils/components/form-help-field/form-hel
 import {MessageDialogComponent} from "@utils/components/message-dialog/message-dialog.component";
 import {MessageConfirmDialogComponent} from "@utils/components/message-confirm-dialog/message-confirm-dialog.component";
 import {ToastModule} from "primeng/toast";
+import {EnabledPipe} from "@utils/pipes/core/enabled.pipe";
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import {ToastModule} from "primeng/toast";
     HelpFieldComponent,
     FormHelpFieldComponent,
     MessageDialogComponent,
-    MessageConfirmDialogComponent
+    MessageConfirmDialogComponent,
+    EnabledPipe
   ],
   exports: [
     SkeletonComponent,
@@ -142,7 +144,8 @@ import {ToastModule} from "primeng/toast";
     FormButtonActionComponent,
     FormHelpFieldComponent,
     MessageDialogComponent,
-    MessageConfirmDialogComponent
+    MessageConfirmDialogComponent,
+    EnabledPipe
   ],
   imports: [
     CommonModule,

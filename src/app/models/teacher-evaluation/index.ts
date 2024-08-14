@@ -4,3 +4,4 @@ export * from './partner-evaluation.model';
 export * from './response.model';
 export * from './result.model';
 export * from './student-evaluation.model';
+export * from './coordinator-evaluation.model';
