@@ -12,6 +12,8 @@ import {SharedModule} from "@coreShared/shared.module";
 import {TableModule} from "primeng/table";
 import {TagModule} from "primeng/tag";
 import {UtilsModule} from "@utils/utils.module";
+import {PanelMenuModule} from "primeng/panelmenu";
+import {SidebarModule} from "primeng/sidebar";
 
 
 @NgModule({
@@ -20,16 +22,18 @@ import {UtilsModule} from "@utils/utils.module";
     CoordinatorEvaluationFormComponent,
     EvaluationListComponent
   ],
-  imports: [
-    CommonModule,
-    TeacherEvaluationRoutingModule,
-    CardModule,
-    Button,
-    DividerModule,
-    SharedModule,
-    TableModule,
-    TagModule,
-    UtilsModule
-  ]
+    imports: [
+        CommonModule,
+        TeacherEvaluationRoutingModule,
+        CardModule,
+        Button,
+        DividerModule,
+        SharedModule,
+        TableModule,
+        TagModule,
+        UtilsModule,
+        PanelMenuModule,
+        SidebarModule
+    ]
 })
 export class TeacherEvaluationModule { }

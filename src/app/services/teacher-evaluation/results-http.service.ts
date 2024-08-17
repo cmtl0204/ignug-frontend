@@ -4,7 +4,7 @@ import {environment} from '@env/environment';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {
-  AutoEvaluationModel,
+  AutoEvaluationModel, CoordinatorEvaluationModel,
   PartnerEvaluationModel,
   QuestionModel,
   ResultModel,
@@ -49,6 +49,17 @@ export class ResultsHttpService {
 
   createStudentEvaluation(studentEvaluationId: string, payload: StudentEvaluationModel[]): Observable<ResultModel> {
     const url = `${this.API_URL}/student-evaluations/${studentEvaluationId}`;
+
+    return this.httpClient.post<ServerResponse>(url, payload).pipe(
+      map((response) => {
+        this.messageService.success(response);
+        return response.data;
+      })
+    );
+  }
+
+  createCoordinatorEvaluation(coordinatorEvaluationId: string, payload: CoordinatorEvaluationModel[]): Observable<ResultModel> {
+    const url = `${this.API_URL}/coordinator-evaluations/${coordinatorEvaluationId}`;
 
     return this.httpClient.post<ServerResponse>(url, payload).pipe(
       map((response) => {

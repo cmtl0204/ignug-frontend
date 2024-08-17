@@ -35,8 +35,8 @@ export class CoordinatorEvaluationFormComponent implements OnInit{
   }
 
   save(results:ResultModel[]) {
-    this.resultsHttpService.createPartnerEvaluation(this.id,results).subscribe(response => {
-      this.router.navigate([this.routesService.teacherEvaluations]);
+    this.resultsHttpService.createCoordinatorEvaluation(this.id,results).subscribe(response => {
+      this.router.navigate([this.routesService.teacherEvaluationsCoordinator]);
     });
   }
 }

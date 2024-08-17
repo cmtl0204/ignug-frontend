@@ -18,8 +18,8 @@ import {debounceTime} from "rxjs";
 export class UserListComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons;
   protected buttonActions: MenuItem[] = this.buildButtonActions;
-  protected columns: ColumnModel[] = this.buildColumns;
   protected isButtonActions: boolean = false;
+  protected columns: ColumnModel[] = this.buildColumns;
   protected paginator: PaginatorModel;
   protected search: FormControl = new FormControl('');
   protected selectedUser: SelectUserDto = {};
