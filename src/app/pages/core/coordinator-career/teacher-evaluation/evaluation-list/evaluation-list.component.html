@@ -31,7 +31,7 @@
             <p-tag severity="info" [value]="rowData[col.field] | enabled" class="mr-1"></p-tag>
           </div>
           <div *ngSwitchCase="'equivalence'">
-            {{(rowData['totalScore']/14).toFixed(2)}}%
+            {{(rowData['totalScore']*(5/23)).toFixed(2)}}%
           </div>
           <div *ngSwitchDefault>{{ rowData[col.field] }}</div>
         </div>
