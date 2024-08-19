@@ -1,5 +1,5 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {PrimeIcons} from "primeng/api";
+import {MenuItem, PrimeIcons} from "primeng/api";
 import {
   BreadcrumbService,
   CoreService,
@@ -16,7 +16,7 @@ import {
   PartnerEvaluationModel,
   ResultModel
 } from "@models/teacher-evaluation";
-import {BreadcrumbEnum} from "@utils/enums";
+import {BreadcrumbEnum, IconButtonActionEnum, LabelButtonActionEnum} from "@utils/enums";
 import {AuthService} from "@services/auth";
 import {Router} from "@angular/router";
 
@@ -39,12 +39,16 @@ export class EvaluationListComponent implements OnInit {
   protected results: ResultModel[] = [];
 
   protected readonly PrimeIcons = PrimeIcons;
+  protected buttonActions: MenuItem[] = [];
+  protected isButtonActions: boolean = false;
+  protected selectedItem!: CoordinatorEvaluationModel;
 
   constructor() {
     this.breadcrumbService.setItems([
       {label: BreadcrumbEnum.TEACHER_EVALUATIONS},
     ]);
     this.buildColumns();
+    this.buildButtonActions();
   }
 
   ngOnInit(): void {
@@ -64,7 +68,20 @@ export class EvaluationListComponent implements OnInit {
     this.columns = [
       {field: 'evaluated', header: 'Evaluado'},
       {field: 'totalScore', header: 'Puntuación'},
+      {field: 'equivalence', header: 'Equivalencia'},
       {field: 'enabled', header: 'Habilitado'},
+    ];
+  }
+
+  buildButtonActions() {
+    this.buttonActions = [
+      {
+        label: LabelButtonActionEnum.EVALUATE,
+        icon: IconButtonActionEnum.EVALUATE,
+        command: () => {
+          if (this.selectedItem?.id) this.redirectCoordinatorEvaluationForm(this.selectedItem);
+        },
+      }
     ];
   }
 
@@ -74,14 +91,17 @@ export class EvaluationListComponent implements OnInit {
     );
   }
 
-  redirectPartnerEvaluationForm(partnerEvaluation: PartnerEvaluationModel) {
-    this.router.navigate(['/core/teacher/teacher-evaluations/partner-evaluations',
-      partnerEvaluation.id], {queryParams: {evaluationTypeId: partnerEvaluation.evaluationType?.id}}
+  redirectCoordinatorEvaluationForm(coordinatorEvaluation: CoordinatorEvaluationModel) {
+    this.router.navigate(['/core/coordinator-career/teacher-evaluations/coordinator-evaluations',
+        coordinatorEvaluation.id],
+      {queryParams: {evaluationTypeId: coordinatorEvaluation.evaluationType?.id}}
     );
   }
 
-  selectItem(item:CoordinatorEvaluationModel){
-
+  selectItem(item: CoordinatorEvaluationModel) {
+    this.isButtonActions = true;
+    this.selectedItem = item;
   }
+
   protected readonly Math = Math;
 }

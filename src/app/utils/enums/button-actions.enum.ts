@@ -45,6 +45,7 @@ export enum LabelButtonActionEnum {
   CURRICULUMS = 'Mallas Curriculares',
   SUBJECTS = 'Asignaturas',
   PARALLEL_CAPACITY = 'Capacidad Paralelos',
+  EVALUATE = 'Evaluar',
 }
 
 export enum IconButtonActionEnum {
@@ -68,6 +69,7 @@ export enum IconButtonActionEnum {
   CLOSE_SCHOOL_PERIOD = 'Cerrar Periodo Lectivo',
   FILE_LIST = 'pi pi-file',
   SUBJECT_REQUIREMENTS = 'Pre y Co Requisitos',
+  EVALUATE = 'pi pi-file',
 }
 
 export enum ClassButtonActionEnum {
