@@ -8,4 +8,5 @@ export interface CoordinatorEvaluationModel {
   evaluated?: UserModel;
   schoolPeriod?: SchoolPeriodModel;
   totalScore?: number;
+  enabled?: boolean;
 }

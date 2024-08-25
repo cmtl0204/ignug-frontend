@@ -7,4 +7,5 @@ export interface AutoEvaluationModel {
   evaluated?: UserModel;
   schoolPeriod?: SchoolPeriodModel;
   totalScore?: number;
+  enabled?: boolean;
 }
