@@ -67,9 +67,6 @@ export class EvaluationListComponent implements OnInit {
   buildColumns() {
     this.columns = [
       {field: 'evaluated', header: 'Evaluado'},
-      {field: 'totalScore', header: 'Puntuación'},
-      {field: 'equivalence', header: 'Equivalencia'},
-      {field: 'enabled', header: 'Habilitado'},
     ];
   }
 
