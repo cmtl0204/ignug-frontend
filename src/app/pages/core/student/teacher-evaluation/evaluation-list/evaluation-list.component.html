@@ -5,44 +5,34 @@
   </div>
 }
 
-<div class="grid mt-5">
-  @if (studentEvaluations.length > 0) {
-    @for (studentEvaluation of studentEvaluations; track studentEvaluation.id) {
-      <p-card class="col-3 text-center" [style]="{height:'550px'}">
-        <ng-template pTemplate="content">
-          <h3>
-            {{ studentEvaluation.enrollmentDetail?.subject?.name }}
-          </h3>
-          <h5>
-            {{ studentEvaluation.enrollmentDetail?.subject?.code }}
-          </h5>
-
-          <p-divider></p-divider>
-
-          <p>Docente</p>
-          <h4>{{ studentEvaluation.evaluated?.name }} {{ studentEvaluation.evaluated?.lastname }}</h4>
-
-          <p>Evalaución Estudiante a Docente</p>
-
-          <p-divider></p-divider>
-          <p>
-            Puntuación
-          </p>
-          <h3>
-            {{ studentEvaluation.totalScore ? studentEvaluation.totalScore : 'Pendiente' }}
-          </h3>
-
-          @if (!studentEvaluation.totalScore) {
-            <p-divider></p-divider>
+<p-panel header="Evaluaciones">
+  <p-table
+    [value]="studentEvaluations"
+    styleClass="p-datatable-striped">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>
+          Docente a evaluar
+        </th>
+        <th class="text-center">
+          Acciones
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{ rowData.evaluated?.lastname }} {{ rowData.evaluated?.name }}</td>
+        <td class="text-center">
+          @if (rowData.enabled) {
             <p-button
-              label="Ingresar"
-              class="w-full"
-              (click)="redirectEvaluationForm(studentEvaluation)"
-              styleClass="w-full"/>
+              label="Evaluar"
+              (click)="redirectEvaluationForm(rowData)"
+            />
+          } @else {
+            <p-tag value="Realizado" severity="info"/>
           }
-        </ng-template>
-      </p-card>
-    }
-  }
-</div>
-
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>

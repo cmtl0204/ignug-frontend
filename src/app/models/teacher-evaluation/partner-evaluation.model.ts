@@ -8,4 +8,5 @@ export interface PartnerEvaluationModel {
   evaluated?: UserModel;
   schoolPeriod?: SchoolPeriodModel;
   totalScore?: number;
+  enabled?: boolean;
 }

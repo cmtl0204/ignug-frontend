@@ -9,6 +9,9 @@ import {CardModule} from "primeng/card";
 import {SharedModule} from "@coreShared/shared.module";
 import {Button, ButtonModule} from "primeng/button";
 import {DividerModule} from "primeng/divider";
+import {PanelModule} from "primeng/panel";
+import {TableModule} from "primeng/table";
+import {TagModule} from "primeng/tag";
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import {DividerModule} from "primeng/divider";
         SharedModule,
         CardModule,
         ButtonModule,
-        DividerModule
+        DividerModule,
+        PanelModule,
+        TableModule,
+        TagModule
     ]
 })
 export class TeacherEvaluationModule {
