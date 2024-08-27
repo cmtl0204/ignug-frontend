@@ -47,7 +47,7 @@ export class EvaluationListComponent implements OnInit {
   protected columns: ColumnModel[] = [];
   @Input() id: string = '';
   protected autoEvaluation!: AutoEvaluationModel;
-  protected partnerEvaluationEvaluator!: PartnerEvaluationModel;
+  protected partnerEvaluationsEvaluator: PartnerEvaluationModel[]=[];
   protected partnerEvaluationEvaluated!: PartnerEvaluationModel;
   protected coordinatorEvaluation!: CoordinatorEvaluationModel;
   protected integralEvaluation!: any;
@@ -63,7 +63,7 @@ export class EvaluationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.findAutoEvaluationByEvaluated();
-    this.findPartnerEvaluationByEvaluator();
+    this.findPartnerEvaluationsByEvaluator();
     this.findPartnerEvaluationByEvaluated();
     this.findCoordinatorEvaluationByEvaluated();
     this.findIntegralEvaluationByEvaluated();
@@ -161,12 +161,12 @@ export class EvaluationListComponent implements OnInit {
       });
   }
 
-  findPartnerEvaluationByEvaluator() {
-    this.partnerEvaluationsHttpService.findPartnerEvaluationByEvaluator(
+  findPartnerEvaluationsByEvaluator() {
+    this.partnerEvaluationsHttpService.findPartnerEvaluationsByEvaluator(
       this.authService.auth.id,
       this.schoolPeriodsService.openSchoolPeriod.id)
       .subscribe(response => {
-        this.partnerEvaluationEvaluator = response;
+        this.partnerEvaluationsEvaluator = response;
       });
   }
 

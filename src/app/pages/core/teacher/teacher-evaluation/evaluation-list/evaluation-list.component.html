@@ -9,7 +9,7 @@
   </p-messages>
 }
 
-@if (!partnerEvaluationEvaluator) {
+@if (partnerEvaluationsEvaluator.length === 0) {
   <p-messages severity="error">
     <ng-template pTemplate>
       <div>
@@ -42,13 +42,14 @@
   </p-messages>
 }
 
-@if (integralEvaluation?.totalScore) {
+@if (integralEvaluation?.totalScore && false) {
   <div class="grid">
     <div class="col-7">
       <p-panel header="Resultados">
         <p-chart type="bar" [data]="data" [options]="options"/>
       </p-panel>
     </div>
+
     <div class="col-3">
       <p-panel header="Resultados">
         <ng-template pTemplate="content">
@@ -64,7 +65,7 @@
               <p-divider/>
               <b>Heteroevaluación:</b>
               <p-divider/>
-              <b>{{ partnerEvaluationEvaluator?.evaluationType?.name }}:</b>
+              <b>{{ partnerEvaluationEvaluated?.evaluationType?.name }}:</b>
               <p-divider/>
               <b>{{ coordinatorEvaluation?.evaluationType?.name }}:</b>
             </p>
@@ -144,15 +145,12 @@
   </div>
 }
 
-<p-panel header="Evaluaciones">
+<p-panel header="Autoevaluación">
   <p-table
     [value]="[autoEvaluation]"
     styleClass="p-datatable-striped">
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th>
-          Tipo de evaluación
-        </th>
         <th>
           Docente a evaluar
         </th>
@@ -163,7 +161,6 @@
     </ng-template>
     <ng-template pTemplate="body">
       <tr>
-        <td>{{ autoEvaluation.evaluationType?.name }}</td>
         <td>{{ autoEvaluation.evaluated?.lastname }} {{ autoEvaluation.evaluated?.name }}</td>
         <td class="text-center">
           @if (autoEvaluation.enabled) {
@@ -176,23 +173,38 @@
           }
         </td>
       </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
 
-      @if (partnerEvaluationEvaluator) {
-        <tr>
-          <td>{{ partnerEvaluationEvaluator.evaluationType?.name }}</td>
-          <td>{{ partnerEvaluationEvaluator.evaluated?.lastname }} {{ partnerEvaluationEvaluator.evaluated?.name }}</td>
-          <td class="text-center">
-            @if (partnerEvaluationEvaluator.enabled) {
-              <p-button
-                label="Evaluar"
-                (click)="redirectPartnerEvaluationForm(partnerEvaluationEvaluator)"
-              />
-            } @else {
-              <p-tag value="Realizado" severity="info"/>
-            }
-          </td>
-        </tr>
-      }
+<p-panel header="Coevaluación por pares">
+  <p-table
+    [value]="partnerEvaluationsEvaluator"
+    styleClass="p-datatable-striped">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>
+          Docente a evaluar
+        </th>
+        <th class="text-center">
+          Acciones
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{ rowData.evaluated?.lastname }} {{ rowData.evaluated?.name }}</td>
+        <td class="text-center">
+          @if (rowData.enabled) {
+            <p-button
+              label="Evaluar"
+              (click)="redirectPartnerEvaluationForm(rowData)"
+            />
+          } @else {
+            <p-tag value="Realizado" severity="info"/>
+          }
+        </td>
+      </tr>
     </ng-template>
   </p-table>
 </p-panel>
