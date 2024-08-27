@@ -13,21 +13,13 @@
       [icon]="PrimeIcons.REFRESH"
       [loading]="coreService.isLoading"
       (click)="findAll()"></p-button>
-    <p-button
-      *ngIf="selectedUsers.length>0"
-      label="Eliminar Usuarios"
-      severity="danger"
-      class="ml-2"
-      [icon]="PrimeIcons.TRASH"
-      [loading]="coreService.isLoading"
-      (click)="removeAll()"></p-button>
   </div>
   <div class="p-toolbar-group-right">
     <p-inputGroup>
       <p-inputGroupAddon>
         <i [class]="PrimeIcons.SEARCH"></i>
       </p-inputGroupAddon>
-      <input type="text" pInputText [formControl]="search" placeholder="Buscar...">
+      <input pInputText [formControl]="search" placeholder="Buscar...">
     </p-inputGroup>
   </div>
 </p-toolbar>

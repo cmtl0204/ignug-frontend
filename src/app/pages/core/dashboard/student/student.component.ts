@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {BreadcrumbService, CareersService, RoutesService, StudentsHttpService} from "@services/core";
 import {Router} from "@angular/router";
 import {AuthService} from "@services/auth";
-import {CatalogueEnrollmentStateEnum, EnrollmentEnum, EnrollmentSateEnum} from "@utils/enums";
+import {CatalogueEnrollmentStateEnum} from "@utils/enums";
 import {EnrollmentModel} from "@models/core";
 
 @Component({
@@ -172,6 +172,14 @@ export class StudentComponent {
         subheader: 'Descargar',
         img: `${assetsPath}/socioeconomic-pdf.png`,
         routerLink: '/core/student/socioeconomic-pdf',
+      },
+      {
+        code: 'teacherEvaluation',
+        enabled: true,
+        header: 'Evaluación Docente',
+        subheader: 'Ingresar',
+        img: `${assetsPath}/teacher-evaluation.png`,
+        routerLink: '/core/student/teacher-evaluations',
       },
     );
 

@@ -1,7 +1,7 @@
 import {CatalogueModel, SchoolPeriodModel} from "@models/core";
 import {UserModel} from "@models/auth";
 
-export interface PartnerEvaluationModel {
+export interface CoordinatorEvaluationModel {
   id?: string;
   evaluationType?: CatalogueModel;
   evaluator?:UserModel;

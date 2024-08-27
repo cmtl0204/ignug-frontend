@@ -1,86 +1,212 @@
 @if (!autoEvaluation) {
-  <div class="panel-messages-error">
-    <h1>Su autoevaluación no ha sido generada</h1>
-    <p>Por favor comuníquese con el Director de Carrera</p>
+  <p-messages severity="error">
+    <ng-template pTemplate>
+      <div>
+        <b>Su autoevaluación no ha sido generada, </b>
+        Por favor comuníquese con el Director de Carrera
+      </div>
+    </ng-template>
+  </p-messages>
+}
+
+@if (partnerEvaluationsEvaluator.length === 0) {
+  <p-messages severity="error">
+    <ng-template pTemplate>
+      <div>
+        <b>Su evaluación por pares no ha sido generada, </b>
+        Por favor comuníquese con el Director de Carrera
+      </div>
+    </ng-template>
+  </p-messages>
+}
+
+@if (!partnerEvaluationEvaluated) {
+  <p-messages severity="error">
+    <ng-template pTemplate>
+      <div>
+        <b>Su evaluación por pares (resultado) no ha sido generada, </b>
+        Por favor comuníquese con el Director de Carrera
+      </div>
+    </ng-template>
+  </p-messages>
+}
+
+@if (!coordinatorEvaluation) {
+  <p-messages severity="error">
+    <ng-template pTemplate>
+      <div>
+        <b>Su evaluación por el Director de Carrera (resultado) no ha sido generada, </b>
+        Por favor comuníquese con el Director de Carrera
+      </div>
+    </ng-template>
+  </p-messages>
+}
+
+@if (integralEvaluation?.totalScore) {
+  <div class="grid">
+    <div class="col-7">
+      <p-panel header="Resultados">
+        <p-chart type="bar" [data]="data" [options]="options"/>
+      </p-panel>
+    </div>
+
+    <div class="col-3">
+      <p-panel header="Resultados">
+        <ng-template pTemplate="content">
+          <div class="card flex">
+            <p>
+              <b>Informe Evaluacíon Integral:</b>
+              <p-divider/>
+              <b>Total Cuantitativo:</b>
+              <p-divider/>
+              <b>Total Cualitativo:</b>
+              <p-divider/>
+              <b>{{ autoEvaluation?.evaluationType?.name }}:</b>
+              <p-divider/>
+              <b>Heteroevaluación:</b>
+              <p-divider/>
+              <b>{{ partnerEvaluationEvaluated?.evaluationType?.name }}:</b>
+              <p-divider/>
+              <b>{{ coordinatorEvaluation?.evaluationType?.name }}:</b>
+            </p>
+
+            <p-divider layout="vertical"/>
+
+            <p class="text-center">
+              <p-button
+                class="ml-2"
+                [icon]="IconButtonActionEnum.DOWNLOAD"
+                [pTooltip]="LabelButtonActionEnum.DOWNLOAD"
+                [rounded]="true"
+                [severity]="SeverityButtonActionEnum.DOWNLOAD"
+                (click)="downloadIntegralEvaluation()"
+              />
+
+              <p-divider/>
+              {{ integralEvaluation.totalScore }}
+
+              <p-divider/>
+              {{ integralEvaluation.quality }}
+
+              <p-divider/>
+              {{ integralEvaluation.autoEvaluationScore }}
+
+              <p-divider/>
+              {{ integralEvaluation.studentEvaluationScore }}
+
+              <p-divider/>
+              {{ integralEvaluation.partnerEvaluationScore }}
+
+              <p-divider/>
+              {{ integralEvaluation.coordinatorEvaluationScore }}
+            </p>
+          </div>
+        </ng-template>
+      </p-panel>
+    </div>
+
+    <div class="col-2">
+      <p-panel header="Equivalencias">
+        <ng-template pTemplate="content">
+          <div class="card flex">
+            <p style="font-size:0.8rem">
+              <b>CUANTITATIVA</b>
+              <p-divider/>
+              95,00 - 100,00
+              <p-divider/>
+              80,00 - 94,99
+              <p-divider/>
+              70,00 - 79,99
+              <p-divider/>
+              40,00 - 69,99
+              <p-divider/>
+              20,00 - 39,99
+            </p>
+
+            <p-divider layout="vertical"/>
+
+            <p style="font-size:0.8rem">
+              <b>CUALITATIVA</b>
+              <p-divider/>
+              Excelente
+              <p-divider/>
+              Destacado
+              <p-divider/>
+              Competente
+              <p-divider/>
+              Básico
+              <p-divider/>
+              Insatisfactorio
+            </p>
+          </div>
+        </ng-template>
+      </p-panel>
+    </div>
   </div>
 }
 
-@if (!partnerEvaluation) {
-  <div class="panel-messages-error">
-    <h1>Su evaluación por pares no ha sido generada</h1>
-    <p>Por favor comuníquese con el Director de Carrera</p>
-  </div>
-}
-
-
-<div class="grid mt-5">
-  @if (autoEvaluation) {
-    <p-card class="col-3 text-center col-offset-3" [style]="{ height: '450px' }">
-      <ng-template pTemplate="title">
-        Autoevaluación
-      </ng-template>
-
-      <ng-template pTemplate="subtitle">
-        {{ autoEvaluation.evaluated?.name }} {{ autoEvaluation.evaluated?.lastname }}
-      </ng-template>
-
-      <ng-template pTemplate="content">
-        <p>
-          Puntaje
-        </p>
-        <h1>
-          {{ autoEvaluation.totalScore ? autoEvaluation.totalScore : 'Pendiente' }}
-        </h1>
-      </ng-template>
-
-      <ng-template pTemplate="footer">
-        @if (!autoEvaluation.totalScore) {
-          <p-button
-            label="Ingresar"
-            class="w-full"
-            [routerLink]="['/core/teacher/teacher-evaluations/auto-evaluations',autoEvaluation.evaluationType?.id]"
-            styleClass="w-full"/>
-        }
-      </ng-template>
-    </p-card>
-  }
-
-  @if (partnerEvaluation) {
-    <p-card class="col-3 text-center" [style]="{ height: '450px' }">
-      <ng-template pTemplate="title">
-        Pares Docentes
-      </ng-template>
-
-      <ng-template pTemplate="subtitle">
-        <p>Docente Evaluado</p>
-        {{ partnerEvaluation.evaluated?.name }} {{ partnerEvaluation.evaluated?.lastname }}
-
-        <p>Docente Evaluador</p>
-        {{ partnerEvaluation.evaluator?.name }} {{ partnerEvaluation.evaluator?.lastname }}
-      </ng-template>
-
-      <ng-template pTemplate="content">
-        <p>
-          Puntaje
-        </p>
-
-        <h1>
-          {{ partnerEvaluation.totalScore ? partnerEvaluation.totalScore : 'Pendiente' }}
-        </h1>
-      </ng-template>
-
-      <ng-template pTemplate="footer">
-        <div class="flex gap-3 mt-1">
-          @if (!partnerEvaluation.totalScore) {
+<p-panel header="Autoevaluación">
+  <p-table
+    [value]="[autoEvaluation]"
+    styleClass="p-datatable-striped">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>
+          Docente a evaluar
+        </th>
+        <th class="text-center">
+          Acciones
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body">
+      <tr>
+        <td>{{ autoEvaluation.evaluated?.lastname }} {{ autoEvaluation.evaluated?.name }}</td>
+        <td class="text-center">
+          @if (autoEvaluation.enabled) {
             <p-button
-              label="Ingresar"
-              class="w-full"
-              [routerLink]="['/core/teacher/teacher-evaluations/partner-evaluations',partnerEvaluation.evaluationType?.id]"
-              styleClass="w-full"/>
+              label="Evaluar"
+              (click)="redirectAutoEvaluationForm(autoEvaluation)"
+            />
+          } @else {
+            <p-tag value="Realizado" severity="info"/>
           }
-        </div>
-      </ng-template>
-    </p-card>
-  }
-</div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
+
+<p-panel header="Coevaluación por pares">
+  <p-table
+    [value]="partnerEvaluationsEvaluator"
+    styleClass="p-datatable-striped">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>
+          Docente a evaluar
+        </th>
+        <th class="text-center">
+          Acciones
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{ rowData.evaluated?.lastname }} {{ rowData.evaluated?.name }}</td>
+        <td class="text-center">
+          @if (rowData.enabled) {
+            <p-button
+              label="Evaluar"
+              (click)="redirectPartnerEvaluationForm(rowData)"
+            />
+          } @else {
+            <p-tag value="Realizado" severity="info"/>
+          }
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>
+
 

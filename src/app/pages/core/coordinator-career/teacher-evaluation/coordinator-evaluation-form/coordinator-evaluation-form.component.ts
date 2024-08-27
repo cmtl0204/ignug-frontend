@@ -8,11 +8,11 @@ import {QuestionsHttpService, ResultsHttpService} from "@services/teacher-evalua
 import {BreadcrumbEnum} from "@utils/enums";
 
 @Component({
-  selector: 'app-auto-evaluation-form',
-  templateUrl: './auto-evaluation-form.component.html',
-  styleUrl: './auto-evaluation-form.component.scss'
+  selector: 'app-coordinator-evaluation-form',
+  templateUrl: './coordinator-evaluation-form.component.html',
+  styleUrl: './coordinator-evaluation-form.component.scss'
 })
-export class AutoEvaluationFormComponent implements OnInit {
+export class CoordinatorEvaluationFormComponent implements OnInit{
   private readonly breadcrumbService = inject(BreadcrumbService);
   protected readonly coreService = inject(CoreService);
   private readonly resultsHttpService = inject(ResultsHttpService);
@@ -34,9 +34,9 @@ export class AutoEvaluationFormComponent implements OnInit {
     this.evaluationTypeId = this.activatedRoute.snapshot.queryParams['evaluationTypeId'];
   }
 
-  save(results: ResultModel[]) {
-    this.resultsHttpService.createAutoEvaluation(this.id, results).subscribe(response => {
-      this.router.navigate([this.routesService.teacherEvaluations]);
+  save(results:ResultModel[]) {
+    this.resultsHttpService.createCoordinatorEvaluation(this.id,results).subscribe(response => {
+      this.router.navigate([this.routesService.teacherEvaluationsCoordinator]);
     });
   }
 }

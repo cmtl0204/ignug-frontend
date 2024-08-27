@@ -31,6 +31,7 @@ export enum LabelButtonActionEnum {
   UPDATE = 'Editar',
   DELETE = 'Eliminar',
   DOWNLOADS = 'Descargas',
+  DOWNLOAD = 'Descargar',
   SUSPEND = 'Suspender',
   HIDE = 'Ocultar',
   SELECT = 'Seleccionar',
@@ -45,6 +46,7 @@ export enum LabelButtonActionEnum {
   CURRICULUMS = 'Mallas Curriculares',
   SUBJECTS = 'Asignaturas',
   PARALLEL_CAPACITY = 'Capacidad Paralelos',
+  EVALUATE = 'Evaluar',
 }
 
 export enum IconButtonActionEnum {
@@ -56,6 +58,7 @@ export enum IconButtonActionEnum {
   NEXT  = 'pi pi-arrow-right',
   REVOKED = 'pi pi-ban',
   DOWNLOADS = 'pi pi-download',
+  DOWNLOAD = 'pi pi-download',
   SAVE = 'pi pi-save',
   SUSPEND = 'pi pi-ban',
   PARALLEL_CAPACITY = 'pi pi-list',
@@ -68,6 +71,7 @@ export enum IconButtonActionEnum {
   CLOSE_SCHOOL_PERIOD = 'Cerrar Periodo Lectivo',
   FILE_LIST = 'pi pi-file',
   SUBJECT_REQUIREMENTS = 'Pre y Co Requisitos',
+  EVALUATE = 'pi pi-file',
 }
 
 export enum ClassButtonActionEnum {

@@ -1,0 +1,38 @@
+@if (studentEvaluations.length === 0) {
+  <div class="panel-messages-error">
+    <h1>Su autoevaluación no ha sido generada</h1>
+    <p>Por favor comuníquese con el Director de Carrera</p>
+  </div>
+}
+
+<p-panel header="Evaluaciones">
+  <p-table
+    [value]="studentEvaluations"
+    styleClass="p-datatable-striped">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th>
+          Docente a evaluar
+        </th>
+        <th class="text-center">
+          Acciones
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData>
+      <tr>
+        <td>{{ rowData.evaluated?.lastname }} {{ rowData.evaluated?.name }}</td>
+        <td class="text-center">
+          @if (rowData.enabled) {
+            <p-button
+              label="Evaluar"
+              (click)="redirectEvaluationForm(rowData)"
+            />
+          } @else {
+            <p-tag value="Realizado" severity="info"/>
+          }
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-panel>

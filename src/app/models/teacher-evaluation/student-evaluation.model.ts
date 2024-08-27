@@ -1,9 +1,10 @@
-import {CatalogueModel, SchoolPeriodModel} from "@models/core";
+import {CatalogueModel, EnrollmentDetailModel, SchoolPeriodModel, TeacherDistributionModel} from "@models/core";
 import {UserModel} from "@models/auth";
 
-export interface PartnerEvaluationModel {
+export interface StudentEvaluationModel{
   id?: string;
   evaluationType?: CatalogueModel;
+  enrollmentDetail?:EnrollmentDetailModel;
   evaluator?:UserModel;
   evaluated?: UserModel;
   schoolPeriod?: SchoolPeriodModel;

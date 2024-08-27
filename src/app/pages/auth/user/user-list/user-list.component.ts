@@ -18,8 +18,8 @@ import {debounceTime} from "rxjs";
 export class UserListComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons;
   protected buttonActions: MenuItem[] = this.buildButtonActions;
-  protected columns: ColumnModel[] = this.buildColumns;
   protected isButtonActions: boolean = false;
+  protected columns: ColumnModel[] = this.buildColumns;
   protected paginator: PaginatorModel;
   protected search: FormControl = new FormControl('');
   protected selectedUser: SelectUserDto = {};
@@ -76,13 +76,6 @@ export class UserListComponent implements OnInit {
         },
       },
       {
-        label: LabelButtonActionEnum.DELETE,
-        icon: IconButtonActionEnum.DELETE,
-        command: () => {
-          if (this.selectedUser?.id) this.remove(this.selectedUser.id);
-        },
-      },
-      {
         label: LabelButtonActionEnum.SUSPEND,
         icon: IconButtonActionEnum.SUSPEND,
         command: () => {
@@ -109,32 +102,6 @@ export class UserListComponent implements OnInit {
 
   redirectEditForm(id: string) {
     this.router.navigate(['/admin/users', id]);
-  }
-
-  remove(id: string) {
-    this.messageService.questionDelete()
-      .then((result) => {
-        if (result.isConfirmed) {
-          this.usersHttpService.remove(id).subscribe((user) => {
-            this.users = this.users.filter(item => item.id !== user.id);
-            this.paginator.totalItems--;
-          });
-        }
-      });
-  }
-
-  removeAll() {
-    this.messageService.questionDelete().then((result) => {
-      if (result.isConfirmed) {
-        this.usersHttpService.removeAll(this.selectedUsers).subscribe((users) => {
-          this.selectedUsers.forEach(userDeleted => {
-            this.users = this.users.filter(user => user.id !== userDeleted.id);
-            this.paginator.totalItems--;
-          });
-          this.selectedUsers = [];
-        });
-      }
-    });
   }
 
   selectUser(user: UserModel) {
