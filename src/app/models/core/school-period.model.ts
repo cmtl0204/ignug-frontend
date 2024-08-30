@@ -12,6 +12,7 @@ export interface SchoolPeriodModel {
   code: string;
   codeSniese: string;
   name: string;
+  shortName: string;
   startedAt:Date;
   endedAt:Date;
   ordinaryStartedAt:Date;
