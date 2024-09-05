@@ -100,7 +100,7 @@ export class ApplicationComponent implements OnInit {
     if (subjectsService.enrollmentSubjects)
       this.selectedItems = subjectsService.enrollmentSubjects;
 
-    this.careers = this.careersService.careers;
+    this.careers = [this.careersService.career];
 
     this.form = this.newForm;
 
@@ -145,9 +145,6 @@ export class ApplicationComponent implements OnInit {
 
   ngOnInit(): void {
     this.findEnrollmentByStudent();
-
-    this.careerField.disable();
-    this.schoolPeriodField.disable();
     this.selectedCurriculum.disable();
 
     this.loadWorkdays();
