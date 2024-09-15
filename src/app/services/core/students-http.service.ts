@@ -290,6 +290,16 @@ export class StudentsHttpService {
     );
   }
 
+  findLastEnrollmentDetailByStudent(studentId: string): Observable<string> {
+    const url = `${this.API_URL}/${studentId}/last-enrollment-detail`;
+
+    return this.httpClient.get<ServerResponse>(url).pipe(
+      map((response) => {
+        return response.data;
+      })
+    );
+  }
+
   findEnrollmentSubjectsByStudent(studentId: string, schoolPeriodId: string, careerId: string): Observable<EnrollmentDetailModel[]> {
     const url = `${this.API_URL}/${studentId}/enrollment-subjects`;
 
