@@ -27,7 +27,7 @@ export class EnrollmentApplicationComponent implements OnInit {
   protected items: MenuItem[] = [];
   protected enrollment!: EnrollmentModel;
   protected student!: StudentModel;
-  protected activeIndex: number = 2;
+  protected activeIndex: number = 0;
   protected enabled: boolean = true;
 
   constructor(
