@@ -72,7 +72,6 @@ export class ApplicationComponent implements OnInit {
   protected schoolPeriods: SchoolPeriodModel[] = [];
   protected academicPeriods: CatalogueModel[] = [];
   protected careerParallels: CareerParallelModel[] = [];
-  protected academicPeriod: FormControl = new FormControl();
 
   protected student!: StudentModel;
   protected totalCredits: number = 0;
@@ -100,7 +99,7 @@ export class ApplicationComponent implements OnInit {
     if (subjectsService.enrollmentSubjects)
       this.selectedItems = subjectsService.enrollmentSubjects;
 
-    this.careers = this.careersService.careers;
+    this.careers = [this.careersService.career];
 
     this.form = this.newForm;
 
@@ -109,6 +108,7 @@ export class ApplicationComponent implements OnInit {
     this.curriculums = this.careersService.career.curriculums;
 
     this.schoolPeriods = [this.schoolPeriodsService.openSchoolPeriod];
+
     this.schoolPeriodField.patchValue(this.schoolPeriodsService.openSchoolPeriod);
 
     if (this.curriculums.length > 0) {
@@ -130,28 +130,47 @@ export class ApplicationComponent implements OnInit {
     });
 
     this.workdayField.valueChanges.subscribe(value => {
-      // this.parallels = this.cataloguesHttpService.findByType(CatalogueTypeEnum.PARALLEL).filter(parallel => parallel.parentId === value.id);
+      this.parallelField.setValue(null);
 
-      this.parallels = (this.careerParallels.filter(careerParallel => careerParallel.parallel.parentId === this.workdayField.value.id))
-        .map(careerParallel => {
-          return careerParallel.parallel;
-        });
+      if (value) {
+        this.parallels = this.careerParallels.filter(careerParallel =>
+          careerParallel.academicPeriodId === this.academicPeriodField.value.id &&
+          careerParallel.workdayId === value.id
+        )
+          .map(careerParallel => {
+            return careerParallel.parallel;
+          });
+      }
     });
 
-    this.academicPeriod.valueChanges.subscribe(value => {
+    this.academicPeriodField.valueChanges.subscribe(value => {
       this.subjects = this.subjectsClone.filter(subject => subject.academicPeriod.id === value.id);
+
+      this.workdayField.setValue(null);
+      this.parallelField.setValue(null);
+
+      this.workdays = this.careerParallels.filter(careerParallel => careerParallel.academicPeriodId === value.id)
+        .map(careerParallel => {
+          return careerParallel.workday;
+        });
+
+      const uniqueArr: CatalogueModel[] = [];
+
+      this.workdays.forEach((item) => {
+        //pushes only unique element
+        if (!uniqueArr.find(unique => unique.id === item.id)) {
+          uniqueArr.push(item);
+        }
+      })
+      console.log(uniqueArr);
+      this.workdays = uniqueArr;
     });
   }
 
   ngOnInit(): void {
     this.findEnrollmentByStudent();
-
-    this.careerField.disable();
-    this.schoolPeriodField.disable();
     this.selectedCurriculum.disable();
 
-    this.loadWorkdays();
-    this.loadAcademicPeriods();
     this.loadCareerParallels();
   }
 
@@ -221,7 +240,8 @@ export class ApplicationComponent implements OnInit {
   findSubjectsByCurriculum() {
     this.curriculumsHttpService.findSubjectsByCurriculum(this.selectedCurriculum.value.id)
       .subscribe(subjects => {
-        this.subjects = subjects.filter(subject => subject)
+        this.subjects = subjects.filter(subject => subject);
+
         this.subjects = subjects.sort(function (a, b) {
           if (a.academicPeriod.code > b.academicPeriod.code) {
             return 1;
@@ -236,6 +256,14 @@ export class ApplicationComponent implements OnInit {
 
         this.findEnrollmentDetailByStudent();
       });
+  }
+
+  findLastEnrollmentDetailByStudent() {
+    this.studentsHttpService.findLastEnrollmentDetailByStudent(this.student.id)
+      .subscribe(academicPeriod => {
+          this.loadAcademicPeriods(academicPeriod);
+        }
+      );
   }
 
   findEnrollmentDetailByStudent() {
@@ -311,7 +339,7 @@ export class ApplicationComponent implements OnInit {
         if (this.enrollment) {
           this.workdayField.patchValue(enrollment.workday);
           this.parallelField.patchValue(enrollment.parallel);
-          this.academicPeriod.patchValue(enrollment.academicPeriod);
+          this.academicPeriodField.patchValue(enrollment.academicPeriod);
 
           if (this.enrollment?.enrollmentState) {
             const registeredState = this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED;
@@ -324,7 +352,7 @@ export class ApplicationComponent implements OnInit {
               this.form.disable();
               this.workdayField.disable();
               this.parallelField.disable();
-              this.academicPeriod.disable();
+              this.academicPeriodField.disable();
             }
           }
         }
@@ -334,16 +362,23 @@ export class ApplicationComponent implements OnInit {
   loadCareerParallels(): void {
     this.careersHttpService.findParallelsByCareer(this.careerField.value.id)
       .subscribe(careerParallels => {
+        this.findLastEnrollmentDetailByStudent();
+
         this.careerParallels = careerParallels;
       });
   }
 
-  loadWorkdays(): void {
-    this.workdays = this.cataloguesHttpService.findByType(CatalogueTypeEnum.ENROLLMENTS_WORKDAY);
-  }
-
-  loadAcademicPeriods(): void {
+  loadAcademicPeriods(academicPeriod: string): void {
     this.academicPeriods = this.cataloguesHttpService.findByType(CatalogueTypeEnum.ACADEMIC_PERIOD);
+
+    const lastAcademicPeriod = parseInt(academicPeriod) + 1;
+
+    this.academicPeriodField.patchValue(this.academicPeriods.find(item => item.code === lastAcademicPeriod.toString()));
+
+    this.academicPeriods = this.academicPeriods.filter(item => {
+        return parseInt(item.code) <= lastAcademicPeriod;
+      }
+    );
   }
 
   /** Actions **/
@@ -392,8 +427,7 @@ export class ApplicationComponent implements OnInit {
       return 0;
     });
 
-    if (this.selectedItems.length > 0)
-      this.academicPeriodField.patchValue(this.selectedItems[0].academicPeriod);
+    // if (this.selectedItems.length > 0) this.academicPeriodField.patchValue(this.selectedItems[0].academicPeriod);
   }
 
   validateSubjectPrerequisites(subject: SubjectModel) {

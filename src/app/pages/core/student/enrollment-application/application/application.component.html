@@ -60,7 +60,7 @@
           <p-dropdown
             dataKey="id"
             [options]="academicPeriods"
-            [formControl]="academicPeriod"
+            formControlName="academicPeriod"
             pTooltip="Semestre"
             filterBy="name"
             optionLabel="name"
@@ -116,17 +116,20 @@
           <!--          <p-tableCheckbox *ngIf="rowData?.academicState!='a'"-->
           <!--                           [disabled]="form.disabled"-->
           <!--                           [value]="rowData"></p-tableCheckbox>-->
-          @if (form.enabled) {
-            <p-button *ngIf="!rowData?.enabled"
-                      [icon]="PrimeIcons.STOP"
-                      [rounded]="true"
-                      [text]="true"
-                      (click)="validateSubjectPrerequisites(rowData)"></p-button>
 
-            <p-button *ngIf="rowData?.enabled"
-                      [icon]="PrimeIcons.CHECK"
-                      [rounded]="true"
-                      (click)="removeSelectedSubject(rowData)"></p-button>
+          @if (form.enabled) {
+            @if (rowData?.enabled != null || !rowData?.academicState || rowData?.academicState==='r') {
+              <p-button *ngIf="!rowData?.enabled"
+                        [icon]="PrimeIcons.STOP"
+                        [rounded]="true"
+                        [text]="true"
+                        (click)="validateSubjectPrerequisites(rowData)"></p-button>
+
+              <p-button *ngIf="rowData?.enabled"
+                        [icon]="PrimeIcons.CHECK"
+                        [rounded]="true"
+                        (click)="removeSelectedSubject(rowData)"></p-button>
+            }
           }
         </td>
         <td *ngFor="let col of columns">
