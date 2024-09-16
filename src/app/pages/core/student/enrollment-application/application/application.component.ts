@@ -108,6 +108,7 @@ export class ApplicationComponent implements OnInit {
     this.curriculums = this.careersService.career.curriculums;
 
     this.schoolPeriods = [this.schoolPeriodsService.openSchoolPeriod];
+
     this.schoolPeriodField.patchValue(this.schoolPeriodsService.openSchoolPeriod);
 
     if (this.curriculums.length > 0) {
@@ -152,6 +153,17 @@ export class ApplicationComponent implements OnInit {
         .map(careerParallel => {
           return careerParallel.workday;
         });
+
+      const uniqueArr: CatalogueModel[] = [];
+
+      this.workdays.forEach((item) => {
+        //pushes only unique element
+        if (!uniqueArr.find(unique => unique.id === item.id)) {
+          uniqueArr.push(item);
+        }
+      })
+      console.log(uniqueArr);
+      this.workdays = uniqueArr;
     });
   }
 
