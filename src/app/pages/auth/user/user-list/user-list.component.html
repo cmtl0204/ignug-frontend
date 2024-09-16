@@ -13,14 +13,6 @@
       [icon]="PrimeIcons.REFRESH"
       [loading]="coreService.isLoading"
       (click)="findAll()"></p-button>
-    <p-button
-      *ngIf="selectedUsers.length>0"
-      label="Eliminar Usuarios"
-      severity="danger"
-      class="ml-2"
-      [icon]="PrimeIcons.TRASH"
-      [loading]="coreService.isLoading"
-      (click)="removeAll()"></p-button>
   </div>
   <div class="p-toolbar-group-right">
     <p-inputGroup>
