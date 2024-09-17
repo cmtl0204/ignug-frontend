@@ -15,22 +15,22 @@
     <app-socioeconomic-form *ngIf="activeIndex===0" (nextOut)="next()"></app-socioeconomic-form>
   </p-tabPanel>
 
-  <p-tabPanel header="Reporte Ficha Socioeconómica" [disabled]="!(activeIndex===1)">
-    <app-socioeconomic-report *ngIf="activeIndex===1" (nextOut)="next()"
-                              (previousOut)="previous()"></app-socioeconomic-report>
+<!--  <p-tabPanel header="Reporte Ficha Socioeconómica" [disabled]="!(activeIndex===1)">-->
+<!--    <app-socioeconomic-report *ngIf="activeIndex===1" (nextOut)="next()"-->
+<!--                              (previousOut)="previous()"></app-socioeconomic-report>-->
+<!--  </p-tabPanel>-->
+
+  <p-tabPanel header="Solicitud de Matricula" [disabled]="!(activeIndex===1)">
+    <app-application *ngIf="activeIndex===1" (nextOut)="next()" (previousOut)="previous()"></app-application>
   </p-tabPanel>
 
-  <p-tabPanel header="Solicitud de Matricula" [disabled]="!(activeIndex===2)">
-    <app-application *ngIf="activeIndex===2" (nextOut)="next()" (previousOut)="previous()"></app-application>
-  </p-tabPanel>
-
-  <p-tabPanel header="Adjuntar y Enviar Solicitud" [disabled]="!(activeIndex===3)">
-    <app-application-attachment *ngIf="activeIndex===3" (nextOut)="next()" (previousOut)="previous()"></app-application-attachment>
+  <p-tabPanel header="Adjuntar y Enviar Solicitud" [disabled]="!(activeIndex===2)">
+    <app-application-attachment *ngIf="activeIndex===2" (nextOut)="next()" (previousOut)="previous()"></app-application-attachment>
   </p-tabPanel>
 
 
-  <p-tabPanel header="Reporte Solicitud de Matricula" [disabled]="!(activeIndex===3)">
-    <app-application-report *ngIf="activeIndex===4"
+  <p-tabPanel header="Reporte Solicitud de Matricula" [disabled]="!(activeIndex===2)">
+    <app-application-report *ngIf="activeIndex===3"
                             (previousOut)="previous()"></app-application-report>
   </p-tabPanel>
 </p-tabView>

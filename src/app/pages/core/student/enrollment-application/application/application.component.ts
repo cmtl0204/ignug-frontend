@@ -114,20 +114,7 @@ export class ApplicationComponent implements OnInit {
     if (this.curriculums.length > 0) {
       this.selectedCurriculum.patchValue(this.curriculums[0]);
       this.curriculumsService.curriculum = this.curriculums[0];
-      this.findSubjectsByCurriculum();
     }
-
-    this.careerField.valueChanges.subscribe(selectedCareer => {
-      this.subjects = [];
-      this.curriculumsService.curriculum = {};
-
-      if (selectedCareer.curriculums.length > 0) {
-        this.selectedCurriculum.patchValue(selectedCareer.curriculums[0]);
-        this.curriculumsService.curriculum = selectedCareer.curriculums[0];
-        this.curriculums = selectedCareer.curriculums;
-        this.findSubjectsByCurriculum();
-      }
-    });
 
     this.workdayField.valueChanges.subscribe(value => {
       this.parallelField.setValue(null);
@@ -144,7 +131,8 @@ export class ApplicationComponent implements OnInit {
     });
 
     this.academicPeriodField.valueChanges.subscribe(value => {
-      this.subjects = this.subjectsClone.filter(subject => subject.academicPeriod.id === value.id);
+      console.log('entrooooooooo');
+      // this.subjects = this.subjectsClone.filter(subject => subject.academicPeriod.id === value.id);
 
       this.workdayField.setValue(null);
       this.parallelField.setValue(null);
@@ -162,7 +150,7 @@ export class ApplicationComponent implements OnInit {
           uniqueArr.push(item);
         }
       })
-      console.log(uniqueArr);
+
       this.workdays = uniqueArr;
     });
   }
@@ -237,12 +225,14 @@ export class ApplicationComponent implements OnInit {
   }
 
   /** Load Data **/
-  findSubjectsByCurriculum() {
+  findSubjectsByCurriculum(academicPeriod: string) {
     this.curriculumsHttpService.findSubjectsByCurriculum(this.selectedCurriculum.value.id)
       .subscribe(subjects => {
-        this.subjects = subjects.filter(subject => subject);
+        const lastAcademicPeriod = parseInt(academicPeriod) + 1;
 
-        this.subjects = subjects.sort(function (a, b) {
+        this.subjects = subjects.filter(subject => parseInt(subject.academicPeriod.code) <= lastAcademicPeriod);
+
+        this.subjects = this.subjects.sort(function (a, b) {
           if (a.academicPeriod.code > b.academicPeriod.code) {
             return 1;
           }
@@ -254,6 +244,7 @@ export class ApplicationComponent implements OnInit {
 
         this.subjectsClone = this.subjects;
 
+        console.log(this.subjects);
         this.findEnrollmentDetailByStudent();
       });
   }
@@ -262,6 +253,8 @@ export class ApplicationComponent implements OnInit {
     this.studentsHttpService.findLastEnrollmentDetailByStudent(this.student.id)
       .subscribe(academicPeriod => {
           this.loadAcademicPeriods(academicPeriod);
+
+          this.findSubjectsByCurriculum(academicPeriod);
         }
       );
   }
@@ -273,7 +266,11 @@ export class ApplicationComponent implements OnInit {
       .subscribe(enrollmentDetails => {
         this.enrollmentDetails = enrollmentDetails;
 
+        console.log(this.enrollmentDetails);
+        let i = 0;
         for (const subject of this.subjects) {
+          i++;
+          console.log(i);
           for (const enrollmentDetail of enrollmentDetails) {
             if (subject.id === enrollmentDetail.subjectId) {
               subject.academicState = enrollmentDetail.academicState?.code;
@@ -308,24 +305,9 @@ export class ApplicationComponent implements OnInit {
           this.subjects = this.subjects.filter(item => item.type.code === 'leveling');
         }
 
+        console.log(this.subjects);
         this.subjects = this.subjects.filter(item => item.academicState != 'a');
-
-        // this.subjects = this.subjects.map(subject=> {
-        //   const {enrollmentState, } = ...subject
-        //   return {
-        //     ...subject
-        //   }
-        // })
-
-        // this.items = subjects.sort(function (a, b) {
-        //   if (a.academicPeriod.code > b.academicPeriod.code) {
-        //     return 1;
-        //   }
-        //   if (a.academicPeriod.code < b.academicPeriod.code) {
-        //     return -1;
-        //   }
-        //   return 0;
-        // });
+        console.log(this.subjects);
 
         this.selectItems();
       });
@@ -344,10 +326,11 @@ export class ApplicationComponent implements OnInit {
           if (this.enrollment?.enrollmentState) {
             const registeredState = this.enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REGISTERED;
 
-            if (registeredState) { //reviewer
+            if (registeredState) { //review
               this.form.enable();
               this.workdayField.enable();
               this.parallelField.enable();
+              this.academicPeriodField.disable();
             } else {
               this.form.disable();
               this.workdayField.disable();
@@ -373,7 +356,7 @@ export class ApplicationComponent implements OnInit {
 
     const lastAcademicPeriod = parseInt(academicPeriod) + 1;
 
-    this.academicPeriodField.patchValue(this.academicPeriods.find(item => item.code === lastAcademicPeriod.toString()));
+    // this.academicPeriodField.patchValue(this.academicPeriods.find(item => item.code === lastAcademicPeriod.toString()));
 
     this.academicPeriods = this.academicPeriods.filter(item => {
         return parseInt(item.code) <= lastAcademicPeriod;
@@ -411,7 +394,7 @@ export class ApplicationComponent implements OnInit {
 
   sendRegistration() {
     this.enrollmentsHttpService.sendRegistration(this.form.value).subscribe(enrollment => {
-      this.findSubjectsByCurriculum();
+      this.loadCareerParallels();
       this.next();
     });
   }
