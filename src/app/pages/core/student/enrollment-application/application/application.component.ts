@@ -332,7 +332,7 @@ export class ApplicationComponent implements OnInit {
               this.form.enable();
               this.workdayField.enable();
               this.parallelField.enable();
-              this.academicPeriodField.disable();
+              this.academicPeriodField.enable();
             } else {
               this.form.disable();
               this.workdayField.disable();
