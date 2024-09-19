@@ -267,13 +267,15 @@ export class ApplicationComponent implements OnInit {
         this.enrollmentDetails = enrollmentDetails;
 
         console.log(this.enrollmentDetails);
-        let i = 0;
         for (const subject of this.subjects) {
-          i++;
-          console.log(i);
+          // const subjectApproved = this.enrollmentDetails.some(item => {
+          //   return item.id === subject.id && item.academicState?.code === 'a';
+          // });
+
           for (const enrollmentDetail of enrollmentDetails) {
             if (subject.id === enrollmentDetail.subjectId) {
               subject.academicState = enrollmentDetail.academicState?.code;
+
               if (!(enrollmentDetail.academicState?.code === 'r'
                 && enrollmentDetail.enrollmentDetailState.state.code === CatalogueEnrollmentStateEnum.ENROLLED)) {
                 subject.enrollmentStates = enrollmentDetail.enrollmentDetailStates;
@@ -356,10 +358,14 @@ export class ApplicationComponent implements OnInit {
 
     const lastAcademicPeriod = parseInt(academicPeriod) + 1;
 
-    // this.academicPeriodField.patchValue(this.academicPeriods.find(item => item.code === lastAcademicPeriod.toString()));
+    const academicPeriodCatalogue = this.academicPeriods.find(item => item.code === lastAcademicPeriod.toString());
+
+    if (academicPeriodCatalogue) {
+      this.academicPeriodField.patchValue(this.academicPeriods.find(item => item.code === lastAcademicPeriod.toString()));
+    }
 
     this.academicPeriods = this.academicPeriods.filter(item => {
-        return parseInt(item.code) <= lastAcademicPeriod;
+        return item.code === lastAcademicPeriod.toString();
       }
     );
   }
@@ -427,16 +433,27 @@ export class ApplicationComponent implements OnInit {
     for (const subjectPrerequisite of subject.subjectPrerequisites) {
       namePrerequisite = `(${subjectPrerequisite.requirement.code}) ${subjectPrerequisite.requirement.name}`;
 
-      for (const enrollmentDetail of this.enrollmentDetails) {
-        if (subjectPrerequisite.requirement.id === enrollmentDetail.subjectId) {
-          existSubject = true;
+      const approvedSubject = this.enrollmentDetails.some(enrollmentDetail => {
+        return subjectPrerequisite.requirement.id === enrollmentDetail.subjectId && enrollmentDetail.academicState?.code === 'a';
+      });
 
-          if (!enrollmentDetail.academicState?.code || enrollmentDetail.academicState?.code === 'r') {
-            prerequisites += '\n' + namePrerequisite;
-            valid = false;
-          }
-        }
+      if (approvedSubject) {
+        existSubject = true;
+      } else {
+        prerequisites += '\n' + namePrerequisite;
+        valid = false;
       }
+
+      // for (const enrollmentDetail of this.enrollmentDetails) {
+      //   if (subjectPrerequisite.requirement.id === enrollmentDetail.subjectId) {
+      //     existSubject = true;
+      //
+      //     if (!enrollmentDetail.academicState?.code || enrollmentDetail.academicState?.code === 'r') {
+      //       prerequisites += '\n' + namePrerequisite;
+      //       valid = false;
+      //     }
+      //   }
+      // }
 
       if (!existSubject) {
         prerequisites += '\n' + namePrerequisite;
