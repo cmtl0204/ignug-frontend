@@ -290,10 +290,11 @@ export class StudentsHttpService {
     );
   }
 
-  findLastEnrollmentDetailByStudent(studentId: string): Observable<string> {
+  findLastEnrollmentDetailByStudent(studentId: string, careerId: string): Observable<string> {
     const url = `${this.API_URL}/${studentId}/last-enrollment-detail`;
+    const params = new HttpParams().append('careerId', careerId)
 
-    return this.httpClient.get<ServerResponse>(url).pipe(
+    return this.httpClient.get<ServerResponse>(url, {params}).pipe(
       map((response) => {
         return response.data;
       })
