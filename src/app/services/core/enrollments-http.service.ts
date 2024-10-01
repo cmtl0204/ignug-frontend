@@ -260,6 +260,23 @@ export class EnrollmentsHttpService {
       });
   }
 
+  downloadPaymentOrder(id: string,identification:string) {
+    const url = `${environment.API_URL}/student-reports/${id}/payment-order`;
+    this.coreService.isProcessing = true;
+    this.httpClient.get<BlobPart>(url, {responseType: 'blob' as 'json'})
+      .subscribe(response => {
+        // const filePath = URL.createObjectURL(new Blob(binaryData, {type: file.extension}));
+        const filePath = URL.createObjectURL(new Blob([response]));
+        const downloadLink = document.createElement('a');
+        downloadLink.href = filePath;
+        const fileName = 'Certificado_Matricula_' + identification;
+        downloadLink.setAttribute('download', fileName + '.pdf');
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        this.coreService.isProcessing = false;
+      });
+  }
+
   downloadEnrollmentsByCareer(career: CareerModel, schoolPeriodId: string) {
     const url = `${environment.API_URL}/enrollment-reports/careers/${career.id}`;
 

@@ -141,6 +141,10 @@ export class AuthService {
         this.routesService.dashboardCoordinatorAcademic();
         break;
       }
+      case RolesEnum.FINANCE: {
+        this.routesService.dashboardFinances();
+        break;
+      }
     }
   }
 }

@@ -34,6 +34,12 @@ const routes: Routes = [
     data: {roles: [RolesEnum.COORDINATOR_CAREER]}
   },
   {
+    path: 'finances',
+    loadChildren: () => import('./finances/finances.module').then(m => m.FinancesModule),
+    canActivate: [RoleGuard],
+    data: {roles: [RolesEnum.FINANCE]}
+  },
+  {
     path: 'rector',
     loadChildren: () => import('./rector/rector.module').then(m => m.RectorModule),
     canActivate: [RoleGuard],

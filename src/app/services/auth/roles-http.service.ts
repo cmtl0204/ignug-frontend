@@ -37,13 +37,8 @@ export class RolesHttpService {
   findAll(page: number = 0, search: string = ''): Observable<RoleModel[]> {
     const url = this.API_URL;
 
-    const headers = new HttpHeaders().append('pagination', 'true');
-    const params = new HttpParams()
-      .append('page', page)
-      .append('search', search);
 
-
-    return this.httpClient.get<ServerResponse>(url, {headers, params}).pipe(
+    return this.httpClient.get<ServerResponse>(url).pipe(
       map((response) => {
 
         // if (response.pagination) {

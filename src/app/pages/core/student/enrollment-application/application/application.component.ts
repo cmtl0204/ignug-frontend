@@ -250,7 +250,7 @@ export class ApplicationComponent implements OnInit {
   }
 
   findLastEnrollmentDetailByStudent() {
-    this.studentsHttpService.findLastEnrollmentDetailByStudent(this.student.id)
+    this.studentsHttpService.findLastEnrollmentDetailByStudent(this.student.id, this.careerField.value.id)
       .subscribe(academicPeriod => {
           this.loadAcademicPeriods(academicPeriod);
 
