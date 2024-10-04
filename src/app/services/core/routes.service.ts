@@ -184,6 +184,10 @@ export class RoutesService {
     this.router.navigateByUrl(`/core/dashboards/coordinator-academic`);
   }
 
+  dashboardFinances() {
+    this.router.navigateByUrl(`/core/finances/enrollments`);
+  }
+
   passwordReset() {
     this.router.navigateByUrl(`/password-reset`);
   }
