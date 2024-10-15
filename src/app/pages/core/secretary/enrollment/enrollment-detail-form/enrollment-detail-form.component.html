@@ -83,6 +83,7 @@
         </small>
       </div>
     </div>
+
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
         <label
@@ -135,6 +136,7 @@
         </small>
       </div>
     </div>
+
     <div class="formgrid grid">
       <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
         <label
@@ -172,6 +174,60 @@
         </small>
       </div>
     </div>
+
+    <div class="formgrid grid">
+      <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
+        <label appLabel for="finalGrade" label="Calificación Final:" [required]="finalGradeField"></label>
+
+        <p-inputNumber id="finalGrade" formControlName="finalGrade"/>
+
+        <small
+          appErrorMessage
+          [errors]="finalGradeField.errors"
+          [touched]="finalGradeField.touched"
+          [dirty]="finalGradeField.dirty">
+        </small>
+      </div>
+
+      <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
+        <label appLabel for="finalAttendance" label="Progreso:" [required]="finalAttendanceField"></label>
+
+        <p-inputNumber id="finalAttendance" formControlName="finalAttendance" mode="decimal"/>
+
+        <small
+          appErrorMessage
+          [errors]="finalAttendanceField.errors"
+          [touched]="finalAttendanceField.touched"
+          [dirty]="finalAttendanceField.dirty">
+        </small>
+      </div>
+
+      <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
+        <label appLabel for="academicState" label="Estado Académico:" [required]="academicStateField"></label>
+        <p-dropdown id="academicState"
+                    dataKey="id"
+                    formControlName="academicState"
+                    [options]="academicStates"
+                    optionLabel="name"
+                    placeholder="Seleccione">
+          <ng-template pTemplate="selectedItem">
+            <div *ngIf="academicStateField.value">
+              {{ academicStateField.value.name }}
+            </div>
+          </ng-template>
+          <ng-template pTemplate="item" let-item>
+            {{ item.name }}
+          </ng-template>
+        </p-dropdown>
+        <small
+          appErrorMessage
+          [errors]="academicStateField.errors"
+          [touched]="academicStateField.touched"
+          [dirty]="academicStateField.dirty">
+        </small>
+      </div>
+    </div>
+
     <div class="formgrid grid">
       <div class="field xl:col-12 lg:col-12 md:col-12 sm:col-12">
         <label appLabel for="observation" label="Observación de la matrícula:" [required]="observationField"></label>
