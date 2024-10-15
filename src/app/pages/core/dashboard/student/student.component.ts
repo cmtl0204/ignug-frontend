@@ -53,40 +53,49 @@ export class StudentComponent {
   loadScheduleLinks() {
     this.scheduleLinks.push(
       {
+        //AGROECOLOGIA
         code: '650811G01-S-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/Eo5Af5El6pVGhEeNQ0xMR7kBj4_jiBDmIMPxxcmStDRZyQ?e=HPseXD'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/EgSLGDcS14tHjZy-Ph0nzGIBio-QqjDWDZSwXTU7p4i7qw?e=PcGiZh'
       },
       {
+        //COMUNICACION COMUNITARIA
         code: '1068-650321H01-H-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/EqaJQ5TVFYxPtM-hxJ4vs_QBG1GyOhmL6wSLrKMG08I_uA?e=0MqKQD'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/EgrhCRR5zihOv7KH6Z0pQmcB0CfcbcBD8Lph0zHDI61PaA?e=UWNPp2'
       },
       {
+        //DERECHO
         code: '650331C01-S-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/Eu9RSHidK0dPgEF3l75zVTUBx1hEvG0rbvYwfzyYAi8QUw?e=neepuz'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/En4Ue_-29vdJqCT8D4QsR74BgvTawcwkv01i7t5UZ4ZdxA?e=Seiozx'
       },
       {
+        //ECONOMIA
         code: '1068-650311D01-H-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/Eo_EqXbeuZZAjbW14FeangsBO0eUCDqG2UwK8F9KqczO9Q?e=i5JIWa'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/Epb1gvpIelhAufckZD-5XU4BV5QBoBRpOFwKRc4ZtWVw2A?e=kyNf4m'
       },
       {
+        //GESTION DEL AGUA
         code: '1068-6503183A01-H-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/EoIyzL6TNKNNgIn9uhfwEwIBahPS7wX94Alli8GunXCDTg?e=KXaOwG'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/Egdd9z2zORFNmqi313uNJN0B4qnd7SUXJQu5t02AtRoA8A?e=AoHT2k'
       },
       {
+        //GESTION DEL DESARROLLO INFANTIL
         code: '650112B01-S-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/EgWNI_gQ4aVIkfKIjirzFKEBb0zHF6YHCUEeCVvP6GeM5g?e=tB4f3M'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/EmUevc_eAZ5MleFjlMUeR64BTw6Q2WF-KMPK8vVIGdZmBQ?e=CnQRpL'
       },
       {
+        //LENGUA Y CULTURA
         code: '650314H01-S-1702',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/Eh5KhN_yLttLn6LlaUzj0J4BEXYQDkEpDyXbIZpgTgFzAA?e=XBfGWY'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/EpnSsMyW395DhePIkPubs8IBxj-TQwKFy1ecLSF12yQTiQ?e=dV6zrp'
       },
       {
+        //SABERES ANCESTRALES
         code: '1068-650314H01-H-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/EtCzurKrswxKmyYe3Ktw5EQBPIFsrDFQM6kRH-mB862YMQ?e=rtFFYU'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/EsKnGIVuplRBi7fBXr6WHa4BDx3wmOxN4xLhOLyQ71nGOA?e=c8dKoM'
       },
       {
+        //TURISMO
         code: '651015D01-H-1701',
-        link: 'https://uwaec.sharepoint.com/:f:/s/documentos.direcciongeneral.academica/Er3wiHn2qMJBvJaBq_KGBKwB0IDJ-Tf07tIlgIpwGPM_rQ?e=62Za58'
+        link: 'https://uwaec-my.sharepoint.com/:f:/g/personal/vicerrectorado_academico_uaw_edu_ec/ErbPZiI7bMxEvhYKs2eiZXQBOIoPo6ce09RGLqdsy9ipUA?e=mrF5Sv'
       }
     );
   }
