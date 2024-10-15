@@ -131,7 +131,7 @@ export class ApplicationComponent implements OnInit {
     });
 
     this.academicPeriodField.valueChanges.subscribe(value => {
-      console.log('entrooooooooo');
+      //console.log('entrooooooooo');
       // this.subjects = this.subjectsClone.filter(subject => subject.academicPeriod.id === value.id);
 
       this.workdayField.setValue(null);
