@@ -179,7 +179,13 @@
       <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
         <label appLabel for="finalGrade" label="Calificación Final:" [required]="finalGradeField"></label>
 
-        <p-inputNumber id="finalGrade" formControlName="finalGrade"/>
+        <p-inputNumber
+          id="finalGrade"
+          formControlName="finalGrade"
+          mode="decimal"
+          [useGrouping]="false"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"/>
 
         <small
           appErrorMessage
@@ -192,7 +198,13 @@
       <div class="field xl:col-4 lg:col-4 md:col-4 sm:col-12">
         <label appLabel for="finalAttendance" label="Progreso:" [required]="finalAttendanceField"></label>
 
-        <p-inputNumber id="finalAttendance" formControlName="finalAttendance" mode="decimal"/>
+        <p-inputNumber
+          id="finalAttendance"
+          formControlName="finalAttendance"
+          mode="decimal"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [useGrouping]="false"/>
 
         <small
           appErrorMessage
