@@ -21,12 +21,12 @@ import {
 } from '@services/core';
 
 import {
-    BreadcrumbEnum,
-    CatalogueTypeEnum,
-    ClassButtonActionEnum,
-    SkeletonEnum,
-    LabelButtonActionEnum,
-    IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
+  BreadcrumbEnum,
+  CatalogueTypeEnum,
+  ClassButtonActionEnum,
+  SkeletonEnum,
+  LabelButtonActionEnum,
+  IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
 } from '@utils/enums';
 
 import {EnrollmentDetailsHttpService} from '@services/core';
@@ -56,6 +56,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
   protected states: CatalogueModel[] = [];
   protected types: CatalogueModel[] = [];
   protected workdays: CatalogueModel[] = [];
+  protected academicStates: CatalogueModel[] = [];
   protected subjects: SubjectModel[] = [];
   protected career!: CareerModel;
 
@@ -108,6 +109,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
     this.loadStates();
     this.loadWorkdays();
     this.loadTypes();
+    this.loadAcademicStates();
     this.loadSubjects();
 
     if (this.id !== RoutesEnum.NEW) {
@@ -125,6 +127,9 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
       workday: [null, [Validators.required]],
       parallel: [null, [Validators.required]],
       observation: [null, [Validators.required]],
+      finalGrade: [null, [Validators.required]],
+      finalAttendance: [null, [Validators.required]],
+      academicState: [null, [Validators.required]],
     });
   }
 
@@ -187,6 +192,9 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
         this.observationField.enable();
         this.parallelField.enable();
         this.workdayField.enable();
+        this.finalGradeField.enable();
+        this.finalAttendanceField.enable();
+        this.academicStateField.enable();
       }
     });
   }
@@ -207,6 +215,10 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
 
   loadTypes(): void {
     this.types = this.cataloguesHttpService.findByType(CatalogueTypeEnum.ENROLLMENTS_TYPE);
+  }
+
+  loadAcademicStates(): void {
+    this.academicStates = this.cataloguesHttpService.findByType(CatalogueTypeEnum.ENROLLMENTS_ACADEMIC_STATE);
   }
 
   loadSubjects(): void {
@@ -257,6 +269,18 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
     return this.form.controls['observation'];
   }
 
+  get finalGradeField(): AbstractControl {
+    return this.form.controls['finalGrade'];
+  }
+
+  get finalAttendanceField(): AbstractControl {
+    return this.form.controls['finalAttendance'];
+  }
+
+  get academicStateField(): AbstractControl {
+    return this.form.controls['academicState'];
+  }
+
   protected readonly Validators = Validators;
-    protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
 }
