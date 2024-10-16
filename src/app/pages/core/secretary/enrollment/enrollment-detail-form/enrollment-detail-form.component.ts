@@ -127,9 +127,9 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
       workday: [null, [Validators.required]],
       parallel: [null, [Validators.required]],
       observation: [null, [Validators.required]],
-      finalGrade: [null, [Validators.required]],
-      finalAttendance: [null, [Validators.required]],
-      academicState: [null, [Validators.required]],
+      finalGrade: [null],
+      finalAttendance: [null],
+      academicState: [null],
     });
   }
 
