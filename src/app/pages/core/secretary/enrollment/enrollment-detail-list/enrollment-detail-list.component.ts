@@ -124,7 +124,9 @@ export class EnrollmentDetailListComponent implements OnInit {
       {field: 'type', header: 'Tipo de Matrícula'},
       {field: 'enrollmentDetailState', header: 'Estado'},
       {field: 'finalGrade', header: 'Calificación'},
-      {field: 'finalAttendance', header: 'Progreso'}
+      {field: 'finalAttendance', header: 'Progreso'},
+      {field: 'academicState', header: 'Estado Académico'}
+
     ];
   }
 

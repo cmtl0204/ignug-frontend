@@ -65,6 +65,11 @@
           <div *ngSwitchCase="'parallel'">
             {{ rowData[col.field]?.name }}
           </div>
+          <div *ngSwitchCase="'academicState'">
+            <p-tag [value]="rowData.academicState.name" [severity]="rowData.academicState.code|academicStateSeverity"
+                   class="m-1">
+            </p-tag>
+          </div>
           <div *ngSwitchCase="'subject'">
             {{ rowData[col.field]?.code }} {{ rowData[col.field]?.name }}
           </div>
