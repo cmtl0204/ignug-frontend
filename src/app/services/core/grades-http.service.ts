@@ -208,4 +208,17 @@ export class GradesHttpService {
       })
     );
   }
+
+  saveSupplementaryGradeByTeacher(enrollmentDetailId: string, payload: any): Observable<GradeModel[]> {
+    const url = `${this.API_URL}/enrollment-details/${enrollmentDetailId}/supplementary-grades`;
+
+    this.coreService.isProcessing = true;
+    return this.httpClient.patch<ServerResponse>(url, payload).pipe(
+      map((response) => {
+        this.coreService.isProcessing = false;
+        this.messageService.success(response);
+        return response.data;
+      })
+    );
+  }
 }

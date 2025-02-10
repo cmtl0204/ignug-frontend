@@ -24,6 +24,7 @@ export interface EnrollmentDetailModel {
     date: Date;
     finalAttendance: number;
     finalGrade: number;
+    supplementaryGrade: number;
     observation: string;
 }
 

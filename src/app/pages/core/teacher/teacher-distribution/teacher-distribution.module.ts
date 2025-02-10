@@ -29,13 +29,15 @@ import { GradeFormComponent } from './grade-form/grade-form.component';
 import {DialogModule} from "primeng/dialog";
 import {AutoFocusModule} from "primeng/autofocus";
 import {FileUploadModule} from "primeng/fileupload";
+import {SupplementaryGradeFormComponent} from "./supplementary-grade-form/supplementary-grade-form.component";
 
 
 @NgModule({
   declarations: [
     TeacherDistributionListComponent,
     GradeListComponent,
-    GradeFormComponent
+    GradeFormComponent,
+    SupplementaryGradeFormComponent
   ],
     imports: [
         CommonModule,

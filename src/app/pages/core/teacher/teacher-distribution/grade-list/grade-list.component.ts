@@ -17,8 +17,7 @@ import {
   TeacherDistributionsService, TeachersHttpService
 } from "@services/core";
 import {
-  BreadcrumbEnum, CatalogueEnrollmentStateEnum,
-  ClassButtonActionEnum,
+  BreadcrumbEnum,
   IconButtonActionEnum,
   IdButtonActionEnum, LabelButtonActionEnum, SeverityButtonActionEnum,
   SkeletonEnum, UsersFormEnum
@@ -29,7 +28,7 @@ import {
   templateUrl: './grade-list.component.html',
   styleUrls: ['./grade-list.component.scss']
 })
-export class GradeListComponent implements OnInit{
+export class GradeListComponent implements OnInit {
   protected readonly PrimeIcons = PrimeIcons;
   protected readonly SkeletonEnum = SkeletonEnum;
   protected readonly IconButtonActionEnum = IconButtonActionEnum;
@@ -46,6 +45,7 @@ export class GradeListComponent implements OnInit{
   protected columns: ColumnModel[] = this.buildColumns;
   protected isButtonActions: boolean = false;
   protected isModalGrades: boolean = false;
+  protected isModalSupplementaryGrade: boolean = false;
   protected uploadErrors: boolean = false;
 
   constructor(
@@ -96,6 +96,7 @@ export class GradeListComponent implements OnInit{
       {field: 'grade1', header: 'Parcial 1'},
       {field: 'grade2', header: 'Parcial 2'},
       {field: 'grade3', header: 'Examen Final'},
+      {field: 'supplementaryGrade', header: 'Examen Supletorio'},
       {field: 'finalGrade', header: 'Calificación final'},
       {field: 'finalAttendance', header: 'Progreso'},
       {field: 'academicState', header: 'Estado'},
@@ -117,6 +118,19 @@ export class GradeListComponent implements OnInit{
 
   validateButtonActions(item: EnrollmentDetailModel): void {
     this.buttonActions = this.buildButtonActions;
+
+    const finalGrade = parseFloat(String(item.finalGrade));
+
+    if (item.supplementaryGrade || (finalGrade && finalGrade >= 4 && finalGrade < 7)) {
+      this.buttonActions.push({
+        id: IdButtonActionEnum.SAVE_SUPPLEMENTARY_GRADE,
+        label: LabelButtonActionEnum.SAVE_SUPPLEMENTARY_GRADE,
+        icon: IconButtonActionEnum.SAVE_SUPPLEMENTARY_GRADE,
+        command: () => {
+          if (this.selectedItem?.id) this.openModalSupplementaryGrade(this.selectedItem);
+        },
+      });
+    }
   }
 
   selectItem(item: EnrollmentDetailModel) {
@@ -127,6 +141,10 @@ export class GradeListComponent implements OnInit{
 
   openModalGrades(enrollmentDetail: EnrollmentDetailModel) {
     this.isModalGrades = true;
+  }
+
+  openModalSupplementaryGrade(enrollmentDetail: EnrollmentDetailModel) {
+    this.isModalSupplementaryGrade = true;
   }
 
   uploadGrades(event: any, uploadFiles: any) {
