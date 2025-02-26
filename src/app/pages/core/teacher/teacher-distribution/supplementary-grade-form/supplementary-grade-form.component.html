@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="p-fluid">
+  <div class="field">
+    <h3>
+      {{ enrollmentDetail.enrollment.student.user.identification }} -
+      {{ enrollmentDetail.enrollment.student.user.lastname }}
+      {{ enrollmentDetail.enrollment.student.user.name }}
+    </h3>
+
+    <h4>
+      {{ enrollmentDetail.subject.code }} -
+      {{ enrollmentDetail.subject.name }}
+    </h4>
+
+    <h5>
+      {{ enrollmentDetail.subject.academicPeriod.name }} -
+      {{ enrollmentDetail.workday.name }} -
+      {{ enrollmentDetail.parallel.name }}
+    </h5>
+  </div>
+  <div class="formgrid grid">
+    <div class="field xl:col-6 lg:col-6 md:col-6 sm:col-12">
+      <label appLabel for="supplementaryGrade" [label]="'Parcial 1:'" [required]="supplementaryGradeField"></label>
+      <p-inputNumber id="supplementaryGrade"
+                     formControlName="supplementaryGrade"
+                     mode="decimal"
+                     [showButtons]="true"
+                     [min]="0"
+                     [max]="10"
+                     [minFractionDigits]="2"
+                     [maxFractionDigits]="2"></p-inputNumber>
+      <small appErrorMessage
+             [errors]="supplementaryGradeField.errors"
+             [touched]="supplementaryGradeField.touched"
+             [dirty]="supplementaryGradeField.dirty">
+      </small>
+    </div>
+
+    <div class="field xl:col-12 lg:col-12 md:col-12 sm:col-12">
+      <p-button type="submit" label="Guardar"></p-button>
+    </div>
+  </div>
+</form>
