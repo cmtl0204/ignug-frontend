@@ -117,7 +117,9 @@
           </div>
           <div *ngSwitchCase="'grade2'">
             <div *ngFor="let grade of rowData.grades">
-              <span *ngIf="grade.partial.code==='2'">{{ grade.value }}</span>
+              <div *ngIf="grade.partial.code==='2'">
+               {{ grade.value }}
+              </div>
             </div>
           </div>
           <div *ngSwitchCase="'grade3'">
@@ -165,7 +167,7 @@
                   (isModalGrades)="isModalGrades=$event;findEnrollmentsByTeacherDistribution()"></app-grade-form>
 </p-dialog>
 
-<p-dialog header="Registrar Examen Supletorio" [(visible)]="isModalSupplementaryGrade"
+<p-dialog header="Registrar Evaluación de Recuperación" [(visible)]="isModalSupplementaryGrade"
           [modal]="true"
           [style]="{ width: '50rem' }"
           [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">

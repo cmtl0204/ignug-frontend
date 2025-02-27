@@ -30,7 +30,7 @@ export enum LabelButtonActionEnum {
   RETURN = 'Regresar',
   SAVE = 'Guardar',
   UPDATE = 'Editar',
-  SAVE_SUPPLEMENTARY_GRADE = 'Examen Supletorio',
+  SAVE_SUPPLEMENTARY_GRADE = 'Evaluación de Recuperación',
   DELETE = 'Eliminar',
   DOWNLOADS = 'Descargas',
   DOWNLOAD = 'Descargar',
