@@ -196,6 +196,24 @@ export class GradesHttpService {
       });
   }
 
+  downloadGradesReport(teacherDistributionId: string) {
+    const url = `${this.API_URL_REPORTS}/teacher-distributions/${teacherDistributionId}/grades-reports`;
+    this.coreService.isProcessing = true;
+
+    this.httpClient.get<BlobPart>(url, {responseType: 'blob' as 'json'})
+      .subscribe(response => {
+        // const filePath = URL.createObjectURL(new Blob(binaryData, {type: file.extension}));
+        const filePath = URL.createObjectURL(new Blob([response]));
+        const downloadLink = document.createElement('a');
+        downloadLink.href = filePath;
+        const fileName = format(new Date(), 'yyyy_MM_dd HH_mm_ss');
+        downloadLink.setAttribute('download', `Informe_Calificaciones_${fileName}.pdf`);
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        this.coreService.isProcessing = false;
+      });
+  }
+
   saveGradesByTeacher(enrollmentDetailId: string, payload: any): Observable<GradeModel[]> {
     const url = `${this.API_URL}/enrollment-details/${enrollmentDetailId}`;
 

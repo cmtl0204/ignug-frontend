@@ -176,4 +176,8 @@ export class GradeListComponent implements OnInit {
   downloadErrorReport() {
     this.gradesHttpService.downloadErrorReport(this.teacherDistributionsService.teacherDistribution.id!);
   }
+
+  downloadGradesReport() {
+    this.gradesHttpService.downloadGradesReport(this.teacherDistributionsService.teacherDistribution.id!);
+  }
 }

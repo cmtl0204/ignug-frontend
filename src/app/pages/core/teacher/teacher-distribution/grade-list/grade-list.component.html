@@ -32,6 +32,15 @@
       [severity]="SeverityButtonActionEnum.WARNING"
       class="ml-2">
     </p-button>
+
+    <p-button
+      (click)="downloadGradesReport()"
+      [icon]="IconButtonActionEnum.DOWNLOADS"
+      label="Informe de Calificaciones"
+      [loading]="coreService.isLoading"
+      [severity]="SeverityButtonActionEnum.DOWNLOAD"
+      class="ml-2">
+    </p-button>
   </div>
   <div class="p-toolbar-group-right">
 
