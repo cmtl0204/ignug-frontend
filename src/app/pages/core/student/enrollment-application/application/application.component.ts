@@ -244,7 +244,6 @@ export class ApplicationComponent implements OnInit {
 
         this.subjectsClone = this.subjects;
 
-        console.log(this.subjects);
         this.findEnrollmentDetailByStudent();
       });
   }
@@ -365,7 +364,7 @@ export class ApplicationComponent implements OnInit {
     }
 
     this.academicPeriods = this.academicPeriods.filter(item => {
-        return item.code === lastAcademicPeriod.toString();
+        return item.code === lastAcademicPeriod.toString() || item.code === (parseInt(lastAcademicPeriod.toString()) - 1).toString();
       }
     );
   }
@@ -406,13 +405,17 @@ export class ApplicationComponent implements OnInit {
   }
 
   calculateAcademicPeriod() {
+    console.log(this.selectedItems);
+
     this.selectedItems.sort(function (a, b) {
       if (a.academicPeriod.code > b.academicPeriod.code) {
         return 1;
       }
+
       if (a.academicPeriod.code < b.academicPeriod.code) {
         return -1;
       }
+
       return 0;
     });
 
