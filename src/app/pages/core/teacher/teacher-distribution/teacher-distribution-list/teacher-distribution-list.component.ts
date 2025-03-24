@@ -36,6 +36,7 @@ export class TeacherDistributionListComponent implements OnInit {
     private readonly breadcrumbService: BreadcrumbService,
     protected readonly coreService: CoreService,
     protected readonly messageService: MessageService,
+    private schoolPeriodsHttpService: SchoolPeriodsHttpService,
   ) {
     this.breadcrumbService.setItems([{label: BreadcrumbEnum.TEACHER_DISTRIBUTIONS}]);
 
@@ -43,13 +44,20 @@ export class TeacherDistributionListComponent implements OnInit {
       this.findTeacherDistributionsByTeacher();
     });
 
-    this.schoolPeriods = [this.schoolPeriodsService.openSchoolPeriod];
-
-    this.selectedSchoolPeriod.patchValue(this.schoolPeriodsService.openSchoolPeriod);
+    // this.schoolPeriods = [this.schoolPeriodsService.openSchoolPeriod];
   }
 
   ngOnInit(): void {
+    this.findSchoolPeriods();
+  }
 
+  findSchoolPeriods() {
+    this.schoolPeriodsHttpService.findAll().subscribe(
+      schoolPeriods => {
+        this.schoolPeriods = schoolPeriods;
+        this.selectedSchoolPeriod.patchValue(this.schoolPeriodsService.openSchoolPeriod);
+      }
+    )
   }
 
   findTeacherDistributionsByTeacher() {
