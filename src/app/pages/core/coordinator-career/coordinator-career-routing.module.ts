@@ -58,6 +58,12 @@ const routes: Routes = [
     canActivate: [RoleGuard],
     data: {roles: [RolesEnum.COORDINATOR_CAREER]}
   },
+  {
+    path: 'enrollments',
+    loadChildren: () => import('./enrollment/enrollment.module').then(m => m.EnrollmentModule),
+    canActivate: [RoleGuard],
+    data: {roles: [RolesEnum.COORDINATOR_CAREER]}
+  },
 ];
 
 @NgModule({

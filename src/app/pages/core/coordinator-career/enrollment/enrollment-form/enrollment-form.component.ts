@@ -19,7 +19,7 @@ import {
   ClassButtonActionEnum,
   SkeletonEnum,
   LabelButtonActionEnum,
-  IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum, RolesEnum
+  IconButtonActionEnum, CatalogueEnrollmentStateEnum, RoutesEnum, SeverityButtonActionEnum
 } from '@utils/enums';
 
 @Component({
@@ -153,7 +153,7 @@ export class EnrollmentFormComponent implements OnInit, OnExitInterface {
   }
 
   back(): void {
-    this.router.navigate([this.routesService.enrollments(RolesEnum.SECRETARY)]);
+    this.router.navigate([this.routesService.enrollments]);
   }
 
   /** Actions **/

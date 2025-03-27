@@ -81,7 +81,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
       {label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments]},
       {
         label: BreadcrumbEnum.ENROLLMENT_DETAILS,
-        routerLink: [this.routesService.enrollmentsDetailList(this.enrollmentId, RolesEnum.SECRETARY)]
+        routerLink: [this.routesService.enrollmentsDetailList(this.enrollmentId, RolesEnum.COORDINATOR_CAREER)]
       },
       {label: BreadcrumbEnum.FORM},
     ]);
@@ -147,7 +147,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
   }
 
   back(): void {
-    this.router.navigate([this.routesService.enrollmentsDetailList(this.enrollmentId, RolesEnum.SECRETARY)]);
+    this.router.navigate([this.routesService.enrollmentsDetailList(this.enrollmentId, RolesEnum.COORDINATOR_CAREER)]);
   }
 
   /** Actions **/

@@ -28,7 +28,7 @@ import {
   ClassButtonActionEnum,
   IconButtonActionEnum,
   LabelButtonActionEnum,
-  CatalogueEnrollmentStateEnum
+  CatalogueEnrollmentStateEnum, RolesEnum
 } from "@utils/enums";
 import {debounceTime} from "rxjs";
 
@@ -337,6 +337,6 @@ export class EnrollmentListComponent implements OnInit {
   }
 
   redirectEnrollmentDetails(id: string) {
-    this.router.navigate([this.routesService.enrollmentsDetailList(this.selectedItem.id!)]);
+    this.router.navigate([this.routesService.enrollmentsDetailList(this.selectedItem.id!, RolesEnum.WELFARE)]);
   }
 }

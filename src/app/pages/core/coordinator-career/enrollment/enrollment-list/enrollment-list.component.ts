@@ -19,7 +19,8 @@ import {
   EnrollmentsHttpService,
   MessageService,
   RoutesService,
-  SchoolPeriodsHttpService, SchoolPeriodsService, StudentsHttpService
+  SchoolPeriodsHttpService,
+  SchoolPeriodsService, StudentsHttpService, StudentsService
 } from '@services/core';
 import {
   IdButtonActionEnum,
@@ -28,9 +29,10 @@ import {
   ClassButtonActionEnum,
   IconButtonActionEnum,
   LabelButtonActionEnum,
-  CatalogueEnrollmentStateEnum, RolesEnum
+  CatalogueEnrollmentStateEnum, SeverityButtonActionEnum, RolesEnum
 } from "@utils/enums";
 import {debounceTime} from "rxjs";
+import {AuthService} from "@services/auth";
 
 @Component({
   selector: 'app-enrollment-list',
@@ -45,11 +47,11 @@ export class EnrollmentListComponent implements OnInit {
   protected readonly BreadcrumbEnum = BreadcrumbEnum;
   protected buttonActions: MenuItem[] = this.buildButtonActions;
   protected moreButtonActions: MenuItem[] = this.buildMoreButtonActions;
-  protected isMoreButtonActions: boolean = false;
   protected columns: ColumnModel[] = this.buildColumns;
   protected isButtonActions: boolean = false;
+  protected isMoreButtonActions: boolean = false;
   protected paginator: PaginatorModel;
-  protected search: FormControl = new FormControl('');
+  protected search: FormControl;
   protected selectedItem!: EnrollmentModel;
   protected selectedItems: EnrollmentModel[] = [];
   protected items: EnrollmentModel[] = [];
@@ -63,9 +65,9 @@ export class EnrollmentListComponent implements OnInit {
   protected selectedEnrollmentState: FormControl = new FormControl();
   protected state: CatalogueModel[] = [];
   protected isVisible: boolean = false;
-  protected isLoadingPdf: boolean = false;
 
   constructor(
+    private authService: AuthService,
     private breadcrumbService: BreadcrumbService,
     public coreService: CoreService,
     public messageService: MessageService,
@@ -81,12 +83,17 @@ export class EnrollmentListComponent implements OnInit {
   ) {
     this.breadcrumbService.setItems([{label: BreadcrumbEnum.ENROLLMENTS}]);
 
+    this.search = new FormControl(this.coreService.search);
+
     this.paginator = this.coreService.paginator;
 
-    this.search.valueChanges.pipe(debounceTime(1000))
-      .subscribe(value => {
-        this.findEnrollmentsByCareer();
-      });
+    this.search.valueChanges.pipe(
+      debounceTime(1000)
+    ).subscribe(value => {
+      this.coreService.search = value;
+
+      this.findEnrollmentsByCareer();
+    });
 
     this.selectedSchoolPeriod.valueChanges.subscribe(value => {
       this.findEnrollmentsByCareer();
@@ -167,6 +174,7 @@ export class EnrollmentListComponent implements OnInit {
   /** Build Data **/
   get buildColumns(): ColumnModel[] {
     return [
+      {field: 'career', header: 'Carrera'},
       {field: 'identification', header: 'Número de Documento'},
       {field: 'lastname', header: 'Apellidos'},
       {field: 'name', header: 'Nombres'},
@@ -181,34 +189,21 @@ export class EnrollmentListComponent implements OnInit {
   get buildButtonActions() {
     return [
       {
-        id: IdButtonActionEnum.ENROLLED,
-        label: 'Descargar Ficha Socioeconómica',
-        icon: PrimeIcons.DOWNLOAD,
+        label: 'Asignaturas',
+        icon: PrimeIcons.BOOK,
         command: () => {
-          if (this.selectedItem?.id) this.downloadSocioeconomicForm(this.selectedItem);
+          if (this.selectedItem?.id) this.redirectEnrollmentDetails(this.selectedItem.id);
         },
       },
       {
-        id: IdButtonActionEnum.DOWNLOADS,
+        id: IdButtonActionEnum.ENROLLED,
         label: 'Descargar Certificado',
         icon: PrimeIcons.DOWNLOAD,
         command: () => {
           if (this.selectedItem?.id) this.downloadEnrollmentCertificate(this.selectedItem);
         },
       },
-      {
-        id: IdButtonActionEnum.SELECT,
-        label: 'Descargar Orden de Pago',
-        icon: PrimeIcons.DOWNLOAD,
-        command: () => {
-          if (this.selectedItem?.id) this.downloadPaymentOrder(this.selectedItem);
-        },
-      },
     ];
-  }
-
-  validateButtonActions(item: EnrollmentModel) {
-
   }
 
   get buildMoreButtonActions() {
@@ -231,6 +226,14 @@ export class EnrollmentListComponent implements OnInit {
       },
       {
         id: IdButtonActionEnum.DOWNLOADS,
+        label: 'Descargar Asignaturas Matriculadas por Periodo Lectivo',
+        icon: IconButtonActionEnum.DOWNLOADS,
+        command: () => {
+          this.downloadEnrollmentDetailsBySchoolPeriod();
+        },
+      },
+      {
+        id: IdButtonActionEnum.DOWNLOADS,
         label: 'Descargar Fichas Socioeconómicas por Periodo Lectivo',
         icon: IconButtonActionEnum.DOWNLOADS,
         command: () => {
@@ -238,6 +241,23 @@ export class EnrollmentListComponent implements OnInit {
         },
       },
     ];
+  }
+
+  validateButtonActions(item: EnrollmentModel) {
+    this.buttonActions = this.buildButtonActions;
+    let index = -1;
+
+    if (item.enrollmentState.state.code === CatalogueEnrollmentStateEnum.APPROVED) {
+      index = this.buttonActions.findIndex(actionButton => actionButton.id === IdButtonActionEnum.APPROVED);
+      if (index > -1)
+        this.buttonActions.splice(index, 1);
+    }
+
+    if (item.enrollmentState.state.code === CatalogueEnrollmentStateEnum.REJECTED) {
+      index = this.buttonActions.findIndex(actionButton => actionButton.id === IdButtonActionEnum.REJECTED);
+      if (index > -1)
+        this.buttonActions.splice(index, 1);
+    }
   }
 
   /** Actions **/
@@ -295,30 +315,12 @@ export class EnrollmentListComponent implements OnInit {
     this.isVisible = true;
   }
 
-  showMoreOptions() {
-    this.isMoreButtonActions = true;
-  }
-
-  downloadSocioeconomicForm(enrollment: EnrollmentModel) {
-    this.studentsHttpService.downloadSocioeconomicForm(enrollment.student.id);
-  }
-
   downloadEnrollmentCertificate(enrollment: EnrollmentModel) {
     if (enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.ENROLLED) {
       this.enrollmentsHttpService.downloadEnrollmentCertificate(enrollment.id, this.selectedItem.student.user.identification);
     } else {
       this.messageService.errorCustom('No se puede descargar', 'El estudiante no se encuentra matriculado');
     }
-
-  }
-
-  downloadPaymentOrder(enrollment: EnrollmentModel) {
-    if (enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.APPROVED || enrollment.enrollmentState.state.code === CatalogueEnrollmentStateEnum.ENROLLED) {
-      this.enrollmentsHttpService.downloadPaymentOrder(this.selectedItem.student.id, this.selectedItem.student.user.identification);
-    } else {
-      this.messageService.errorCustom('No se puede descargar', 'El estudiante no se encuentra Aprobado o Matriculado');
-    }
-
   }
 
   downloadEnrollmentsByCareer(career: CareerModel) {
@@ -329,6 +331,10 @@ export class EnrollmentListComponent implements OnInit {
     this.enrollmentsHttpService.downloadEnrollmentsBySchoolPeriod(this.selectedSchoolPeriod.value);
   }
 
+  downloadEnrollmentDetailsBySchoolPeriod() {
+    this.enrollmentsHttpService.downloadEnrollmentDetailsBySchoolPeriod(this.selectedSchoolPeriod.value);
+  }
+
   downloadSocioeconomicFormsBySchoolPeriod() {
     this.studentsHttpService.downloadSocioeconomicFormsBySchoolPeriod(this.selectedSchoolPeriod.value);
   }
@@ -337,7 +343,12 @@ export class EnrollmentListComponent implements OnInit {
   selectItem(item: EnrollmentModel) {
     this.isButtonActions = true;
     this.selectedItem = item;
+    this.careersService.career = this.careersService.careers.find(career => career.id === item.career.id);
     this.validateButtonActions(item);
+  }
+
+  showMoreOptions() {
+    this.isMoreButtonActions = true;
   }
 
   paginate(event: any) {
@@ -350,11 +361,12 @@ export class EnrollmentListComponent implements OnInit {
   }
 
   redirectEditForm(id: string) {
-    this.router.navigate([this.routesService.enrollments, id]);
+    this.router.navigate([this.routesService.enrollments(RolesEnum.COORDINATOR_CAREER), id]);
   }
 
   redirectEnrollmentDetails(id: string) {
-    this.router.navigate([this.routesService.enrollmentsDetailList(this.selectedItem.id!, RolesEnum.FINANCE)]);
+    this.router.navigate([this.routesService.enrollmentsDetailList(this.selectedItem.id!, RolesEnum.COORDINATOR_CAREER)]);
   }
-}
 
+  protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;
+}

@@ -29,7 +29,7 @@ import {
   ClassButtonActionEnum,
   IconButtonActionEnum,
   LabelButtonActionEnum,
-  CatalogueEnrollmentStateEnum, SeverityButtonActionEnum
+  CatalogueEnrollmentStateEnum, SeverityButtonActionEnum, RolesEnum
 } from "@utils/enums";
 import {debounceTime} from "rxjs";
 import {AuthService} from "@services/auth";
@@ -408,15 +408,15 @@ export class EnrollmentListComponent implements OnInit {
 
   /** Redirects **/
   redirectCreateForm() {
-    this.router.navigate([this.routesService.enrollments, 'new']);
+    this.router.navigate([this.routesService.enrollments(RolesEnum.SECRETARY), 'new']);
   }
 
   redirectEditForm(id: string) {
-    this.router.navigate([this.routesService.enrollments, id]);
+    this.router.navigate([this.routesService.enrollments(RolesEnum.SECRETARY), id]);
   }
 
   redirectEnrollmentDetails(id: string) {
-    this.router.navigate([this.routesService.enrollmentsDetailList(this.selectedItem.id!)]);
+    this.router.navigate([this.routesService.enrollmentsDetailList(this.selectedItem.id!, RolesEnum.SECRETARY)]);
   }
 
   protected readonly SeverityButtonActionEnum = SeverityButtonActionEnum;

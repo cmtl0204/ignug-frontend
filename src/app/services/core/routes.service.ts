@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
+import {AuthService} from "@services/auth";
 
 export enum AppRoutesEnum {
   CORE = '/core',
@@ -55,13 +56,13 @@ export class RoutesService {
   }
 
   /** Secretary Role **/
-  get enrollments(): string
+  enrollments(role:string): string
   {
-    return this.core + '/secretary/enrollments';
+    return this.core + `/${role}/enrollments`;
   }
 
-  enrollmentsDetailList(enrollmentId: string): string {
-    return this.core + `/secretary/enrollments/${enrollmentId}/enrollment-details`;
+  enrollmentsDetailList(enrollmentId: string, role: string): string {
+    return this.core + `/${role}/enrollments/${enrollmentId}/enrollment-details`;
   }
 
   enrollmentsDetailForm(enrollmentId: string): string {

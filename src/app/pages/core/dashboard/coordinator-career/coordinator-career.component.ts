@@ -26,6 +26,22 @@ export class CoordinatorCareerComponent {
     this.transactionMenus.push(
       {
         enabled: true,
+        code: 'enrollment',
+        header: 'Matriculas',
+        subheader: 'Gestionar',
+        img: `${assetsPath}/enrollment-application.png`,
+        routerLink: '/core/coordinator-career/enrollments',
+      },
+      {
+        enabled: true,
+        code: 'curriculums',
+        header: 'Mallas Curriculares',
+        subheader: 'Gestionar',
+        img: `${assetsPath}/teacher-distribution.png`,
+        routerLink: '/core/coordinator-career/curriculums',
+      },
+      {
+        enabled: true,
         code: 'evaluations',
         header: 'Evaluación Docente',
         subheader: 'Gestionar',
