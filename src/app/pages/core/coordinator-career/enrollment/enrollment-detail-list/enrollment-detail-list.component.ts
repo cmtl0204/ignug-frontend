@@ -15,13 +15,13 @@ import {
   SchoolPeriodsHttpService
 } from '@services/core';
 import {
-    IdButtonActionEnum,
-    BreadcrumbEnum,
-    CatalogueTypeEnum,
-    ClassButtonActionEnum,
-    IconButtonActionEnum,
-    LabelButtonActionEnum,
-    SeverityButtonActionEnum
+  IdButtonActionEnum,
+  BreadcrumbEnum,
+  CatalogueTypeEnum,
+  ClassButtonActionEnum,
+  IconButtonActionEnum,
+  LabelButtonActionEnum,
+  SeverityButtonActionEnum, RolesEnum
 } from "@utils/enums";
 import { EnrollmentDetailsHttpService } from '@services/core/enrollment-details-http.service';
 
@@ -69,8 +69,8 @@ export class EnrollmentDetailListComponent implements OnInit {
 
   ) {
     this.breadcrumbService.setItems([
-      { label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments] },
-      {label: BreadcrumbEnum.ENROLLMENT_DETAILS }
+      { label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments(RolesEnum.COORDINATOR_CAREER)] },
+      {label: BreadcrumbEnum.ENROLLMENT_DETAILS },
     ]);
 
     this.enrollmentId = activatedRoute.snapshot.params['enrollmentId'];

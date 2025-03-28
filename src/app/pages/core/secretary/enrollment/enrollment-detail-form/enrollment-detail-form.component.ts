@@ -78,7 +78,7 @@ export class EnrollmentDetailFormComponent implements OnInit, OnExitInterface {
     this.enrollmentId = activatedRoute.snapshot.params['enrollmentId'];
 
     this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments]},
+      {label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments((RolesEnum.SECRETARY))]},
       {
         label: BreadcrumbEnum.ENROLLMENT_DETAILS,
         routerLink: [this.routesService.enrollmentsDetailList(this.enrollmentId, RolesEnum.SECRETARY)]

@@ -27,7 +27,7 @@ export class CoordinatorCareerComponent {
       {
         enabled: true,
         code: 'enrollment',
-        header: 'Matriculas',
+        header: 'Historial Estudiantil',
         subheader: 'Gestionar',
         img: `${assetsPath}/enrollment-application.png`,
         routerLink: '/core/coordinator-career/enrollments',

@@ -78,7 +78,7 @@ export class EnrollmentApplicationComponent implements OnInit {
             case CatalogueEnrollmentStateEnum.ENROLLED:
             case CatalogueEnrollmentStateEnum.APPROVED:
             case CatalogueEnrollmentStateEnum.REQUEST_SENT:
-              this.activeIndex = 4;
+              this.activeIndex = 3;
               break
           }
         }

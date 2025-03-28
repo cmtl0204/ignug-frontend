@@ -65,7 +65,7 @@ export class EnrollmentFormComponent implements OnInit, OnExitInterface {
     private location: Location,
   ) {
     this.breadcrumbService.setItems([
-      {label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments]},
+      {label: BreadcrumbEnum.ENROLLMENTS, routerLink: [this.routesService.enrollments(RolesEnum.SECRETARY)]},
       {label: BreadcrumbEnum.FORM},
     ]);
 

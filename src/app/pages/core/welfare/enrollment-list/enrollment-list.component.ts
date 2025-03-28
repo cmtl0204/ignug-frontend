@@ -329,11 +329,11 @@ export class EnrollmentListComponent implements OnInit {
 
   /** Redirects **/
   redirectCreateForm() {
-    this.router.navigate([this.routesService.enrollments, 'new']);
+    this.router.navigate([this.routesService.enrollments(RolesEnum.WELFARE), 'new']);
   }
 
   redirectEditForm(id: string) {
-    this.router.navigate([this.routesService.enrollments, id]);
+    this.router.navigate([this.routesService.enrollments(RolesEnum.WELFARE), id]);
   }
 
   redirectEnrollmentDetails(id: string) {
