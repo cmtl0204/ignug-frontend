@@ -30,7 +30,7 @@ export class GradeFormComponent implements OnInit {
   ngOnInit(): void {
     const grade1 = this.enrollmentDetail.grades.find(grade => grade.partial.code === '1');
     const grade2 = this.enrollmentDetail.grades.find(grade => grade.partial.code === '2');
-    const grade3 = this.enrollmentDetail.grades.find(grade => grade.partial.code === '3');
+    // const grade3 = this.enrollmentDetail.grades.find(grade => grade.partial.code === '3');
 
     if (grade1)
       this.grade1Field.patchValue(grade1.value);
@@ -38,8 +38,8 @@ export class GradeFormComponent implements OnInit {
     if (grade2)
       this.grade2Field.patchValue(grade2.value);
 
-    if (grade3)
-      this.grade3Field.patchValue(grade3.value);
+    // if (grade3)
+    //   this.grade3Field.patchValue(grade3.value);
 
     this.attendanceField.patchValue(this.enrollmentDetail.finalAttendance);
   }
@@ -63,7 +63,7 @@ export class GradeFormComponent implements OnInit {
     return this.formBuilder.group({
       grade1: [null, []],
       grade2: [null, []],
-      grade3: [null, []],
+      // grade3: [null, []],
       attendance: [null, []],
       teacherDistributionId: [this.teacherDistributionsService.teacherDistribution.id!, []],
     });
@@ -74,7 +74,7 @@ export class GradeFormComponent implements OnInit {
 
     if (this.grade1Field.errors) this.formErrors.push('Parcial 1');
     if (this.grade2Field.errors) this.formErrors.push('Parcial 2');
-    if (this.grade3Field.errors) this.formErrors.push('Parcial 3');
+    // if (this.grade3Field.errors) this.formErrors.push('Parcial 3');
 
     this.formErrors.sort();
     return this.formErrors.length === 0 && this.form.valid;
@@ -88,9 +88,9 @@ export class GradeFormComponent implements OnInit {
     return this.form.controls['grade2'];
   }
 
-  get grade3Field(): AbstractControl {
-    return this.form.controls['grade3'];
-  }
+  // get grade3Field(): AbstractControl {
+  //   return this.form.controls['grade3'];
+  // }
 
   get attendanceField(): AbstractControl {
     return this.form.controls['attendance'];
