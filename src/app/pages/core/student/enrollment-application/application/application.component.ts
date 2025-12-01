@@ -423,8 +423,8 @@ export class ApplicationComponent implements OnInit {
   }
 
   validateSubjectPrerequisites(subject: SubjectModel) {
-    if (this.selectedItems.length >= 7) {
-      this.messageService.errorCustom('Número máximo de asignaturas alcanzadas', 'El máximo es 7 asignaturas');
+    if (this.selectedItems.length >= 10) {
+      this.messageService.errorCustom('Número máximo de asignaturas alcanzadas', 'El máximo es 10 asignaturas');
       return;
     }
 
